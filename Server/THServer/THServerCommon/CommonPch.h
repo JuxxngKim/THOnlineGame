@@ -23,6 +23,8 @@
 #include <regex>
 #include <stdexcept>
 #include <comutil.h>
+#include <fstream>
+#include <algorithm>
 
 #include "DefineType.h"
 #include "DefineConst.h"

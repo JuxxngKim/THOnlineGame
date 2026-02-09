@@ -13,6 +13,9 @@
     <Filter Include="Define">
       <UniqueIdentifier>{2b639766-ba24-4a95-82b2-559a36fa9b8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{ebf65693-b162-4a4d-a808-0f50736602e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -42,6 +45,15 @@
     <ClInclude Include="LibLink.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="IniConfig.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="IpEndPoint.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceProfile.h">
+      <Filter>Config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -49,6 +61,15 @@
     </ClCompile>
     <ClCompile Include="TimeUtil.cpp">
       <Filter>Util\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="IniConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="IpEndPoint.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceProfile.cpp">
+      <Filter>Config</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
