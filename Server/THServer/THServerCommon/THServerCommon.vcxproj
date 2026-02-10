@@ -120,12 +120,17 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>CommonPch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\Common\Dependencies\Protobuf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -138,24 +143,37 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>CommonPch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\Common\Dependencies\Protobuf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h" />
+    <ClInclude Include="ConfigSource.h" />
+    <ClInclude Include="Configuration.h" />
+    <ClInclude Include="ConfigValue.h" />
+    <ClInclude Include="ConnectionString.h" />
     <ClInclude Include="DefineConst.h" />
     <ClInclude Include="DefineEnum.h" />
     <ClInclude Include="DefineMacro.h" />
     <ClInclude Include="DefineType.h" />
-    <ClInclude Include="IniConfig.h" />
+    <ClInclude Include="FileSystem.h" />
+    <ClInclude Include="IniFile.h" />
+    <ClInclude Include="IniParser.h" />
+    <ClInclude Include="IniSection.h" />
     <ClInclude Include="IpEndPoint.h" />
     <ClInclude Include="LibLink.h" />
     <ClInclude Include="ServiceProfile.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="StrUtil.h" />
     <ClInclude Include="THDateTime.h" />
     <ClInclude Include="TimeUtil.h" />
   </ItemGroup>
@@ -164,9 +182,17 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="IniConfig.cpp" />
+    <ClCompile Include="ConfigSource.cpp" />
+    <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="ConfigValue.cpp" />
+    <ClCompile Include="ConnectionString.cpp" />
+    <ClCompile Include="FileSystem.cpp" />
+    <ClCompile Include="IniFile.cpp" />
+    <ClCompile Include="IniParser.cpp" />
+    <ClCompile Include="IniSection.cpp" />
     <ClCompile Include="IpEndPoint.cpp" />
     <ClCompile Include="ServiceProfile.cpp" />
+    <ClCompile Include="StrUtil.cpp" />
     <ClCompile Include="TimeUtil.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>

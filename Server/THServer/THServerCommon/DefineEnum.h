@@ -30,7 +30,7 @@ namespace th
 	{
 		None = 0,
 		Gateway = 1,
-		Adventure = 2,
+		Game = 2,
 	};
 
 	enum class ELogLevel

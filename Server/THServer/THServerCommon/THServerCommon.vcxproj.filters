@@ -14,7 +14,13 @@
       <UniqueIdentifier>{2b639766-ba24-4a95-82b2-559a36fa9b8c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Config">
-      <UniqueIdentifier>{ebf65693-b162-4a4d-a808-0f50736602e1}</UniqueIdentifier>
+      <UniqueIdentifier>{d49e6726-7aa7-422b-8228-0ee62f6a9aef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\ini">
+      <UniqueIdentifier>{3ef40a63-c60f-43a7-af5b-ed926251be15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\String">
+      <UniqueIdentifier>{93fb24b1-c09b-4651-81cc-333f0b5ad618}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,14 +51,38 @@
     <ClInclude Include="LibLink.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="IniConfig.h">
+    <ClInclude Include="ConfigSource.h">
       <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigValue.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Util\ini</Filter>
+    </ClInclude>
+    <ClInclude Include="IniParser.h">
+      <Filter>Util\ini</Filter>
+    </ClInclude>
+    <ClInclude Include="IniSection.h">
+      <Filter>Util\ini</Filter>
     </ClInclude>
     <ClInclude Include="IpEndPoint.h">
       <Filter>Config</Filter>
     </ClInclude>
+    <ClInclude Include="FileSystem.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionString.h">
+      <Filter>Config</Filter>
+    </ClInclude>
     <ClInclude Include="ServiceProfile.h">
       <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="StrUtil.h">
+      <Filter>Util\String</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,14 +92,38 @@
     <ClCompile Include="TimeUtil.cpp">
       <Filter>Util\Time</Filter>
     </ClCompile>
-    <ClCompile Include="IniConfig.cpp">
+    <ClCompile Include="Configuration.cpp">
       <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigValue.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigSource.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Util\ini</Filter>
+    </ClCompile>
+    <ClCompile Include="IniParser.cpp">
+      <Filter>Util\ini</Filter>
+    </ClCompile>
+    <ClCompile Include="IniSection.cpp">
+      <Filter>Util\ini</Filter>
     </ClCompile>
     <ClCompile Include="IpEndPoint.cpp">
       <Filter>Config</Filter>
     </ClCompile>
+    <ClCompile Include="ConnectionString.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSystem.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
     <ClCompile Include="ServiceProfile.cpp">
       <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="StrUtil.cpp">
+      <Filter>Util\String</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

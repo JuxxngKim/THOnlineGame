@@ -26,6 +26,8 @@
 #include <fstream>
 #include <algorithm>
 
+#include <google/protobuf/message.h>
+
 #include "DefineType.h"
 #include "DefineConst.h"
 #include "DefineMacro.h"

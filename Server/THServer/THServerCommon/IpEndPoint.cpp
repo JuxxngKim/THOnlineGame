@@ -1,48 +1,51 @@
-﻿#include "CommonPch.h"
+﻿#include "CommonPCH.h"
 #include "IpEndPoint.h"
+#include "StrUtil.h"
 
 namespace th
 {
 	IpEndPoint::IpEndPoint()
-		: m_address("127.0.0.1")
-		, m_port(35501)
+		: m_port(0)
+	{}
+
+	IpEndPoint::IpEndPoint(const std::string& formatedString)
 	{
+		m_address = ExtractAddress(formatedString);
+		m_port = ExtractPort(formatedString);
 	}
 
-	IpEndPoint::IpEndPoint(const std::string& str)
-		: m_address("127.0.0.1")
-		, m_port(35501)
-	{
-		if (str.empty()) return;
-		if (str == "localhost") return;
-
-		auto pos = str.find(':');
-		if (pos != std::string::npos)
-		{
-			m_address = str.substr(0, pos);
-			try { m_port = std::stoi(str.substr(pos + 1)); }
-			catch (...) { m_port = 0; }
-		}
-
-		if (m_address.empty())
-		{
-			m_address = "127.0.0.1";
-			m_port = 35501;
-		}
-	}
-
-	const std::string& IpEndPoint::FindHost() const
+	std::string IpEndPoint::Hostname() const
 	{
 		return m_address;
 	}
 
-	int32_t IpEndPoint::FindPort() const
+	int32_t IpEndPoint::Port() const
 	{
 		return m_port;
 	}
 
-	std::string IpEndPoint::ToString() const
+	std::string IpEndPoint::ExtractAddress(const std::string& formatedString)
 	{
-		return m_address + ":" + std::to_string(m_port);
+		// NOTE: "localhost"는 정책변경 시에도 영향받지 않도록 별도처리한다.
+		if (formatedString == "localhost") return "127.0.0.1";
+
+		auto pos = formatedString.find(':');
+		auto address = formatedString.substr(0, pos);
+		if (address.empty())	return "127.0.0.1";
+
+		return address;
+	}
+
+	int32_t IpEndPoint::ExtractPort(const std::string& formatedString)
+	{
+		auto defaultPort = 35501;
+
+		auto pos = formatedString.find(':');
+		if (pos == std::string::npos) return defaultPort;
+
+		auto port = StrUtil::ToInt32(formatedString.substr(pos + 1));
+		if (port == 0) return defaultPort;
+
+		return port;
 	}
 }

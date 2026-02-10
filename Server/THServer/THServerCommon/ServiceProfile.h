@@ -1,51 +1,47 @@
 ﻿#pragma once
 
-#include "IniConfig.h"
 #include "IpEndPoint.h"
-
-#include <string>
-#include <cstdint>
 
 namespace th
 {
+	class Configuration;
+
 	class ServiceProfile : public Singleton<ServiceProfile>
 	{
 	private:
-		IniConfig   m_config;
-
 		std::string m_name;
-		int32_t     m_serverId;
-		std::string m_environment;
-		int32_t     m_worldId;
-		int32_t     m_timeoutMs;
+		int m_serverId;
+		IpEndPoint m_advertiseAddress;
+		IpEndPoint m_bindAddress;
+		IpEndPoint m_dumpAddress;
+		int m_worldId;
 
-		IpEndPoint  m_bindAddress;
-		IpEndPoint  m_advertiseAddress;
-		IpEndPoint  m_dumpAddress;
+		int m_timeoutMs;
+		std::string m_environment;
 
 	public:
 		ServiceProfile();
 
-		bool Load(const std::string& configDir = "");
-		
-		const IniConfig& FindConfig() const;
-		const std::string& FindName() const;
+		void Load(const Configuration& config);
+		void SetBindAddress(const std::string& address);
+		void SetAdvertiseAddress(const std::string& address);
+		void SetTimeoutMs(int timeoutMs);
+
+		std::string FindName() const;
 		std::string FindQualifiedName() const;
-		int32_t FindServerId() const;
-		const std::string& FindEnvironment() const;
-		int32_t FindWorldId() const;
-		int32_t FindTimeoutMs() const;
-		const IpEndPoint& FindBindAddress() const;
-		const IpEndPoint& FindAdvertiseAddress() const;
-		const IpEndPoint& FindDumpAddress() const;
+		th::EServer FindType() const;
+		int FindServerID() const;
+		std::string FindAdvertiseAddress() const;
+		int FindAdvertisePort() const;
+		std::string FindBindAddress() const;
+		int FindBindPort() const;
+		int FIndWorldId() const;
+
+		int FindTimeoutMs() const;
+		std::string FindDumpIP() const;
+		int FindDumpPort() const;
+
+		std::string FindEnvironment() const;
 		bool IsLocal() const;
-
-		void SetBindAddress(const std::string& addr);
-		void SetAdvertiseAddress(const std::string& addr);
-		void SetTimeoutMs(int32_t ms);
-
-	private:
-		static std::string FindConfigDir();
-		static std::string FindServiceNameFromExe();
 	};
 }

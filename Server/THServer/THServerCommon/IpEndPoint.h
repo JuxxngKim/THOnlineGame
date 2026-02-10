@@ -10,10 +10,13 @@ namespace th
 
 	public:
 		IpEndPoint();
-		explicit IpEndPoint(const std::string& str);
+		explicit IpEndPoint(const std::string& formatedString); // host_name:port
 
-		const std::string& FindHost() const;
-		int32_t FindPort() const;
-		std::string ToString() const;
+		std::string Hostname() const;
+		int32_t Port() const;
+
+	private:
+		static std::string ExtractAddress(const std::string& formatedString);
+		static int32_t ExtractPort(const std::string& formatedString);
 	};
 }
