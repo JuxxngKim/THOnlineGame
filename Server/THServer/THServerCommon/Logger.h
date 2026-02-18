@@ -23,7 +23,7 @@ namespace th
         template<typename... Args>
         void Log(ELogLevel level, const char* fmt, Args&&... args)
         {
-            if (level < m_minLevel.load(std::memory_order_relaxed))
+            if (level < m_minLevel)
                 return;
 
             LogMessage msg;
@@ -82,8 +82,8 @@ namespace th
         void ProcessMessages(std::deque<LogMessage>& messages);
         void FlushAll();
 
-        std::atomic<ELogLevel> m_minLevel;
-        std::atomic<bool> m_running;
+        ELogLevel m_minLevel;
+        bool m_running;
         util::DualQueue<LogMessage> m_queue;
         std::vector<std::unique_ptr<ILogChannel>> m_channels;
         std::unique_ptr<std::thread> m_thread;

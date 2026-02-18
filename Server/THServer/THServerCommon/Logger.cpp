@@ -27,27 +27,26 @@ namespace th
 
     void Logger::SetMinLevel(ELogLevel level)
     {
-        m_minLevel.store(level, std::memory_order_relaxed);
+        m_minLevel = level;
     }
 
     ELogLevel Logger::GetMinLevel() const
     {
-        return m_minLevel.load(std::memory_order_relaxed);
+        return m_minLevel;
     }
 
     void Logger::Start()
     {
-        bool expected = false;
-        if (!m_running.compare_exchange_strong(expected, true))
-            return;
+        if (m_running) return;
+        m_running = true;
 
         m_thread = std::make_unique<std::thread>([this] { WorkerLoop(); });
     }
 
     void Logger::Shutdown()
     {
-        if (!m_running.exchange(false))
-            return;
+        if (!m_running) return;
+        m_running = false;
 
         if (m_thread && m_thread->joinable())
             m_thread->join();
@@ -64,7 +63,7 @@ namespace th
 
 	void Logger::WorkerLoop()
 	{
-		while (m_running.load(std::memory_order_relaxed))
+		while (m_running)
 		{
 			auto& messageBox = m_queue.Pop();
 			if (messageBox.empty()) continue;
@@ -72,7 +71,7 @@ namespace th
 			ProcessMessages(messageBox);
 			messageBox.clear();
 		}
-    }
+	}
 
     void Logger::ProcessMessages(std::deque<LogMessage>& messages)
     {
