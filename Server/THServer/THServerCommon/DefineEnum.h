@@ -33,14 +33,16 @@ namespace th
 		Game = 2,
 	};
 
-	enum class ELogLevel
+	enum class ELogLevel : uint8_t
 	{
 		None = 0,
+		Trace = 0,
 		Debug = 1,
 		Info = 2,
 		Warn = 3,
 		Error = 4,
 		Critical = 5,
+		Off = 6,
 	};
 
 	enum ELogicEvent : uint8_t

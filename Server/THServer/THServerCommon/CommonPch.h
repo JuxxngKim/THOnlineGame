@@ -25,13 +25,17 @@
 #include <comutil.h>
 #include <fstream>
 #include <algorithm>
+#include <thread>
+#include <atomic>
 
 #include <google/protobuf/message.h>
 
-#include "DefineType.h"
-#include "DefineConst.h"
-#include "DefineMacro.h"
-#include "DefineEnum.h"
 #include "THDateTime.h"
+#include "DefineConst.h"
+#include "DefineEnum.h"
+#include "DefineType.h"
+#include "DefineMacro.h"
 #include "Singleton.h"
 #include "TimeUtil.h"
+#include "Logger.h"
+#include "LogMacro.h"

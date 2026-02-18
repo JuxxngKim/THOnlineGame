@@ -59,4 +59,10 @@ namespace th
 		operator AccountUID_t() const { return accountUID; }
 	};
 
+	struct LogMessage
+	{
+		ELogLevel Level;
+		THDateTime Timestamp;
+		std::string Text;
+	};
 }

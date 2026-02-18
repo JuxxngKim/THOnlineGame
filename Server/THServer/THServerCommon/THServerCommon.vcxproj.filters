@@ -22,6 +22,15 @@
     <Filter Include="Util\String">
       <UniqueIdentifier>{93fb24b1-c09b-4651-81cc-333f0b5ad618}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logger">
+      <UniqueIdentifier>{f26cb8ba-8536-4f75-a624-975860a6eea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger\Log">
+      <UniqueIdentifier>{bfa22e33-0fcd-42f2-9540-b5454a837f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger\Channel">
+      <UniqueIdentifier>{157790c0-a5fe-4cab-b396-fe3718cf4beb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -84,6 +93,30 @@
     <ClInclude Include="StrUtil.h">
       <Filter>Util\String</Filter>
     </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFormatter.h">
+      <Filter>Logger\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="LogMacro.h">
+      <Filter>Logger\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="DualQueue.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogChannel.h">
+      <Filter>Logger\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleChannel.h">
+      <Filter>Logger\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="FileChannel.h">
+      <Filter>Logger\Channel</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalChannel.h">
+      <Filter>Logger\Channel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -124,6 +157,21 @@
     </ClCompile>
     <ClCompile Include="StrUtil.cpp">
       <Filter>Util\String</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFormatter.cpp">
+      <Filter>Logger\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleChannel.cpp">
+      <Filter>Logger\Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="FileChannel.cpp">
+      <Filter>Logger\Channel</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalChannel.cpp">
+      <Filter>Logger\Channel</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
