@@ -1,4 +1,4 @@
-﻿#include "CommonPCH.h"
+﻿#include "CommonPch.h"
 #include "IniSection.h"
 #include "IniParser.h"
 #include "StrUtil.h"

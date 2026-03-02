@@ -1,4 +1,4 @@
-﻿#include "CommonPCH.h"
+﻿#include "CommonPch.h"
 #include "Configuration.h"
 #include "IniSection.h"
 //#include "FileSystem.h"

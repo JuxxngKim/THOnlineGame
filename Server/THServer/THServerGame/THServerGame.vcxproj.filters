@@ -4,6 +4,9 @@
     <Filter Include="Main">
       <UniqueIdentifier>{18dbb804-e23d-40f5-8ca6-c0b685f4d364}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ServerApp">
+      <UniqueIdentifier>{b9169aac-9e67-454c-aae4-83d4ff3074e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -12,10 +15,16 @@
     <ClCompile Include="GamePch.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="GameServerApp.cpp">
+      <Filter>ServerApp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GamePch.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameServerApp.h">
+      <Filter>ServerApp</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

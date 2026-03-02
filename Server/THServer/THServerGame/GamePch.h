@@ -1,3 +1,3 @@
 ﻿#pragma once
 
-#include "../THServerCommon/CommonPCH.h"
+#include "../THServerCommon/CommonPch.h"

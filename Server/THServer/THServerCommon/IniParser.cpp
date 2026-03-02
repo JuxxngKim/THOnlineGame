@@ -1,4 +1,4 @@
-﻿#include "CommonPCH.h"
+﻿#include "CommonPch.h"
 #include "IniParser.h"
 
 namespace th

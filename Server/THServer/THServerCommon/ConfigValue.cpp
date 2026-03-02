@@ -1,4 +1,4 @@
-﻿#include "CommonPCH.h"
+﻿#include "CommonPch.h"
 #include "ConfigValue.h"
 #include "IpEndPoint.h"
 #include "ConnectionString.h"

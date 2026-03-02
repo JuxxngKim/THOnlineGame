@@ -31,6 +31,18 @@
     <Filter Include="Logger\Channel">
       <UniqueIdentifier>{157790c0-a5fe-4cab-b396-fe3718cf4beb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ServerApp">
+      <UniqueIdentifier>{62a441c5-8201-46f3-b188-131d53302ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\Thread">
+      <UniqueIdentifier>{cad30fbf-20f2-40c7-99dd-b6c1a5d41d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{417bb447-f1a0-4527-8264-6490acf2ea8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protobuf">
+      <UniqueIdentifier>{f6505a5a-1277-4fc1-b008-aebadf48294a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -117,6 +129,42 @@
     <ClInclude Include="ExternalChannel.h">
       <Filter>Logger\Channel</Filter>
     </ClInclude>
+    <ClInclude Include="ServerApp.h">
+      <Filter>ServerApp</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadCollector.h">
+      <Filter>Util\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\NetworkContext.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\NetworkEvent.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\NetworkHost.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\NetworkBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\NetworkManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\NetworkTask.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\PacketWrapper.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\enum.pb.h">
+      <Filter>Protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\protocol.pb.h">
+      <Filter>Protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.h">
+      <Filter>Protobuf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -173,5 +221,49 @@
     <ClCompile Include="ExternalChannel.cpp">
       <Filter>Logger\Channel</Filter>
     </ClCompile>
+    <ClCompile Include="ServerApp.cpp">
+      <Filter>ServerApp</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadCollector.cpp">
+      <Filter>Util\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\NetworkContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\NetworkEvent.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\NetworkHost.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\NetworkBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\NetworkManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\NetworkTask.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\Tool\ProtocolGenerator\generated\enum.pb.cc">
+      <Filter>Protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\Tool\ProtocolGenerator\generated\protocol.pb.cc">
+      <Filter>Protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.cc">
+      <Filter>Protobuf</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Common\Tool\ProtocolGenerator\protos\protocol.proto">
+      <Filter>Protobuf</Filter>
+    </None>
+    <None Include="..\..\..\Common\Tool\ProtocolGenerator\protos\sprotocol.proto">
+      <Filter>Protobuf</Filter>
+    </None>
+    <None Include="..\..\..\Common\Tool\ProtocolGenerator\protos\enum.proto">
+      <Filter>Protobuf</Filter>
+    </None>
   </ItemGroup>
 </Project>
