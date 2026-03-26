@@ -196,6 +196,7 @@
     <ClInclude Include="PacketCollector.h" />
     <ClInclude Include="PacketDistributor.h" />
     <ClInclude Include="PacketDualMap.h" />
+    <ClInclude Include="PacketLogFilter.h" />
     <ClInclude Include="PlayerExecutor.h" />
     <ClInclude Include="ProtoMemberAdapter.h" />
     <ClInclude Include="ServerApp.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="Network\NetworkManager.cpp" />
     <ClCompile Include="Network\NetworkTask.cpp" />
     <ClCompile Include="PacketDistributor.cpp" />
+    <ClCompile Include="PacketLogFilter.cpp" />
     <ClCompile Include="PlayerExecutor.cpp" />
     <ClCompile Include="ProtoMemberAdapter.cpp" />
     <ClCompile Include="ServerApp.cpp" />

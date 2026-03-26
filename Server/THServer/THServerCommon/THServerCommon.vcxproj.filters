@@ -55,6 +55,9 @@
     <Filter Include="ProtoMemberAdapter">
       <UniqueIdentifier>{cc5a7af5-7d23-4e7a-ad85-25ce434a45ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util\PacketLogFilter">
+      <UniqueIdentifier>{53d6b315-af2a-45d5-bb48-28baaebc26c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -204,6 +207,9 @@
     <ClInclude Include="ProtoMemberAdapter.h">
       <Filter>ProtoMemberAdapter</Filter>
     </ClInclude>
+    <ClInclude Include="PacketLogFilter.h">
+      <Filter>Util\PacketLogFilter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -310,6 +316,9 @@
     </ClCompile>
     <ClCompile Include="ProtoMemberAdapter.cpp">
       <Filter>ProtoMemberAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketLogFilter.cpp">
+      <Filter>Util\PacketLogFilter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
