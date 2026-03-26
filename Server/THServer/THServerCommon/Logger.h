@@ -18,7 +18,7 @@ namespace th
         void SetMinLevel(ELogLevel level);
         ELogLevel GetMinLevel() const;
         void Start();
-        void Shutdown();
+        void Stop();
 
         template<typename... Args>
         void Log(ELogLevel level, const char* fmt, Args&&... args)

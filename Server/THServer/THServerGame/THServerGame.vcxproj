@@ -153,10 +153,12 @@
     </ClCompile>
     <ClCompile Include="GameServerApp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OutGameService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GamePch.h" />
     <ClInclude Include="GameServerApp.h" />
+    <ClInclude Include="OutGameService.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\THServerCommon\THServerCommon.vcxproj">

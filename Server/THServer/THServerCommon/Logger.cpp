@@ -17,7 +17,7 @@ namespace th
 
     Logger::~Logger()
     {
-        Shutdown();
+        Stop();
     }
 
     void Logger::AddChannel(std::unique_ptr<ILogChannel> channel)
@@ -43,7 +43,7 @@ namespace th
         m_thread = std::make_unique<std::thread>([this] { WorkerLoop(); });
     }
 
-    void Logger::Shutdown()
+    void Logger::Stop()
     {
         if (!m_running) return;
         m_running = false;

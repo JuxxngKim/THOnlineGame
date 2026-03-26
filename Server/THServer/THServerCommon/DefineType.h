@@ -7,6 +7,9 @@ using ActorID_t = Int64Key;
 
 namespace th
 {
+	//Thread Local
+	inline thread_local  int32_t TL_ProcessingMsgID = 0; // 스레드 로컬 변수, 처리중인 메세지 아이디
+
 	class ConcurrentActorRef;
 
 	using AccountUID_t = Int64Key;

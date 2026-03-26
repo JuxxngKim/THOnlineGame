@@ -43,6 +43,18 @@
     <Filter Include="Protobuf">
       <UniqueIdentifier>{f6505a5a-1277-4fc1-b008-aebadf48294a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util\PacketDistributor">
+      <UniqueIdentifier>{2d02c591-4c9e-4573-af74-584ee6892b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dispatcher">
+      <UniqueIdentifier>{6270ed1d-2263-4902-bd85-ef4ecdb6dd8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{2868a39a-f821-4e66-85d4-6ab80fd524e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProtoMemberAdapter">
+      <UniqueIdentifier>{cc5a7af5-7d23-4e7a-ad85-25ce434a45ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -165,6 +177,33 @@
     <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.h">
       <Filter>Protobuf</Filter>
     </ClInclude>
+    <ClInclude Include="PacketCollector.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketDualMap.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketDistributor.h">
+      <Filter>Util\PacketDistributor</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseDispatcher.h">
+      <Filter>Dispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogicUnit.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicUnit.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicUnitArchive.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerExecutor.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoMemberAdapter.h">
+      <Filter>ProtoMemberAdapter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -253,6 +292,24 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.cc">
       <Filter>Protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketDistributor.cpp">
+      <Filter>Util\PacketDistributor</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseDispatcher.cpp">
+      <Filter>Dispatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicUnit.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicUnitArchive.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerExecutor.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoMemberAdapter.cpp">
+      <Filter>ProtoMemberAdapter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

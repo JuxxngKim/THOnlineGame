@@ -7,6 +7,9 @@
     <Filter Include="ServerApp">
       <UniqueIdentifier>{b9169aac-9e67-454c-aae4-83d4ff3074e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OutGame">
+      <UniqueIdentifier>{f15b1da3-6ef5-43df-85a4-c6cbd35750d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,6 +21,9 @@
     <ClCompile Include="GameServerApp.cpp">
       <Filter>ServerApp</Filter>
     </ClCompile>
+    <ClCompile Include="OutGameService.cpp">
+      <Filter>OutGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GamePch.h">
@@ -25,6 +31,9 @@
     </ClInclude>
     <ClInclude Include="GameServerApp.h">
       <Filter>ServerApp</Filter>
+    </ClInclude>
+    <ClInclude Include="OutGameService.h">
+      <Filter>OutGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

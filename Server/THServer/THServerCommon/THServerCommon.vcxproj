@@ -159,6 +159,7 @@
     <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\enum.pb.h" />
     <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\protocol.pb.h" />
     <ClInclude Include="..\..\..\Common\Tool\ProtocolGenerator\generated\sprotocol.pb.h" />
+    <ClInclude Include="BaseDispatcher.h" />
     <ClInclude Include="CommonPch.h" />
     <ClInclude Include="ConfigSource.h" />
     <ClInclude Include="Configuration.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="FileChannel.h" />
     <ClInclude Include="FileSystem.h" />
     <ClInclude Include="ILogChannel.h" />
+    <ClInclude Include="ILogicUnit.h" />
     <ClInclude Include="IniFile.h" />
     <ClInclude Include="IniParser.h" />
     <ClInclude Include="IniSection.h" />
@@ -181,6 +183,8 @@
     <ClInclude Include="LibLink.h" />
     <ClInclude Include="LogFormatter.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="LogicUnit.h" />
+    <ClInclude Include="LogicUnitArchive.h" />
     <ClInclude Include="LogMacro.h" />
     <ClInclude Include="Network\NetworkBuffer.h" />
     <ClInclude Include="Network\NetworkContext.h" />
@@ -189,6 +193,11 @@
     <ClInclude Include="Network\NetworkManager.h" />
     <ClInclude Include="Network\NetworkTask.h" />
     <ClInclude Include="Network\PacketWrapper.h" />
+    <ClInclude Include="PacketCollector.h" />
+    <ClInclude Include="PacketDistributor.h" />
+    <ClInclude Include="PacketDualMap.h" />
+    <ClInclude Include="PlayerExecutor.h" />
+    <ClInclude Include="ProtoMemberAdapter.h" />
     <ClInclude Include="ServerApp.h" />
     <ClInclude Include="ServiceProfile.h" />
     <ClInclude Include="Singleton.h" />
@@ -216,6 +225,7 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/wd4244 /wd4267 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/wd4244 /wd4267 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="BaseDispatcher.cpp" />
     <ClCompile Include="CommonPch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -234,12 +244,17 @@
     <ClCompile Include="IpEndPoint.cpp" />
     <ClCompile Include="LogFormatter.cpp" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="LogicUnit.cpp" />
+    <ClCompile Include="LogicUnitArchive.cpp" />
     <ClCompile Include="Network\NetworkBuffer.cpp" />
     <ClCompile Include="Network\NetworkContext.cpp" />
     <ClCompile Include="Network\NetworkEvent.cpp" />
     <ClCompile Include="Network\NetworkHost.cpp" />
     <ClCompile Include="Network\NetworkManager.cpp" />
     <ClCompile Include="Network\NetworkTask.cpp" />
+    <ClCompile Include="PacketDistributor.cpp" />
+    <ClCompile Include="PlayerExecutor.cpp" />
+    <ClCompile Include="ProtoMemberAdapter.cpp" />
     <ClCompile Include="ServerApp.cpp" />
     <ClCompile Include="ServiceProfile.cpp" />
     <ClCompile Include="StrUtil.cpp" />

@@ -4,6 +4,7 @@
 #include "Configuration.h"
 #include "ConsoleChannel.h"
 #include "FileChannel.h"
+#include "OutGameService.h"
 
 namespace th
 {
@@ -37,7 +38,8 @@ namespace th
 
 	bool GameServerApp::RunLoop()
 	{
-		// TOOD LogicService, DB
+		// TOOD DB
+		OutGameService::GetInstance().Start();
 
 		BindEventSink([](const PTR<PacketWrapper>& msg) { TH_LOG_ERROR(0, 0, "SendToLogicService(msg)"); });
 
@@ -102,7 +104,16 @@ namespace th
 
 	void GameServerApp::Update()
 	{
-		TH_LOG_INFO(0, 0, "=== running ===");
+		if (OutGameService::GetInstance().IsCrash())
+		{
+			ForceCrash();
+		}
+
+		if (OutGameService::GetInstance().IsQuit())
+		{
+			HANDLE hCurrentProcess = GetCurrentProcess();
+			TerminateProcess(hCurrentProcess, ~0u);
+		}
 	}
 
 	void GameServerApp::Exit()
@@ -111,6 +122,7 @@ namespace th
 		m_exit = true;
 
 		Stop();
-		Logger::GetInstance().Shutdown();
+		Logger::GetInstance().Stop();
+		OutGameService::GetInstance().Stop();
 	}
 }
