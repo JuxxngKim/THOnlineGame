@@ -147,18 +147,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlockDuplicatePacket.cpp" />
+    <ClCompile Include="ConcurrentCenter.cpp" />
     <ClCompile Include="GamePch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="GameServerApp.cpp" />
+    <ClCompile Include="LoginDataLoader.cpp" />
+    <ClCompile Include="LoginPendingList.cpp" />
+    <ClCompile Include="LoginSessionPlayer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OutGameLogicEventor.cpp" />
     <ClCompile Include="OutGameService.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerArchive.cpp" />
+    <ClCompile Include="WaitingSession.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlockDuplicatePacket.h" />
+    <ClInclude Include="ConcurrentCenter.h" />
     <ClInclude Include="GamePch.h" />
     <ClInclude Include="GameServerApp.h" />
+    <ClInclude Include="LoginDataLoader.h" />
+    <ClInclude Include="LoginPendingList.h" />
+    <ClInclude Include="LoginSessionPlayer.h" />
+    <ClInclude Include="LogKeyGenerator.h" />
+    <ClInclude Include="OutGameLogicEventor.h" />
     <ClInclude Include="OutGameService.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerArchive.h" />
+    <ClInclude Include="PlayerPacketSender.h" />
+    <ClInclude Include="WaitingSession.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\THServerCommon\THServerCommon.vcxproj">

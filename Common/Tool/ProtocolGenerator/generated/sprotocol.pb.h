@@ -48,7 +48,7 @@ struct TableStruct_sprotocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[13]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,6 +56,9 @@ struct TableStruct_sprotocol_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sprotocol_2eproto;
 namespace th {
+class ADEndofGameSessionReq;
+struct ADEndofGameSessionReqDefaultTypeInternal;
+extern ADEndofGameSessionReqDefaultTypeInternal _ADEndofGameSessionReq_default_instance_;
 class ADLoginReq;
 struct ADLoginReqDefaultTypeInternal;
 extern ADLoginReqDefaultTypeInternal _ADLoginReq_default_instance_;
@@ -68,6 +71,9 @@ extern ADPlayerHeroReqDefaultTypeInternal _ADPlayerHeroReq_default_instance_;
 class ADPlayerInfoReq;
 struct ADPlayerInfoReqDefaultTypeInternal;
 extern ADPlayerInfoReqDefaultTypeInternal _ADPlayerInfoReq_default_instance_;
+class DAEndofGameSessionAck;
+struct DAEndofGameSessionAckDefaultTypeInternal;
+extern DAEndofGameSessionAckDefaultTypeInternal _DAEndofGameSessionAck_default_instance_;
 class DALoginAck;
 struct DALoginAckDefaultTypeInternal;
 extern DALoginAckDefaultTypeInternal _DALoginAck_default_instance_;
@@ -91,10 +97,12 @@ struct NullMessageDefaultTypeInternal;
 extern NullMessageDefaultTypeInternal _NullMessage_default_instance_;
 }  // namespace th
 PROTOBUF_NAMESPACE_OPEN
+template<> ::th::ADEndofGameSessionReq* Arena::CreateMaybeMessage<::th::ADEndofGameSessionReq>(Arena*);
 template<> ::th::ADLoginReq* Arena::CreateMaybeMessage<::th::ADLoginReq>(Arena*);
 template<> ::th::ADPlayerEquipItemReq* Arena::CreateMaybeMessage<::th::ADPlayerEquipItemReq>(Arena*);
 template<> ::th::ADPlayerHeroReq* Arena::CreateMaybeMessage<::th::ADPlayerHeroReq>(Arena*);
 template<> ::th::ADPlayerInfoReq* Arena::CreateMaybeMessage<::th::ADPlayerInfoReq>(Arena*);
+template<> ::th::DAEndofGameSessionAck* Arena::CreateMaybeMessage<::th::DAEndofGameSessionAck>(Arena*);
 template<> ::th::DALoginAck* Arena::CreateMaybeMessage<::th::DALoginAck>(Arena*);
 template<> ::th::DALoginNak* Arena::CreateMaybeMessage<::th::DALoginNak>(Arena*);
 template<> ::th::DAPlayerEquipItemAck* Arena::CreateMaybeMessage<::th::DAPlayerEquipItemAck>(Arena*);
@@ -556,6 +564,14 @@ class ADLoginReq final :
 
   enum : int {
     kPIDFieldNumber = 1,
+    kAppVersionFieldNumber = 7,
+    kIPFieldNumber = 10,
+    kUpdateDateFieldNumber = 3,
+    kLogKeyFieldNumber = 2,
+    kIsReconnectFieldNumber = 4,
+    kServerIDFieldNumber = 5,
+    kLanguageIDFieldNumber = 6,
+    kPlatformTypeFieldNumber = 9,
     kMessageIDFieldNumber = 99,
   };
   // required string PID = 1;
@@ -576,6 +592,125 @@ class ADLoginReq final :
   std::string* _internal_mutable_pid();
   public:
 
+  // optional string AppVersion = 7;
+  bool has_appversion() const;
+  private:
+  bool _internal_has_appversion() const;
+  public:
+  void clear_appversion();
+  const std::string& appversion() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_appversion(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_appversion();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_appversion();
+  void set_allocated_appversion(std::string* appversion);
+  private:
+  const std::string& _internal_appversion() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_appversion(const std::string& value);
+  std::string* _internal_mutable_appversion();
+  public:
+
+  // optional string IP = 10;
+  bool has_ip() const;
+  private:
+  bool _internal_has_ip() const;
+  public:
+  void clear_ip();
+  const std::string& ip() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_ip(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ip();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_ip();
+  void set_allocated_ip(std::string* ip);
+  private:
+  const std::string& _internal_ip() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(const std::string& value);
+  std::string* _internal_mutable_ip();
+  public:
+
+  // required .th.MDateTime UpdateDate = 3;
+  bool has_updatedate() const;
+  private:
+  bool _internal_has_updatedate() const;
+  public:
+  void clear_updatedate();
+  const ::th::MDateTime& updatedate() const;
+  PROTOBUF_FUTURE_MUST_USE_RESULT ::th::MDateTime* release_updatedate();
+  ::th::MDateTime* mutable_updatedate();
+  void set_allocated_updatedate(::th::MDateTime* updatedate);
+  private:
+  const ::th::MDateTime& _internal_updatedate() const;
+  ::th::MDateTime* _internal_mutable_updatedate();
+  public:
+  void unsafe_arena_set_allocated_updatedate(
+      ::th::MDateTime* updatedate);
+  ::th::MDateTime* unsafe_arena_release_updatedate();
+
+  // required int64 LogKey = 2;
+  bool has_logkey() const;
+  private:
+  bool _internal_has_logkey() const;
+  public:
+  void clear_logkey();
+  ::PROTOBUF_NAMESPACE_ID::int64 logkey() const;
+  void set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_logkey() const;
+  void _internal_set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // required bool IsReconnect = 4;
+  bool has_isreconnect() const;
+  private:
+  bool _internal_has_isreconnect() const;
+  public:
+  void clear_isreconnect();
+  bool isreconnect() const;
+  void set_isreconnect(bool value);
+  private:
+  bool _internal_isreconnect() const;
+  void _internal_set_isreconnect(bool value);
+  public:
+
+  // required int32 ServerID = 5;
+  bool has_serverid() const;
+  private:
+  bool _internal_has_serverid() const;
+  public:
+  void clear_serverid();
+  ::PROTOBUF_NAMESPACE_ID::int32 serverid() const;
+  void set_serverid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_serverid() const;
+  void _internal_set_serverid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required int32 LanguageID = 6;
+  bool has_languageid() const;
+  private:
+  bool _internal_has_languageid() const;
+  public:
+  void clear_languageid();
+  ::PROTOBUF_NAMESPACE_ID::int32 languageid() const;
+  void set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_languageid() const;
+  void _internal_set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required .th.EPlatformType PlatformType = 9;
+  bool has_platformtype() const;
+  private:
+  bool _internal_has_platformtype() const;
+  public:
+  void clear_platformtype();
+  ::th::EPlatformType platformtype() const;
+  void set_platformtype(::th::EPlatformType value);
+  private:
+  ::th::EPlatformType _internal_platformtype() const;
+  void _internal_set_platformtype(::th::EPlatformType value);
+  public:
+
   // optional .th.EMessageID MessageID = 99 [default = AD_LOGIN_REQ];
   bool has_messageid() const;
   private:
@@ -593,12 +728,23 @@ class ADLoginReq final :
  private:
   class _Internal;
 
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr appversion_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_;
+  ::th::MDateTime* updatedate_;
+  ::PROTOBUF_NAMESPACE_ID::int64 logkey_;
+  bool isreconnect_;
+  ::PROTOBUF_NAMESPACE_ID::int32 serverid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 languageid_;
+  int platformtype_;
   int messageid_;
   friend struct ::TableStruct_sprotocol_2eproto;
 };
@@ -721,8 +867,18 @@ class DALoginAck final :
   enum : int {
     kPIDFieldNumber = 1,
     kPlayerNameFieldNumber = 4,
+    kIPFieldNumber = 14,
+    kUpdateTimeFieldNumber = 9,
     kAccountIdFieldNumber = 2,
     kGameDbIdFieldNumber = 3,
+    kChannelIDFieldNumber = 6,
+    kFreeNicknameChangeCountFieldNumber = 7,
+    kIsReconnectFieldNumber = 5,
+    kIsNewAccountFieldNumber = 8,
+    kAuthenticatedFieldNumber = 12,
+    kLanguageIDFieldNumber = 10,
+    kTotalPlayTimeFieldNumber = 11,
+    kPlatformTypeFieldNumber = 13,
     kMessageIDFieldNumber = 99,
   };
   // required string PID = 1;
@@ -761,6 +917,42 @@ class DALoginAck final :
   std::string* _internal_mutable_playername();
   public:
 
+  // optional string IP = 14;
+  bool has_ip() const;
+  private:
+  bool _internal_has_ip() const;
+  public:
+  void clear_ip();
+  const std::string& ip() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_ip(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ip();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_ip();
+  void set_allocated_ip(std::string* ip);
+  private:
+  const std::string& _internal_ip() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(const std::string& value);
+  std::string* _internal_mutable_ip();
+  public:
+
+  // required .th.MDateTime UpdateTime = 9;
+  bool has_updatetime() const;
+  private:
+  bool _internal_has_updatetime() const;
+  public:
+  void clear_updatetime();
+  const ::th::MDateTime& updatetime() const;
+  PROTOBUF_FUTURE_MUST_USE_RESULT ::th::MDateTime* release_updatetime();
+  ::th::MDateTime* mutable_updatetime();
+  void set_allocated_updatetime(::th::MDateTime* updatetime);
+  private:
+  const ::th::MDateTime& _internal_updatetime() const;
+  ::th::MDateTime* _internal_mutable_updatetime();
+  public:
+  void unsafe_arena_set_allocated_updatetime(
+      ::th::MDateTime* updatetime);
+  ::th::MDateTime* unsafe_arena_release_updatetime();
+
   // required int64 AccountId = 2;
   bool has_accountid() const;
   private:
@@ -785,6 +977,110 @@ class DALoginAck final :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_gamedbid() const;
   void _internal_set_gamedbid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required int32 ChannelID = 6;
+  bool has_channelid() const;
+  private:
+  bool _internal_has_channelid() const;
+  public:
+  void clear_channelid();
+  ::PROTOBUF_NAMESPACE_ID::int32 channelid() const;
+  void set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_channelid() const;
+  void _internal_set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required int32 FreeNicknameChangeCount = 7;
+  bool has_freenicknamechangecount() const;
+  private:
+  bool _internal_has_freenicknamechangecount() const;
+  public:
+  void clear_freenicknamechangecount();
+  ::PROTOBUF_NAMESPACE_ID::int32 freenicknamechangecount() const;
+  void set_freenicknamechangecount(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_freenicknamechangecount() const;
+  void _internal_set_freenicknamechangecount(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required bool IsReconnect = 5;
+  bool has_isreconnect() const;
+  private:
+  bool _internal_has_isreconnect() const;
+  public:
+  void clear_isreconnect();
+  bool isreconnect() const;
+  void set_isreconnect(bool value);
+  private:
+  bool _internal_isreconnect() const;
+  void _internal_set_isreconnect(bool value);
+  public:
+
+  // required bool IsNewAccount = 8;
+  bool has_isnewaccount() const;
+  private:
+  bool _internal_has_isnewaccount() const;
+  public:
+  void clear_isnewaccount();
+  bool isnewaccount() const;
+  void set_isnewaccount(bool value);
+  private:
+  bool _internal_isnewaccount() const;
+  void _internal_set_isnewaccount(bool value);
+  public:
+
+  // required bool Authenticated = 12;
+  bool has_authenticated() const;
+  private:
+  bool _internal_has_authenticated() const;
+  public:
+  void clear_authenticated();
+  bool authenticated() const;
+  void set_authenticated(bool value);
+  private:
+  bool _internal_authenticated() const;
+  void _internal_set_authenticated(bool value);
+  public:
+
+  // required int32 LanguageID = 10;
+  bool has_languageid() const;
+  private:
+  bool _internal_has_languageid() const;
+  public:
+  void clear_languageid();
+  ::PROTOBUF_NAMESPACE_ID::int32 languageid() const;
+  void set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_languageid() const;
+  void _internal_set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required int32 TotalPlayTime = 11;
+  bool has_totalplaytime() const;
+  private:
+  bool _internal_has_totalplaytime() const;
+  public:
+  void clear_totalplaytime();
+  ::PROTOBUF_NAMESPACE_ID::int32 totalplaytime() const;
+  void set_totalplaytime(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_totalplaytime() const;
+  void _internal_set_totalplaytime(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required .th.EPlatformType PlatformType = 13;
+  bool has_platformtype() const;
+  private:
+  bool _internal_has_platformtype() const;
+  public:
+  void clear_platformtype();
+  ::th::EPlatformType platformtype() const;
+  void set_platformtype(::th::EPlatformType value);
+  private:
+  ::th::EPlatformType _internal_platformtype() const;
+  void _internal_set_platformtype(::th::EPlatformType value);
   public:
 
   // optional .th.EMessageID MessageID = 99 [default = DA_LOGIN_ACK];
@@ -814,8 +1110,18 @@ class DALoginAck final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr playername_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_;
+  ::th::MDateTime* updatetime_;
   ::PROTOBUF_NAMESPACE_ID::int64 accountid_;
   ::PROTOBUF_NAMESPACE_ID::int32 gamedbid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 channelid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 freenicknamechangecount_;
+  bool isreconnect_;
+  bool isnewaccount_;
+  bool authenticated_;
+  ::PROTOBUF_NAMESPACE_ID::int32 languageid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 totalplaytime_;
+  int platformtype_;
   int messageid_;
   friend struct ::TableStruct_sprotocol_2eproto;
 };
@@ -1138,9 +1444,9 @@ class ADPlayerInfoReq final :
     kUpdateTimeFieldNumber = 2,
     kDefaultProfilePortraitIDFieldNumber = 7,
     kDefaultProfileFrameIDFieldNumber = 8,
-    kAbsencePeriodForReturnPlayerFieldNumber = 12,
-    kNewPlayerPeriodFieldNumber = 10,
-    kReturnPlayerPeriodFieldNumber = 11,
+    kNewPlayerPeriodFieldNumber = 9,
+    kReturnPlayerPeriodFieldNumber = 10,
+    kAbsencePeriodForReturnPlayerFieldNumber = 11,
     kMessageIDFieldNumber = 99,
   };
   // required string PID = 1;
@@ -1223,20 +1529,7 @@ class ADPlayerInfoReq final :
   void _internal_set_defaultprofileframeid(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 AbsencePeriodForReturnPlayer = 12;
-  bool has_absenceperiodforreturnplayer() const;
-  private:
-  bool _internal_has_absenceperiodforreturnplayer() const;
-  public:
-  void clear_absenceperiodforreturnplayer();
-  ::PROTOBUF_NAMESPACE_ID::int32 absenceperiodforreturnplayer() const;
-  void set_absenceperiodforreturnplayer(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_absenceperiodforreturnplayer() const;
-  void _internal_set_absenceperiodforreturnplayer(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // optional int32 NewPlayerPeriod = 10;
+  // optional int32 NewPlayerPeriod = 9;
   bool has_newplayerperiod() const;
   private:
   bool _internal_has_newplayerperiod() const;
@@ -1249,7 +1542,7 @@ class ADPlayerInfoReq final :
   void _internal_set_newplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 ReturnPlayerPeriod = 11;
+  // optional int32 ReturnPlayerPeriod = 10;
   bool has_returnplayerperiod() const;
   private:
   bool _internal_has_returnplayerperiod() const;
@@ -1260,6 +1553,19 @@ class ADPlayerInfoReq final :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_returnplayerperiod() const;
   void _internal_set_returnplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 AbsencePeriodForReturnPlayer = 11;
+  bool has_absenceperiodforreturnplayer() const;
+  private:
+  bool _internal_has_absenceperiodforreturnplayer() const;
+  public:
+  void clear_absenceperiodforreturnplayer();
+  ::PROTOBUF_NAMESPACE_ID::int32 absenceperiodforreturnplayer() const;
+  void set_absenceperiodforreturnplayer(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_absenceperiodforreturnplayer() const;
+  void _internal_set_absenceperiodforreturnplayer(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // optional .th.EMessageID MessageID = 99 [default = AD_PLAYER_INFO_REQ];
@@ -1292,9 +1598,9 @@ class ADPlayerInfoReq final :
   ::th::MDateTime* updatetime_;
   ::PROTOBUF_NAMESPACE_ID::int32 defaultprofileportraitid_;
   ::PROTOBUF_NAMESPACE_ID::int32 defaultprofileframeid_;
-  ::PROTOBUF_NAMESPACE_ID::int32 absenceperiodforreturnplayer_;
   ::PROTOBUF_NAMESPACE_ID::int32 newplayerperiod_;
   ::PROTOBUF_NAMESPACE_ID::int32 returnplayerperiod_;
+  ::PROTOBUF_NAMESPACE_ID::int32 absenceperiodforreturnplayer_;
   int messageid_;
   friend struct ::TableStruct_sprotocol_2eproto;
 };
@@ -2233,6 +2539,392 @@ class DAPlayerEquipItemAck final :
   int messageid_;
   friend struct ::TableStruct_sprotocol_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ADEndofGameSessionReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:th.ADEndofGameSessionReq) */ {
+ public:
+  inline ADEndofGameSessionReq() : ADEndofGameSessionReq(nullptr) {}
+  ~ADEndofGameSessionReq() override;
+  explicit constexpr ADEndofGameSessionReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ADEndofGameSessionReq(const ADEndofGameSessionReq& from);
+  ADEndofGameSessionReq(ADEndofGameSessionReq&& from) noexcept
+    : ADEndofGameSessionReq() {
+    *this = ::std::move(from);
+  }
+
+  inline ADEndofGameSessionReq& operator=(const ADEndofGameSessionReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ADEndofGameSessionReq& operator=(ADEndofGameSessionReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ADEndofGameSessionReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ADEndofGameSessionReq* internal_default_instance() {
+    return reinterpret_cast<const ADEndofGameSessionReq*>(
+               &_ADEndofGameSessionReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(ADEndofGameSessionReq& a, ADEndofGameSessionReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ADEndofGameSessionReq* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ADEndofGameSessionReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ADEndofGameSessionReq* New() const final {
+    return new ADEndofGameSessionReq();
+  }
+
+  ADEndofGameSessionReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ADEndofGameSessionReq>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ADEndofGameSessionReq& from);
+  void MergeFrom(const ADEndofGameSessionReq& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ADEndofGameSessionReq* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "th.ADEndofGameSessionReq";
+  }
+  protected:
+  explicit ADEndofGameSessionReq(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLastUpdateTimeFieldNumber = 1,
+    kLogKeyFieldNumber = 2,
+    kChannelIDFieldNumber = 3,
+    kGuildIDFieldNumber = 4,
+    kIsSeqMaintenanceFieldNumber = 5,
+    kMessageIDFieldNumber = 99,
+  };
+  // required .th.MDateTime LastUpdateTime = 1;
+  bool has_lastupdatetime() const;
+  private:
+  bool _internal_has_lastupdatetime() const;
+  public:
+  void clear_lastupdatetime();
+  const ::th::MDateTime& lastupdatetime() const;
+  PROTOBUF_FUTURE_MUST_USE_RESULT ::th::MDateTime* release_lastupdatetime();
+  ::th::MDateTime* mutable_lastupdatetime();
+  void set_allocated_lastupdatetime(::th::MDateTime* lastupdatetime);
+  private:
+  const ::th::MDateTime& _internal_lastupdatetime() const;
+  ::th::MDateTime* _internal_mutable_lastupdatetime();
+  public:
+  void unsafe_arena_set_allocated_lastupdatetime(
+      ::th::MDateTime* lastupdatetime);
+  ::th::MDateTime* unsafe_arena_release_lastupdatetime();
+
+  // required int64 LogKey = 2;
+  bool has_logkey() const;
+  private:
+  bool _internal_has_logkey() const;
+  public:
+  void clear_logkey();
+  ::PROTOBUF_NAMESPACE_ID::int64 logkey() const;
+  void set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_logkey() const;
+  void _internal_set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // required int32 ChannelID = 3;
+  bool has_channelid() const;
+  private:
+  bool _internal_has_channelid() const;
+  public:
+  void clear_channelid();
+  ::PROTOBUF_NAMESPACE_ID::int32 channelid() const;
+  void set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_channelid() const;
+  void _internal_set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required int32 GuildID = 4;
+  bool has_guildid() const;
+  private:
+  bool _internal_has_guildid() const;
+  public:
+  void clear_guildid();
+  ::PROTOBUF_NAMESPACE_ID::int32 guildid() const;
+  void set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_guildid() const;
+  void _internal_set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required bool IsSeqMaintenance = 5;
+  bool has_isseqmaintenance() const;
+  private:
+  bool _internal_has_isseqmaintenance() const;
+  public:
+  void clear_isseqmaintenance();
+  bool isseqmaintenance() const;
+  void set_isseqmaintenance(bool value);
+  private:
+  bool _internal_isseqmaintenance() const;
+  void _internal_set_isseqmaintenance(bool value);
+  public:
+
+  // optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
+  bool has_messageid() const;
+  private:
+  bool _internal_has_messageid() const;
+  public:
+  void clear_messageid();
+  ::th::EMessageID messageid() const;
+  void set_messageid(::th::EMessageID value);
+  private:
+  ::th::EMessageID _internal_messageid() const;
+  void _internal_set_messageid(::th::EMessageID value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:th.ADEndofGameSessionReq)
+ private:
+  class _Internal;
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::th::MDateTime* lastupdatetime_;
+  ::PROTOBUF_NAMESPACE_ID::int64 logkey_;
+  ::PROTOBUF_NAMESPACE_ID::int32 channelid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 guildid_;
+  bool isseqmaintenance_;
+  int messageid_;
+  friend struct ::TableStruct_sprotocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DAEndofGameSessionAck final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:th.DAEndofGameSessionAck) */ {
+ public:
+  inline DAEndofGameSessionAck() : DAEndofGameSessionAck(nullptr) {}
+  ~DAEndofGameSessionAck() override;
+  explicit constexpr DAEndofGameSessionAck(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DAEndofGameSessionAck(const DAEndofGameSessionAck& from);
+  DAEndofGameSessionAck(DAEndofGameSessionAck&& from) noexcept
+    : DAEndofGameSessionAck() {
+    *this = ::std::move(from);
+  }
+
+  inline DAEndofGameSessionAck& operator=(const DAEndofGameSessionAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DAEndofGameSessionAck& operator=(DAEndofGameSessionAck&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DAEndofGameSessionAck& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DAEndofGameSessionAck* internal_default_instance() {
+    return reinterpret_cast<const DAEndofGameSessionAck*>(
+               &_DAEndofGameSessionAck_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(DAEndofGameSessionAck& a, DAEndofGameSessionAck& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DAEndofGameSessionAck* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DAEndofGameSessionAck* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DAEndofGameSessionAck* New() const final {
+    return new DAEndofGameSessionAck();
+  }
+
+  DAEndofGameSessionAck* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DAEndofGameSessionAck>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DAEndofGameSessionAck& from);
+  void MergeFrom(const DAEndofGameSessionAck& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DAEndofGameSessionAck* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "th.DAEndofGameSessionAck";
+  }
+  protected:
+  explicit DAEndofGameSessionAck(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kErrorFieldNumber = 95,
+    kMessageIDFieldNumber = 99,
+  };
+  // required .th.EErrorMsg Error = 95;
+  bool has_error() const;
+  private:
+  bool _internal_has_error() const;
+  public:
+  void clear_error();
+  ::th::EErrorMsg error() const;
+  void set_error(::th::EErrorMsg value);
+  private:
+  ::th::EErrorMsg _internal_error() const;
+  void _internal_set_error(::th::EErrorMsg value);
+  public:
+
+  // optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
+  bool has_messageid() const;
+  private:
+  bool _internal_has_messageid() const;
+  public:
+  void clear_messageid();
+  ::th::EMessageID messageid() const;
+  void set_messageid(::th::EMessageID value);
+  private:
+  ::th::EMessageID _internal_messageid() const;
+  void _internal_set_messageid(::th::EMessageID value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:th.DAEndofGameSessionAck)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  int error_;
+  int messageid_;
+  friend struct ::TableStruct_sprotocol_2eproto;
+};
 // ===================================================================
 
 
@@ -2397,15 +3089,15 @@ inline void InternalEventTick::set_value(::PROTOBUF_NAMESPACE_ID::int64 value) {
 
 // optional .th.EMessageID MessageID = 99 [default = AD_LOGIN_REQ];
 inline bool ADLoginReq::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool ADLoginReq::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void ADLoginReq::clear_messageid() {
-  messageid_ = 20100;
-  _has_bits_[0] &= ~0x00000002u;
+  messageid_ = 20101;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::th::EMessageID ADLoginReq::_internal_messageid() const {
   return static_cast< ::th::EMessageID >(messageid_);
@@ -2416,7 +3108,7 @@ inline ::th::EMessageID ADLoginReq::messageid() const {
 }
 inline void ADLoginReq::_internal_set_messageid(::th::EMessageID value) {
   assert(::th::EMessageID_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000200u;
   messageid_ = value;
 }
 inline void ADLoginReq::set_messageid(::th::EMessageID value) {
@@ -2481,21 +3173,357 @@ inline void ADLoginReq::set_allocated_pid(std::string* pid) {
   // @@protoc_insertion_point(field_set_allocated:th.ADLoginReq.PID)
 }
 
+// required int64 LogKey = 2;
+inline bool ADLoginReq::_internal_has_logkey() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_logkey() const {
+  return _internal_has_logkey();
+}
+inline void ADLoginReq::clear_logkey() {
+  logkey_ = int64_t{0};
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ADLoginReq::_internal_logkey() const {
+  return logkey_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ADLoginReq::logkey() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.LogKey)
+  return _internal_logkey();
+}
+inline void ADLoginReq::_internal_set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000010u;
+  logkey_ = value;
+}
+inline void ADLoginReq::set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_logkey(value);
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.LogKey)
+}
+
+// required .th.MDateTime UpdateDate = 3;
+inline bool ADLoginReq::_internal_has_updatedate() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || updatedate_ != nullptr);
+  return value;
+}
+inline bool ADLoginReq::has_updatedate() const {
+  return _internal_has_updatedate();
+}
+inline const ::th::MDateTime& ADLoginReq::_internal_updatedate() const {
+  const ::th::MDateTime* p = updatedate_;
+  return p != nullptr ? *p : reinterpret_cast<const ::th::MDateTime&>(
+      ::th::_MDateTime_default_instance_);
+}
+inline const ::th::MDateTime& ADLoginReq::updatedate() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.UpdateDate)
+  return _internal_updatedate();
+}
+inline void ADLoginReq::unsafe_arena_set_allocated_updatedate(
+    ::th::MDateTime* updatedate) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(updatedate_);
+  }
+  updatedate_ = updatedate;
+  if (updatedate) {
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:th.ADLoginReq.UpdateDate)
+}
+inline ::th::MDateTime* ADLoginReq::release_updatedate() {
+  _has_bits_[0] &= ~0x00000008u;
+  ::th::MDateTime* temp = updatedate_;
+  updatedate_ = nullptr;
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::th::MDateTime* ADLoginReq::unsafe_arena_release_updatedate() {
+  // @@protoc_insertion_point(field_release:th.ADLoginReq.UpdateDate)
+  _has_bits_[0] &= ~0x00000008u;
+  ::th::MDateTime* temp = updatedate_;
+  updatedate_ = nullptr;
+  return temp;
+}
+inline ::th::MDateTime* ADLoginReq::_internal_mutable_updatedate() {
+  _has_bits_[0] |= 0x00000008u;
+  if (updatedate_ == nullptr) {
+    auto* p = CreateMaybeMessage<::th::MDateTime>(GetArenaForAllocation());
+    updatedate_ = p;
+  }
+  return updatedate_;
+}
+inline ::th::MDateTime* ADLoginReq::mutable_updatedate() {
+  // @@protoc_insertion_point(field_mutable:th.ADLoginReq.UpdateDate)
+  return _internal_mutable_updatedate();
+}
+inline void ADLoginReq::set_allocated_updatedate(::th::MDateTime* updatedate) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(updatedate_);
+  }
+  if (updatedate) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(updatedate));
+    if (message_arena != submessage_arena) {
+      updatedate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, updatedate, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  updatedate_ = updatedate;
+  // @@protoc_insertion_point(field_set_allocated:th.ADLoginReq.UpdateDate)
+}
+
+// required bool IsReconnect = 4;
+inline bool ADLoginReq::_internal_has_isreconnect() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_isreconnect() const {
+  return _internal_has_isreconnect();
+}
+inline void ADLoginReq::clear_isreconnect() {
+  isreconnect_ = false;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline bool ADLoginReq::_internal_isreconnect() const {
+  return isreconnect_;
+}
+inline bool ADLoginReq::isreconnect() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.IsReconnect)
+  return _internal_isreconnect();
+}
+inline void ADLoginReq::_internal_set_isreconnect(bool value) {
+  _has_bits_[0] |= 0x00000020u;
+  isreconnect_ = value;
+}
+inline void ADLoginReq::set_isreconnect(bool value) {
+  _internal_set_isreconnect(value);
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.IsReconnect)
+}
+
+// required int32 ServerID = 5;
+inline bool ADLoginReq::_internal_has_serverid() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_serverid() const {
+  return _internal_has_serverid();
+}
+inline void ADLoginReq::clear_serverid() {
+  serverid_ = 0;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADLoginReq::_internal_serverid() const {
+  return serverid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADLoginReq::serverid() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.ServerID)
+  return _internal_serverid();
+}
+inline void ADLoginReq::_internal_set_serverid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000040u;
+  serverid_ = value;
+}
+inline void ADLoginReq::set_serverid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_serverid(value);
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.ServerID)
+}
+
+// required int32 LanguageID = 6;
+inline bool ADLoginReq::_internal_has_languageid() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_languageid() const {
+  return _internal_has_languageid();
+}
+inline void ADLoginReq::clear_languageid() {
+  languageid_ = 0;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADLoginReq::_internal_languageid() const {
+  return languageid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADLoginReq::languageid() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.LanguageID)
+  return _internal_languageid();
+}
+inline void ADLoginReq::_internal_set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000080u;
+  languageid_ = value;
+}
+inline void ADLoginReq::set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_languageid(value);
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.LanguageID)
+}
+
+// optional string AppVersion = 7;
+inline bool ADLoginReq::_internal_has_appversion() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_appversion() const {
+  return _internal_has_appversion();
+}
+inline void ADLoginReq::clear_appversion() {
+  appversion_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& ADLoginReq::appversion() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.AppVersion)
+  return _internal_appversion();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ADLoginReq::set_appversion(ArgT0&& arg0, ArgT... args) {
+ _has_bits_[0] |= 0x00000002u;
+ appversion_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.AppVersion)
+}
+inline std::string* ADLoginReq::mutable_appversion() {
+  // @@protoc_insertion_point(field_mutable:th.ADLoginReq.AppVersion)
+  return _internal_mutable_appversion();
+}
+inline const std::string& ADLoginReq::_internal_appversion() const {
+  return appversion_.Get();
+}
+inline void ADLoginReq::_internal_set_appversion(const std::string& value) {
+  _has_bits_[0] |= 0x00000002u;
+  appversion_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ADLoginReq::_internal_mutable_appversion() {
+  _has_bits_[0] |= 0x00000002u;
+  return appversion_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ADLoginReq::release_appversion() {
+  // @@protoc_insertion_point(field_release:th.ADLoginReq.AppVersion)
+  if (!_internal_has_appversion()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000002u;
+  return appversion_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ADLoginReq::set_allocated_appversion(std::string* appversion) {
+  if (appversion != nullptr) {
+    _has_bits_[0] |= 0x00000002u;
+  } else {
+    _has_bits_[0] &= ~0x00000002u;
+  }
+  appversion_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), appversion,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:th.ADLoginReq.AppVersion)
+}
+
+// required .th.EPlatformType PlatformType = 9;
+inline bool ADLoginReq::_internal_has_platformtype() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_platformtype() const {
+  return _internal_has_platformtype();
+}
+inline void ADLoginReq::clear_platformtype() {
+  platformtype_ = 0;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::th::EPlatformType ADLoginReq::_internal_platformtype() const {
+  return static_cast< ::th::EPlatformType >(platformtype_);
+}
+inline ::th::EPlatformType ADLoginReq::platformtype() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.PlatformType)
+  return _internal_platformtype();
+}
+inline void ADLoginReq::_internal_set_platformtype(::th::EPlatformType value) {
+  assert(::th::EPlatformType_IsValid(value));
+  _has_bits_[0] |= 0x00000100u;
+  platformtype_ = value;
+}
+inline void ADLoginReq::set_platformtype(::th::EPlatformType value) {
+  _internal_set_platformtype(value);
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.PlatformType)
+}
+
+// optional string IP = 10;
+inline bool ADLoginReq::_internal_has_ip() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool ADLoginReq::has_ip() const {
+  return _internal_has_ip();
+}
+inline void ADLoginReq::clear_ip() {
+  ip_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& ADLoginReq::ip() const {
+  // @@protoc_insertion_point(field_get:th.ADLoginReq.IP)
+  return _internal_ip();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ADLoginReq::set_ip(ArgT0&& arg0, ArgT... args) {
+ _has_bits_[0] |= 0x00000004u;
+ ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:th.ADLoginReq.IP)
+}
+inline std::string* ADLoginReq::mutable_ip() {
+  // @@protoc_insertion_point(field_mutable:th.ADLoginReq.IP)
+  return _internal_mutable_ip();
+}
+inline const std::string& ADLoginReq::_internal_ip() const {
+  return ip_.Get();
+}
+inline void ADLoginReq::_internal_set_ip(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ADLoginReq::_internal_mutable_ip() {
+  _has_bits_[0] |= 0x00000004u;
+  return ip_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ADLoginReq::release_ip() {
+  // @@protoc_insertion_point(field_release:th.ADLoginReq.IP)
+  if (!_internal_has_ip()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return ip_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ADLoginReq::set_allocated_ip(std::string* ip) {
+  if (ip != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  ip_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ip,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:th.ADLoginReq.IP)
+}
+
 // -------------------------------------------------------------------
 
 // DALoginAck
 
 // optional .th.EMessageID MessageID = 99 [default = DA_LOGIN_ACK];
 inline bool DALoginAck::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool DALoginAck::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void DALoginAck::clear_messageid() {
-  messageid_ = 20101;
-  _has_bits_[0] &= ~0x00000010u;
+  messageid_ = 20102;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline ::th::EMessageID DALoginAck::_internal_messageid() const {
   return static_cast< ::th::EMessageID >(messageid_);
@@ -2506,7 +3534,7 @@ inline ::th::EMessageID DALoginAck::messageid() const {
 }
 inline void DALoginAck::_internal_set_messageid(::th::EMessageID value) {
   assert(::th::EMessageID_IsValid(value));
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00004000u;
   messageid_ = value;
 }
 inline void DALoginAck::set_messageid(::th::EMessageID value) {
@@ -2573,7 +3601,7 @@ inline void DALoginAck::set_allocated_pid(std::string* pid) {
 
 // required int64 AccountId = 2;
 inline bool DALoginAck::_internal_has_accountid() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool DALoginAck::has_accountid() const {
@@ -2581,7 +3609,7 @@ inline bool DALoginAck::has_accountid() const {
 }
 inline void DALoginAck::clear_accountid() {
   accountid_ = int64_t{0};
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 DALoginAck::_internal_accountid() const {
   return accountid_;
@@ -2591,7 +3619,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 DALoginAck::accountid() const {
   return _internal_accountid();
 }
 inline void DALoginAck::_internal_set_accountid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
   accountid_ = value;
 }
 inline void DALoginAck::set_accountid(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -2601,7 +3629,7 @@ inline void DALoginAck::set_accountid(::PROTOBUF_NAMESPACE_ID::int64 value) {
 
 // required int32 GameDbId = 3;
 inline bool DALoginAck::_internal_has_gamedbid() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool DALoginAck::has_gamedbid() const {
@@ -2609,7 +3637,7 @@ inline bool DALoginAck::has_gamedbid() const {
 }
 inline void DALoginAck::clear_gamedbid() {
   gamedbid_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::_internal_gamedbid() const {
   return gamedbid_;
@@ -2619,7 +3647,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::gamedbid() const {
   return _internal_gamedbid();
 }
 inline void DALoginAck::_internal_set_gamedbid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
   gamedbid_ = value;
 }
 inline void DALoginAck::set_gamedbid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -2684,6 +3712,369 @@ inline void DALoginAck::set_allocated_playername(std::string* playername) {
   // @@protoc_insertion_point(field_set_allocated:th.DALoginAck.PlayerName)
 }
 
+// required bool IsReconnect = 5;
+inline bool DALoginAck::_internal_has_isreconnect() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_isreconnect() const {
+  return _internal_has_isreconnect();
+}
+inline void DALoginAck::clear_isreconnect() {
+  isreconnect_ = false;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline bool DALoginAck::_internal_isreconnect() const {
+  return isreconnect_;
+}
+inline bool DALoginAck::isreconnect() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.IsReconnect)
+  return _internal_isreconnect();
+}
+inline void DALoginAck::_internal_set_isreconnect(bool value) {
+  _has_bits_[0] |= 0x00000100u;
+  isreconnect_ = value;
+}
+inline void DALoginAck::set_isreconnect(bool value) {
+  _internal_set_isreconnect(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.IsReconnect)
+}
+
+// required int32 ChannelID = 6;
+inline bool DALoginAck::_internal_has_channelid() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_channelid() const {
+  return _internal_has_channelid();
+}
+inline void DALoginAck::clear_channelid() {
+  channelid_ = 0;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::_internal_channelid() const {
+  return channelid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::channelid() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.ChannelID)
+  return _internal_channelid();
+}
+inline void DALoginAck::_internal_set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000040u;
+  channelid_ = value;
+}
+inline void DALoginAck::set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_channelid(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.ChannelID)
+}
+
+// required int32 FreeNicknameChangeCount = 7;
+inline bool DALoginAck::_internal_has_freenicknamechangecount() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_freenicknamechangecount() const {
+  return _internal_has_freenicknamechangecount();
+}
+inline void DALoginAck::clear_freenicknamechangecount() {
+  freenicknamechangecount_ = 0;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::_internal_freenicknamechangecount() const {
+  return freenicknamechangecount_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::freenicknamechangecount() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.FreeNicknameChangeCount)
+  return _internal_freenicknamechangecount();
+}
+inline void DALoginAck::_internal_set_freenicknamechangecount(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000080u;
+  freenicknamechangecount_ = value;
+}
+inline void DALoginAck::set_freenicknamechangecount(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_freenicknamechangecount(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.FreeNicknameChangeCount)
+}
+
+// required bool IsNewAccount = 8;
+inline bool DALoginAck::_internal_has_isnewaccount() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_isnewaccount() const {
+  return _internal_has_isnewaccount();
+}
+inline void DALoginAck::clear_isnewaccount() {
+  isnewaccount_ = false;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline bool DALoginAck::_internal_isnewaccount() const {
+  return isnewaccount_;
+}
+inline bool DALoginAck::isnewaccount() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.IsNewAccount)
+  return _internal_isnewaccount();
+}
+inline void DALoginAck::_internal_set_isnewaccount(bool value) {
+  _has_bits_[0] |= 0x00000200u;
+  isnewaccount_ = value;
+}
+inline void DALoginAck::set_isnewaccount(bool value) {
+  _internal_set_isnewaccount(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.IsNewAccount)
+}
+
+// required .th.MDateTime UpdateTime = 9;
+inline bool DALoginAck::_internal_has_updatetime() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || updatetime_ != nullptr);
+  return value;
+}
+inline bool DALoginAck::has_updatetime() const {
+  return _internal_has_updatetime();
+}
+inline const ::th::MDateTime& DALoginAck::_internal_updatetime() const {
+  const ::th::MDateTime* p = updatetime_;
+  return p != nullptr ? *p : reinterpret_cast<const ::th::MDateTime&>(
+      ::th::_MDateTime_default_instance_);
+}
+inline const ::th::MDateTime& DALoginAck::updatetime() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.UpdateTime)
+  return _internal_updatetime();
+}
+inline void DALoginAck::unsafe_arena_set_allocated_updatetime(
+    ::th::MDateTime* updatetime) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(updatetime_);
+  }
+  updatetime_ = updatetime;
+  if (updatetime) {
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:th.DALoginAck.UpdateTime)
+}
+inline ::th::MDateTime* DALoginAck::release_updatetime() {
+  _has_bits_[0] &= ~0x00000008u;
+  ::th::MDateTime* temp = updatetime_;
+  updatetime_ = nullptr;
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::th::MDateTime* DALoginAck::unsafe_arena_release_updatetime() {
+  // @@protoc_insertion_point(field_release:th.DALoginAck.UpdateTime)
+  _has_bits_[0] &= ~0x00000008u;
+  ::th::MDateTime* temp = updatetime_;
+  updatetime_ = nullptr;
+  return temp;
+}
+inline ::th::MDateTime* DALoginAck::_internal_mutable_updatetime() {
+  _has_bits_[0] |= 0x00000008u;
+  if (updatetime_ == nullptr) {
+    auto* p = CreateMaybeMessage<::th::MDateTime>(GetArenaForAllocation());
+    updatetime_ = p;
+  }
+  return updatetime_;
+}
+inline ::th::MDateTime* DALoginAck::mutable_updatetime() {
+  // @@protoc_insertion_point(field_mutable:th.DALoginAck.UpdateTime)
+  return _internal_mutable_updatetime();
+}
+inline void DALoginAck::set_allocated_updatetime(::th::MDateTime* updatetime) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(updatetime_);
+  }
+  if (updatetime) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(updatetime));
+    if (message_arena != submessage_arena) {
+      updatetime = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, updatetime, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  updatetime_ = updatetime;
+  // @@protoc_insertion_point(field_set_allocated:th.DALoginAck.UpdateTime)
+}
+
+// required int32 LanguageID = 10;
+inline bool DALoginAck::_internal_has_languageid() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_languageid() const {
+  return _internal_has_languageid();
+}
+inline void DALoginAck::clear_languageid() {
+  languageid_ = 0;
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::_internal_languageid() const {
+  return languageid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::languageid() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.LanguageID)
+  return _internal_languageid();
+}
+inline void DALoginAck::_internal_set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000800u;
+  languageid_ = value;
+}
+inline void DALoginAck::set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_languageid(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.LanguageID)
+}
+
+// required int32 TotalPlayTime = 11;
+inline bool DALoginAck::_internal_has_totalplaytime() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_totalplaytime() const {
+  return _internal_has_totalplaytime();
+}
+inline void DALoginAck::clear_totalplaytime() {
+  totalplaytime_ = 0;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::_internal_totalplaytime() const {
+  return totalplaytime_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 DALoginAck::totalplaytime() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.TotalPlayTime)
+  return _internal_totalplaytime();
+}
+inline void DALoginAck::_internal_set_totalplaytime(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00001000u;
+  totalplaytime_ = value;
+}
+inline void DALoginAck::set_totalplaytime(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_totalplaytime(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.TotalPlayTime)
+}
+
+// required bool Authenticated = 12;
+inline bool DALoginAck::_internal_has_authenticated() const {
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_authenticated() const {
+  return _internal_has_authenticated();
+}
+inline void DALoginAck::clear_authenticated() {
+  authenticated_ = false;
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline bool DALoginAck::_internal_authenticated() const {
+  return authenticated_;
+}
+inline bool DALoginAck::authenticated() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.Authenticated)
+  return _internal_authenticated();
+}
+inline void DALoginAck::_internal_set_authenticated(bool value) {
+  _has_bits_[0] |= 0x00000400u;
+  authenticated_ = value;
+}
+inline void DALoginAck::set_authenticated(bool value) {
+  _internal_set_authenticated(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.Authenticated)
+}
+
+// required .th.EPlatformType PlatformType = 13;
+inline bool DALoginAck::_internal_has_platformtype() const {
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_platformtype() const {
+  return _internal_has_platformtype();
+}
+inline void DALoginAck::clear_platformtype() {
+  platformtype_ = 0;
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline ::th::EPlatformType DALoginAck::_internal_platformtype() const {
+  return static_cast< ::th::EPlatformType >(platformtype_);
+}
+inline ::th::EPlatformType DALoginAck::platformtype() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.PlatformType)
+  return _internal_platformtype();
+}
+inline void DALoginAck::_internal_set_platformtype(::th::EPlatformType value) {
+  assert(::th::EPlatformType_IsValid(value));
+  _has_bits_[0] |= 0x00002000u;
+  platformtype_ = value;
+}
+inline void DALoginAck::set_platformtype(::th::EPlatformType value) {
+  _internal_set_platformtype(value);
+  // @@protoc_insertion_point(field_set:th.DALoginAck.PlatformType)
+}
+
+// optional string IP = 14;
+inline bool DALoginAck::_internal_has_ip() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool DALoginAck::has_ip() const {
+  return _internal_has_ip();
+}
+inline void DALoginAck::clear_ip() {
+  ip_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& DALoginAck::ip() const {
+  // @@protoc_insertion_point(field_get:th.DALoginAck.IP)
+  return _internal_ip();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DALoginAck::set_ip(ArgT0&& arg0, ArgT... args) {
+ _has_bits_[0] |= 0x00000004u;
+ ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:th.DALoginAck.IP)
+}
+inline std::string* DALoginAck::mutable_ip() {
+  // @@protoc_insertion_point(field_mutable:th.DALoginAck.IP)
+  return _internal_mutable_ip();
+}
+inline const std::string& DALoginAck::_internal_ip() const {
+  return ip_.Get();
+}
+inline void DALoginAck::_internal_set_ip(const std::string& value) {
+  _has_bits_[0] |= 0x00000004u;
+  ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DALoginAck::_internal_mutable_ip() {
+  _has_bits_[0] |= 0x00000004u;
+  return ip_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DALoginAck::release_ip() {
+  // @@protoc_insertion_point(field_release:th.DALoginAck.IP)
+  if (!_internal_has_ip()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000004u;
+  return ip_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DALoginAck::set_allocated_ip(std::string* ip) {
+  if (ip != nullptr) {
+    _has_bits_[0] |= 0x00000004u;
+  } else {
+    _has_bits_[0] &= ~0x00000004u;
+  }
+  ip_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ip,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:th.DALoginAck.IP)
+}
+
 // -------------------------------------------------------------------
 
 // DALoginNak
@@ -2697,7 +4088,7 @@ inline bool DALoginNak::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void DALoginNak::clear_messageid() {
-  messageid_ = 20102;
+  messageid_ = 20103;
   _has_bits_[0] &= ~0x00000008u;
 }
 inline ::th::EMessageID DALoginNak::_internal_messageid() const {
@@ -2844,7 +4235,7 @@ inline bool ADPlayerInfoReq::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void ADPlayerInfoReq::clear_messageid() {
-  messageid_ = 20105;
+  messageid_ = 20106;
   _has_bits_[0] &= ~0x00000100u;
 }
 inline ::th::EMessageID ADPlayerInfoReq::_internal_messageid() const {
@@ -3115,9 +4506,9 @@ inline void ADPlayerInfoReq::set_defaultprofileframeid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:th.ADPlayerInfoReq.DefaultProfileFrameID)
 }
 
-// optional int32 NewPlayerPeriod = 10;
+// optional int32 NewPlayerPeriod = 9;
 inline bool ADPlayerInfoReq::_internal_has_newplayerperiod() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool ADPlayerInfoReq::has_newplayerperiod() const {
@@ -3125,7 +4516,7 @@ inline bool ADPlayerInfoReq::has_newplayerperiod() const {
 }
 inline void ADPlayerInfoReq::clear_newplayerperiod() {
   newplayerperiod_ = 0;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 ADPlayerInfoReq::_internal_newplayerperiod() const {
   return newplayerperiod_;
@@ -3135,7 +4526,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ADPlayerInfoReq::newplayerperiod() const {
   return _internal_newplayerperiod();
 }
 inline void ADPlayerInfoReq::_internal_set_newplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
   newplayerperiod_ = value;
 }
 inline void ADPlayerInfoReq::set_newplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -3143,9 +4534,9 @@ inline void ADPlayerInfoReq::set_newplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 
   // @@protoc_insertion_point(field_set:th.ADPlayerInfoReq.NewPlayerPeriod)
 }
 
-// optional int32 ReturnPlayerPeriod = 11;
+// optional int32 ReturnPlayerPeriod = 10;
 inline bool ADPlayerInfoReq::_internal_has_returnplayerperiod() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool ADPlayerInfoReq::has_returnplayerperiod() const {
@@ -3153,7 +4544,7 @@ inline bool ADPlayerInfoReq::has_returnplayerperiod() const {
 }
 inline void ADPlayerInfoReq::clear_returnplayerperiod() {
   returnplayerperiod_ = 0;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 ADPlayerInfoReq::_internal_returnplayerperiod() const {
   return returnplayerperiod_;
@@ -3163,7 +4554,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ADPlayerInfoReq::returnplayerperiod() cons
   return _internal_returnplayerperiod();
 }
 inline void ADPlayerInfoReq::_internal_set_returnplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
   returnplayerperiod_ = value;
 }
 inline void ADPlayerInfoReq::set_returnplayerperiod(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -3171,9 +4562,9 @@ inline void ADPlayerInfoReq::set_returnplayerperiod(::PROTOBUF_NAMESPACE_ID::int
   // @@protoc_insertion_point(field_set:th.ADPlayerInfoReq.ReturnPlayerPeriod)
 }
 
-// optional int32 AbsencePeriodForReturnPlayer = 12;
+// optional int32 AbsencePeriodForReturnPlayer = 11;
 inline bool ADPlayerInfoReq::_internal_has_absenceperiodforreturnplayer() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool ADPlayerInfoReq::has_absenceperiodforreturnplayer() const {
@@ -3181,7 +4572,7 @@ inline bool ADPlayerInfoReq::has_absenceperiodforreturnplayer() const {
 }
 inline void ADPlayerInfoReq::clear_absenceperiodforreturnplayer() {
   absenceperiodforreturnplayer_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 ADPlayerInfoReq::_internal_absenceperiodforreturnplayer() const {
   return absenceperiodforreturnplayer_;
@@ -3191,7 +4582,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ADPlayerInfoReq::absenceperiodforreturnpla
   return _internal_absenceperiodforreturnplayer();
 }
 inline void ADPlayerInfoReq::_internal_set_absenceperiodforreturnplayer(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
   absenceperiodforreturnplayer_ = value;
 }
 inline void ADPlayerInfoReq::set_absenceperiodforreturnplayer(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -3212,7 +4603,7 @@ inline bool DAPlayerInfoAck::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void DAPlayerInfoAck::clear_messageid() {
-  messageid_ = 20106;
+  messageid_ = 20107;
   _has_bits_[0] &= ~0x00000200u;
 }
 inline ::th::EMessageID DAPlayerInfoAck::_internal_messageid() const {
@@ -3604,7 +4995,7 @@ inline bool ADPlayerHeroReq::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void ADPlayerHeroReq::clear_messageid() {
-  messageid_ = 20107;
+  messageid_ = 20108;
   _has_bits_[0] &= ~0x00000001u;
 }
 inline ::th::EMessageID ADPlayerHeroReq::_internal_messageid() const {
@@ -3637,7 +5028,7 @@ inline bool DAPlayerHeroAck::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void DAPlayerHeroAck::clear_messageid() {
-  messageid_ = 20108;
+  messageid_ = 20109;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::th::EMessageID DAPlayerHeroAck::_internal_messageid() const {
@@ -3735,7 +5126,7 @@ inline bool ADPlayerEquipItemReq::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void ADPlayerEquipItemReq::clear_messageid() {
-  messageid_ = 20109;
+  messageid_ = 20110;
   _has_bits_[0] &= ~0x00000001u;
 }
 inline ::th::EMessageID ADPlayerEquipItemReq::_internal_messageid() const {
@@ -3768,7 +5159,7 @@ inline bool DAPlayerEquipItemAck::has_messageid() const {
   return _internal_has_messageid();
 }
 inline void DAPlayerEquipItemAck::clear_messageid() {
-  messageid_ = 20110;
+  messageid_ = 20111;
   _has_bits_[0] &= ~0x00000002u;
 }
 inline ::th::EMessageID DAPlayerEquipItemAck::_internal_messageid() const {
@@ -3853,9 +5244,301 @@ DAPlayerEquipItemAck::equipitems() const {
   return equipitems_;
 }
 
+// -------------------------------------------------------------------
+
+// ADEndofGameSessionReq
+
+// optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
+inline bool ADEndofGameSessionReq::_internal_has_messageid() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool ADEndofGameSessionReq::has_messageid() const {
+  return _internal_has_messageid();
+}
+inline void ADEndofGameSessionReq::clear_messageid() {
+  messageid_ = 20104;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::th::EMessageID ADEndofGameSessionReq::_internal_messageid() const {
+  return static_cast< ::th::EMessageID >(messageid_);
+}
+inline ::th::EMessageID ADEndofGameSessionReq::messageid() const {
+  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.MessageID)
+  return _internal_messageid();
+}
+inline void ADEndofGameSessionReq::_internal_set_messageid(::th::EMessageID value) {
+  assert(::th::EMessageID_IsValid(value));
+  _has_bits_[0] |= 0x00000020u;
+  messageid_ = value;
+}
+inline void ADEndofGameSessionReq::set_messageid(::th::EMessageID value) {
+  _internal_set_messageid(value);
+  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.MessageID)
+}
+
+// required .th.MDateTime LastUpdateTime = 1;
+inline bool ADEndofGameSessionReq::_internal_has_lastupdatetime() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || lastupdatetime_ != nullptr);
+  return value;
+}
+inline bool ADEndofGameSessionReq::has_lastupdatetime() const {
+  return _internal_has_lastupdatetime();
+}
+inline const ::th::MDateTime& ADEndofGameSessionReq::_internal_lastupdatetime() const {
+  const ::th::MDateTime* p = lastupdatetime_;
+  return p != nullptr ? *p : reinterpret_cast<const ::th::MDateTime&>(
+      ::th::_MDateTime_default_instance_);
+}
+inline const ::th::MDateTime& ADEndofGameSessionReq::lastupdatetime() const {
+  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.LastUpdateTime)
+  return _internal_lastupdatetime();
+}
+inline void ADEndofGameSessionReq::unsafe_arena_set_allocated_lastupdatetime(
+    ::th::MDateTime* lastupdatetime) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(lastupdatetime_);
+  }
+  lastupdatetime_ = lastupdatetime;
+  if (lastupdatetime) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:th.ADEndofGameSessionReq.LastUpdateTime)
+}
+inline ::th::MDateTime* ADEndofGameSessionReq::release_lastupdatetime() {
+  _has_bits_[0] &= ~0x00000001u;
+  ::th::MDateTime* temp = lastupdatetime_;
+  lastupdatetime_ = nullptr;
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::th::MDateTime* ADEndofGameSessionReq::unsafe_arena_release_lastupdatetime() {
+  // @@protoc_insertion_point(field_release:th.ADEndofGameSessionReq.LastUpdateTime)
+  _has_bits_[0] &= ~0x00000001u;
+  ::th::MDateTime* temp = lastupdatetime_;
+  lastupdatetime_ = nullptr;
+  return temp;
+}
+inline ::th::MDateTime* ADEndofGameSessionReq::_internal_mutable_lastupdatetime() {
+  _has_bits_[0] |= 0x00000001u;
+  if (lastupdatetime_ == nullptr) {
+    auto* p = CreateMaybeMessage<::th::MDateTime>(GetArenaForAllocation());
+    lastupdatetime_ = p;
+  }
+  return lastupdatetime_;
+}
+inline ::th::MDateTime* ADEndofGameSessionReq::mutable_lastupdatetime() {
+  // @@protoc_insertion_point(field_mutable:th.ADEndofGameSessionReq.LastUpdateTime)
+  return _internal_mutable_lastupdatetime();
+}
+inline void ADEndofGameSessionReq::set_allocated_lastupdatetime(::th::MDateTime* lastupdatetime) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(lastupdatetime_);
+  }
+  if (lastupdatetime) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(lastupdatetime));
+    if (message_arena != submessage_arena) {
+      lastupdatetime = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, lastupdatetime, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  lastupdatetime_ = lastupdatetime;
+  // @@protoc_insertion_point(field_set_allocated:th.ADEndofGameSessionReq.LastUpdateTime)
+}
+
+// required int64 LogKey = 2;
+inline bool ADEndofGameSessionReq::_internal_has_logkey() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool ADEndofGameSessionReq::has_logkey() const {
+  return _internal_has_logkey();
+}
+inline void ADEndofGameSessionReq::clear_logkey() {
+  logkey_ = int64_t{0};
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ADEndofGameSessionReq::_internal_logkey() const {
+  return logkey_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ADEndofGameSessionReq::logkey() const {
+  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.LogKey)
+  return _internal_logkey();
+}
+inline void ADEndofGameSessionReq::_internal_set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _has_bits_[0] |= 0x00000002u;
+  logkey_ = value;
+}
+inline void ADEndofGameSessionReq::set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_logkey(value);
+  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.LogKey)
+}
+
+// required int32 ChannelID = 3;
+inline bool ADEndofGameSessionReq::_internal_has_channelid() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool ADEndofGameSessionReq::has_channelid() const {
+  return _internal_has_channelid();
+}
+inline void ADEndofGameSessionReq::clear_channelid() {
+  channelid_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::_internal_channelid() const {
+  return channelid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::channelid() const {
+  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.ChannelID)
+  return _internal_channelid();
+}
+inline void ADEndofGameSessionReq::_internal_set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  channelid_ = value;
+}
+inline void ADEndofGameSessionReq::set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_channelid(value);
+  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.ChannelID)
+}
+
+// required int32 GuildID = 4;
+inline bool ADEndofGameSessionReq::_internal_has_guildid() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool ADEndofGameSessionReq::has_guildid() const {
+  return _internal_has_guildid();
+}
+inline void ADEndofGameSessionReq::clear_guildid() {
+  guildid_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::_internal_guildid() const {
+  return guildid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::guildid() const {
+  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.GuildID)
+  return _internal_guildid();
+}
+inline void ADEndofGameSessionReq::_internal_set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  guildid_ = value;
+}
+inline void ADEndofGameSessionReq::set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_guildid(value);
+  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.GuildID)
+}
+
+// required bool IsSeqMaintenance = 5;
+inline bool ADEndofGameSessionReq::_internal_has_isseqmaintenance() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool ADEndofGameSessionReq::has_isseqmaintenance() const {
+  return _internal_has_isseqmaintenance();
+}
+inline void ADEndofGameSessionReq::clear_isseqmaintenance() {
+  isseqmaintenance_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool ADEndofGameSessionReq::_internal_isseqmaintenance() const {
+  return isseqmaintenance_;
+}
+inline bool ADEndofGameSessionReq::isseqmaintenance() const {
+  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.IsSeqMaintenance)
+  return _internal_isseqmaintenance();
+}
+inline void ADEndofGameSessionReq::_internal_set_isseqmaintenance(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  isseqmaintenance_ = value;
+}
+inline void ADEndofGameSessionReq::set_isseqmaintenance(bool value) {
+  _internal_set_isseqmaintenance(value);
+  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.IsSeqMaintenance)
+}
+
+// -------------------------------------------------------------------
+
+// DAEndofGameSessionAck
+
+// optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
+inline bool DAEndofGameSessionAck::_internal_has_messageid() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool DAEndofGameSessionAck::has_messageid() const {
+  return _internal_has_messageid();
+}
+inline void DAEndofGameSessionAck::clear_messageid() {
+  messageid_ = 20105;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::th::EMessageID DAEndofGameSessionAck::_internal_messageid() const {
+  return static_cast< ::th::EMessageID >(messageid_);
+}
+inline ::th::EMessageID DAEndofGameSessionAck::messageid() const {
+  // @@protoc_insertion_point(field_get:th.DAEndofGameSessionAck.MessageID)
+  return _internal_messageid();
+}
+inline void DAEndofGameSessionAck::_internal_set_messageid(::th::EMessageID value) {
+  assert(::th::EMessageID_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  messageid_ = value;
+}
+inline void DAEndofGameSessionAck::set_messageid(::th::EMessageID value) {
+  _internal_set_messageid(value);
+  // @@protoc_insertion_point(field_set:th.DAEndofGameSessionAck.MessageID)
+}
+
+// required .th.EErrorMsg Error = 95;
+inline bool DAEndofGameSessionAck::_internal_has_error() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool DAEndofGameSessionAck::has_error() const {
+  return _internal_has_error();
+}
+inline void DAEndofGameSessionAck::clear_error() {
+  error_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::th::EErrorMsg DAEndofGameSessionAck::_internal_error() const {
+  return static_cast< ::th::EErrorMsg >(error_);
+}
+inline ::th::EErrorMsg DAEndofGameSessionAck::error() const {
+  // @@protoc_insertion_point(field_get:th.DAEndofGameSessionAck.Error)
+  return _internal_error();
+}
+inline void DAEndofGameSessionAck::_internal_set_error(::th::EErrorMsg value) {
+  assert(::th::EErrorMsg_IsValid(value));
+  _has_bits_[0] |= 0x00000001u;
+  error_ = value;
+}
+inline void DAEndofGameSessionAck::set_error(::th::EErrorMsg value) {
+  _internal_set_error(value);
+  // @@protoc_insertion_point(field_set:th.DAEndofGameSessionAck.Error)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

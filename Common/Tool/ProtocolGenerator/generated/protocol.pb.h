@@ -47,7 +47,7 @@ struct TableStruct_protocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -67,9 +67,6 @@ extern ACGetPlayerInfoNotiDefaultTypeInternal _ACGetPlayerInfoNoti_default_insta
 class ACLoginAck;
 struct ACLoginAckDefaultTypeInternal;
 extern ACLoginAckDefaultTypeInternal _ACLoginAck_default_instance_;
-class ADEndofGameSessionReq;
-struct ADEndofGameSessionReqDefaultTypeInternal;
-extern ADEndofGameSessionReqDefaultTypeInternal _ADEndofGameSessionReq_default_instance_;
 class CAGetPlayerReq;
 struct CAGetPlayerReqDefaultTypeInternal;
 extern CAGetPlayerReqDefaultTypeInternal _CAGetPlayerReq_default_instance_;
@@ -79,9 +76,6 @@ extern CALoginReqDefaultTypeInternal _CALoginReq_default_instance_;
 class CGAuthLoginReq;
 struct CGAuthLoginReqDefaultTypeInternal;
 extern CGAuthLoginReqDefaultTypeInternal _CGAuthLoginReq_default_instance_;
-class DAEndofGameSessionAck;
-struct DAEndofGameSessionAckDefaultTypeInternal;
-extern DAEndofGameSessionAckDefaultTypeInternal _DAEndofGameSessionAck_default_instance_;
 class GCAuthLoginAck;
 struct GCAuthLoginAckDefaultTypeInternal;
 extern GCAuthLoginAckDefaultTypeInternal _GCAuthLoginAck_default_instance_;
@@ -124,11 +118,9 @@ template<> ::th::ACCommonNak* Arena::CreateMaybeMessage<::th::ACCommonNak>(Arena
 template<> ::th::ACGetPlayerAck* Arena::CreateMaybeMessage<::th::ACGetPlayerAck>(Arena*);
 template<> ::th::ACGetPlayerInfoNoti* Arena::CreateMaybeMessage<::th::ACGetPlayerInfoNoti>(Arena*);
 template<> ::th::ACLoginAck* Arena::CreateMaybeMessage<::th::ACLoginAck>(Arena*);
-template<> ::th::ADEndofGameSessionReq* Arena::CreateMaybeMessage<::th::ADEndofGameSessionReq>(Arena*);
 template<> ::th::CAGetPlayerReq* Arena::CreateMaybeMessage<::th::CAGetPlayerReq>(Arena*);
 template<> ::th::CALoginReq* Arena::CreateMaybeMessage<::th::CALoginReq>(Arena*);
 template<> ::th::CGAuthLoginReq* Arena::CreateMaybeMessage<::th::CGAuthLoginReq>(Arena*);
-template<> ::th::DAEndofGameSessionAck* Arena::CreateMaybeMessage<::th::DAEndofGameSessionAck>(Arena*);
 template<> ::th::GCAuthLoginAck* Arena::CreateMaybeMessage<::th::GCAuthLoginAck>(Arena*);
 template<> ::th::GCAuthLoginNak* Arena::CreateMaybeMessage<::th::GCAuthLoginNak>(Arena*);
 template<> ::th::MChatMessage* Arena::CreateMaybeMessage<::th::MChatMessage>(Arena*);
@@ -1347,7 +1339,6 @@ class CGAuthLoginReq final :
     kJoinedCountryFieldNumber = 7,
     kDLCVersionFieldNumber = 8,
     kGameDataVersionFieldNumber = 9,
-    kNetmarbleSDKAuthFieldNumber = 3,
     kPlatformTypeFieldNumber = 4,
     kNaverWorksCertCodeFieldNumber = 5,
     kMessageIDFieldNumber = 99,
@@ -1460,19 +1451,6 @@ class CGAuthLoginReq final :
   std::string* _internal_mutable_gamedataversion();
   public:
 
-  // required bool NetmarbleSDKAuth = 3;
-  bool has_netmarblesdkauth() const;
-  private:
-  bool _internal_has_netmarblesdkauth() const;
-  public:
-  void clear_netmarblesdkauth();
-  bool netmarblesdkauth() const;
-  void set_netmarblesdkauth(bool value);
-  private:
-  bool _internal_netmarblesdkauth() const;
-  void _internal_set_netmarblesdkauth(bool value);
-  public:
-
   // required .th.EPlatformType PlatformType = 4;
   bool has_platformtype() const;
   private:
@@ -1530,7 +1508,6 @@ class CGAuthLoginReq final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr joinedcountry_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dlcversion_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gamedataversion_;
-  bool netmarblesdkauth_;
   int platformtype_;
   ::PROTOBUF_NAMESPACE_ID::int32 naverworkscertcode_;
   int messageid_;
@@ -2000,10 +1977,9 @@ class CALoginReq final :
     kIPFieldNumber = 9,
     kJoinedCountryFieldNumber = 11,
     kCurrentVersionFieldNumber = 1,
-    kIsReconnectFieldNumber = 4,
-    kNetmarbleSDKAuthFieldNumber = 6,
-    kSequenceMaintenanceLoginFieldNumber = 10,
     kPlatformTypeFieldNumber = 7,
+    kIsReconnectFieldNumber = 4,
+    kSequenceMaintenanceLoginFieldNumber = 10,
     kLanguageIDFieldNumber = 3,
     kMessageIDFieldNumber = 99,
   };
@@ -2110,6 +2086,19 @@ class CALoginReq final :
   void _internal_set_currentversion(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // required .th.EPlatformType PlatformType = 7;
+  bool has_platformtype() const;
+  private:
+  bool _internal_has_platformtype() const;
+  public:
+  void clear_platformtype();
+  ::th::EPlatformType platformtype() const;
+  void set_platformtype(::th::EPlatformType value);
+  private:
+  ::th::EPlatformType _internal_platformtype() const;
+  void _internal_set_platformtype(::th::EPlatformType value);
+  public:
+
   // optional bool IsReconnect = 4;
   bool has_isreconnect() const;
   private:
@@ -2123,19 +2112,6 @@ class CALoginReq final :
   void _internal_set_isreconnect(bool value);
   public:
 
-  // required bool NetmarbleSDKAuth = 6;
-  bool has_netmarblesdkauth() const;
-  private:
-  bool _internal_has_netmarblesdkauth() const;
-  public:
-  void clear_netmarblesdkauth();
-  bool netmarblesdkauth() const;
-  void set_netmarblesdkauth(bool value);
-  private:
-  bool _internal_netmarblesdkauth() const;
-  void _internal_set_netmarblesdkauth(bool value);
-  public:
-
   // optional bool SequenceMaintenanceLogin = 10 [default = false];
   bool has_sequencemaintenancelogin() const;
   private:
@@ -2147,19 +2123,6 @@ class CALoginReq final :
   private:
   bool _internal_sequencemaintenancelogin() const;
   void _internal_set_sequencemaintenancelogin(bool value);
-  public:
-
-  // required .th.EPlatformType PlatformType = 7;
-  bool has_platformtype() const;
-  private:
-  bool _internal_has_platformtype() const;
-  public:
-  void clear_platformtype();
-  ::th::EPlatformType platformtype() const;
-  void set_platformtype(::th::EPlatformType value);
-  private:
-  ::th::EPlatformType _internal_platformtype() const;
-  void _internal_set_platformtype(::th::EPlatformType value);
   public:
 
   // optional int32 LanguageID = 3 [default = 1];
@@ -2206,10 +2169,9 @@ class CALoginReq final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr joinedcountry_;
   ::PROTOBUF_NAMESPACE_ID::int32 currentversion_;
-  bool isreconnect_;
-  bool netmarblesdkauth_;
-  bool sequencemaintenancelogin_;
   int platformtype_;
+  bool isreconnect_;
+  bool sequencemaintenancelogin_;
   ::PROTOBUF_NAMESPACE_ID::int32 languageid_;
   int messageid_;
   friend struct ::TableStruct_protocol_2eproto;
@@ -3043,377 +3005,6 @@ class ACGetPlayerInfoNoti final :
 };
 // -------------------------------------------------------------------
 
-class ADEndofGameSessionReq final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:th.ADEndofGameSessionReq) */ {
- public:
-  inline ADEndofGameSessionReq() : ADEndofGameSessionReq(nullptr) {}
-  ~ADEndofGameSessionReq() override;
-  explicit constexpr ADEndofGameSessionReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  ADEndofGameSessionReq(const ADEndofGameSessionReq& from);
-  ADEndofGameSessionReq(ADEndofGameSessionReq&& from) noexcept
-    : ADEndofGameSessionReq() {
-    *this = ::std::move(from);
-  }
-
-  inline ADEndofGameSessionReq& operator=(const ADEndofGameSessionReq& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ADEndofGameSessionReq& operator=(ADEndofGameSessionReq&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const ADEndofGameSessionReq& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const ADEndofGameSessionReq* internal_default_instance() {
-    return reinterpret_cast<const ADEndofGameSessionReq*>(
-               &_ADEndofGameSessionReq_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    14;
-
-  friend void swap(ADEndofGameSessionReq& a, ADEndofGameSessionReq& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(ADEndofGameSessionReq* other) {
-    if (other == this) return;
-    if (GetOwningArena() == other->GetOwningArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ADEndofGameSessionReq* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ADEndofGameSessionReq* New() const final {
-    return new ADEndofGameSessionReq();
-  }
-
-  ADEndofGameSessionReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<ADEndofGameSessionReq>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const ADEndofGameSessionReq& from);
-  void MergeFrom(const ADEndofGameSessionReq& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ADEndofGameSessionReq* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "th.ADEndofGameSessionReq";
-  }
-  protected:
-  explicit ADEndofGameSessionReq(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLastUpdateTimeFieldNumber = 1,
-    kLogKeyFieldNumber = 2,
-    kChannelIDFieldNumber = 3,
-    kGuildIDFieldNumber = 4,
-    kMessageIDFieldNumber = 99,
-  };
-  // required .th.MDateTime LastUpdateTime = 1;
-  bool has_lastupdatetime() const;
-  private:
-  bool _internal_has_lastupdatetime() const;
-  public:
-  void clear_lastupdatetime();
-  const ::th::MDateTime& lastupdatetime() const;
-  PROTOBUF_FUTURE_MUST_USE_RESULT ::th::MDateTime* release_lastupdatetime();
-  ::th::MDateTime* mutable_lastupdatetime();
-  void set_allocated_lastupdatetime(::th::MDateTime* lastupdatetime);
-  private:
-  const ::th::MDateTime& _internal_lastupdatetime() const;
-  ::th::MDateTime* _internal_mutable_lastupdatetime();
-  public:
-  void unsafe_arena_set_allocated_lastupdatetime(
-      ::th::MDateTime* lastupdatetime);
-  ::th::MDateTime* unsafe_arena_release_lastupdatetime();
-
-  // required int64 LogKey = 2;
-  bool has_logkey() const;
-  private:
-  bool _internal_has_logkey() const;
-  public:
-  void clear_logkey();
-  ::PROTOBUF_NAMESPACE_ID::int64 logkey() const;
-  void set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int64 _internal_logkey() const;
-  void _internal_set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value);
-  public:
-
-  // required int32 ChannelID = 3;
-  bool has_channelid() const;
-  private:
-  bool _internal_has_channelid() const;
-  public:
-  void clear_channelid();
-  ::PROTOBUF_NAMESPACE_ID::int32 channelid() const;
-  void set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_channelid() const;
-  void _internal_set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // required int32 GuildID = 4;
-  bool has_guildid() const;
-  private:
-  bool _internal_has_guildid() const;
-  public:
-  void clear_guildid();
-  ::PROTOBUF_NAMESPACE_ID::int32 guildid() const;
-  void set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_guildid() const;
-  void _internal_set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
-  bool has_messageid() const;
-  private:
-  bool _internal_has_messageid() const;
-  public:
-  void clear_messageid();
-  ::th::EMessageID messageid() const;
-  void set_messageid(::th::EMessageID value);
-  private:
-  ::th::EMessageID _internal_messageid() const;
-  void _internal_set_messageid(::th::EMessageID value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:th.ADEndofGameSessionReq)
- private:
-  class _Internal;
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::th::MDateTime* lastupdatetime_;
-  ::PROTOBUF_NAMESPACE_ID::int64 logkey_;
-  ::PROTOBUF_NAMESPACE_ID::int32 channelid_;
-  ::PROTOBUF_NAMESPACE_ID::int32 guildid_;
-  int messageid_;
-  friend struct ::TableStruct_protocol_2eproto;
-};
-// -------------------------------------------------------------------
-
-class DAEndofGameSessionAck final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:th.DAEndofGameSessionAck) */ {
- public:
-  inline DAEndofGameSessionAck() : DAEndofGameSessionAck(nullptr) {}
-  ~DAEndofGameSessionAck() override;
-  explicit constexpr DAEndofGameSessionAck(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  DAEndofGameSessionAck(const DAEndofGameSessionAck& from);
-  DAEndofGameSessionAck(DAEndofGameSessionAck&& from) noexcept
-    : DAEndofGameSessionAck() {
-    *this = ::std::move(from);
-  }
-
-  inline DAEndofGameSessionAck& operator=(const DAEndofGameSessionAck& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DAEndofGameSessionAck& operator=(DAEndofGameSessionAck&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const DAEndofGameSessionAck& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const DAEndofGameSessionAck* internal_default_instance() {
-    return reinterpret_cast<const DAEndofGameSessionAck*>(
-               &_DAEndofGameSessionAck_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    15;
-
-  friend void swap(DAEndofGameSessionAck& a, DAEndofGameSessionAck& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(DAEndofGameSessionAck* other) {
-    if (other == this) return;
-    if (GetOwningArena() == other->GetOwningArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DAEndofGameSessionAck* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DAEndofGameSessionAck* New() const final {
-    return new DAEndofGameSessionAck();
-  }
-
-  DAEndofGameSessionAck* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<DAEndofGameSessionAck>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const DAEndofGameSessionAck& from);
-  void MergeFrom(const DAEndofGameSessionAck& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(DAEndofGameSessionAck* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "th.DAEndofGameSessionAck";
-  }
-  protected:
-  explicit DAEndofGameSessionAck(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kErrorFieldNumber = 95,
-    kMessageIDFieldNumber = 99,
-  };
-  // required .th.EErrorMsg Error = 95;
-  bool has_error() const;
-  private:
-  bool _internal_has_error() const;
-  public:
-  void clear_error();
-  ::th::EErrorMsg error() const;
-  void set_error(::th::EErrorMsg value);
-  private:
-  ::th::EErrorMsg _internal_error() const;
-  void _internal_set_error(::th::EErrorMsg value);
-  public:
-
-  // optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
-  bool has_messageid() const;
-  private:
-  bool _internal_has_messageid() const;
-  public:
-  void clear_messageid();
-  ::th::EMessageID messageid() const;
-  void set_messageid(::th::EMessageID value);
-  private:
-  ::th::EMessageID _internal_messageid() const;
-  void _internal_set_messageid(::th::EMessageID value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:th.DAEndofGameSessionAck)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  int error_;
-  int messageid_;
-  friend struct ::TableStruct_protocol_2eproto;
-};
-// -------------------------------------------------------------------
-
 class MSimplePlayer final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:th.MSimplePlayer) */ {
  public:
@@ -3465,7 +3056,7 @@ class MSimplePlayer final :
                &_MSimplePlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    14;
 
   friend void swap(MSimplePlayer& a, MSimplePlayer& b) {
     a.Swap(&b);
@@ -3647,7 +3238,7 @@ class MChatMessage final :
                &_MChatMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    15;
 
   friend void swap(MChatMessage& a, MChatMessage& b) {
     a.Swap(&b);
@@ -3773,7 +3364,7 @@ class MDateTime final :
                &_MDateTime_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    16;
 
   friend void swap(MDateTime& a, MDateTime& b) {
     a.Swap(&b);
@@ -4022,7 +3613,7 @@ class MHero final :
                &_MHero_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    17;
 
   friend void swap(MHero& a, MHero& b) {
     a.Swap(&b);
@@ -4370,7 +3961,7 @@ class MEquipItem final :
                &_MEquipItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    18;
 
   friend void swap(MEquipItem& a, MEquipItem& b) {
     a.Swap(&b);
@@ -5165,7 +4756,7 @@ inline void ACCommonNak::set_successfulmsgid(::PROTOBUF_NAMESPACE_ID::int32 valu
 
 // optional .th.EMessageID MessageID = 99 [default = CG_AUTH_LOGIN_REQ];
 inline bool CGAuthLoginReq::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CGAuthLoginReq::has_messageid() const {
@@ -5173,7 +4764,7 @@ inline bool CGAuthLoginReq::has_messageid() const {
 }
 inline void CGAuthLoginReq::clear_messageid() {
   messageid_ = 1001;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline ::th::EMessageID CGAuthLoginReq::_internal_messageid() const {
   return static_cast< ::th::EMessageID >(messageid_);
@@ -5184,7 +4775,7 @@ inline ::th::EMessageID CGAuthLoginReq::messageid() const {
 }
 inline void CGAuthLoginReq::_internal_set_messageid(::th::EMessageID value) {
   assert(::th::EMessageID_IsValid(value));
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000100u;
   messageid_ = value;
 }
 inline void CGAuthLoginReq::set_messageid(::th::EMessageID value) {
@@ -5306,37 +4897,9 @@ inline void CGAuthLoginReq::set_allocated_pid(std::string* pid) {
   // @@protoc_insertion_point(field_set_allocated:th.CGAuthLoginReq.Pid)
 }
 
-// required bool NetmarbleSDKAuth = 3;
-inline bool CGAuthLoginReq::_internal_has_netmarblesdkauth() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CGAuthLoginReq::has_netmarblesdkauth() const {
-  return _internal_has_netmarblesdkauth();
-}
-inline void CGAuthLoginReq::clear_netmarblesdkauth() {
-  netmarblesdkauth_ = false;
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline bool CGAuthLoginReq::_internal_netmarblesdkauth() const {
-  return netmarblesdkauth_;
-}
-inline bool CGAuthLoginReq::netmarblesdkauth() const {
-  // @@protoc_insertion_point(field_get:th.CGAuthLoginReq.NetmarbleSDKAuth)
-  return _internal_netmarblesdkauth();
-}
-inline void CGAuthLoginReq::_internal_set_netmarblesdkauth(bool value) {
-  _has_bits_[0] |= 0x00000040u;
-  netmarblesdkauth_ = value;
-}
-inline void CGAuthLoginReq::set_netmarblesdkauth(bool value) {
-  _internal_set_netmarblesdkauth(value);
-  // @@protoc_insertion_point(field_set:th.CGAuthLoginReq.NetmarbleSDKAuth)
-}
-
 // required .th.EPlatformType PlatformType = 4;
 inline bool CGAuthLoginReq::_internal_has_platformtype() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CGAuthLoginReq::has_platformtype() const {
@@ -5344,7 +4907,7 @@ inline bool CGAuthLoginReq::has_platformtype() const {
 }
 inline void CGAuthLoginReq::clear_platformtype() {
   platformtype_ = 0;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::th::EPlatformType CGAuthLoginReq::_internal_platformtype() const {
   return static_cast< ::th::EPlatformType >(platformtype_);
@@ -5355,7 +4918,7 @@ inline ::th::EPlatformType CGAuthLoginReq::platformtype() const {
 }
 inline void CGAuthLoginReq::_internal_set_platformtype(::th::EPlatformType value) {
   assert(::th::EPlatformType_IsValid(value));
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
   platformtype_ = value;
 }
 inline void CGAuthLoginReq::set_platformtype(::th::EPlatformType value) {
@@ -5365,7 +4928,7 @@ inline void CGAuthLoginReq::set_platformtype(::th::EPlatformType value) {
 
 // optional int32 NaverWorksCertCode = 5;
 inline bool CGAuthLoginReq::_internal_has_naverworkscertcode() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CGAuthLoginReq::has_naverworkscertcode() const {
@@ -5373,7 +4936,7 @@ inline bool CGAuthLoginReq::has_naverworkscertcode() const {
 }
 inline void CGAuthLoginReq::clear_naverworkscertcode() {
   naverworkscertcode_ = 0;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CGAuthLoginReq::_internal_naverworkscertcode() const {
   return naverworkscertcode_;
@@ -5383,7 +4946,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CGAuthLoginReq::naverworkscertcode() const
   return _internal_naverworkscertcode();
 }
 inline void CGAuthLoginReq::_internal_set_naverworkscertcode(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000080u;
   naverworkscertcode_ = value;
 }
 inline void CGAuthLoginReq::set_naverworkscertcode(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5805,7 +5368,7 @@ inline void GCAuthLoginNak::set_error(::th::EErrorMsg value) {
 
 // optional .th.EMessageID MessageID = 99 [default = CA_LOGIN_REQ];
 inline bool CALoginReq::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CALoginReq::has_messageid() const {
@@ -5813,7 +5376,7 @@ inline bool CALoginReq::has_messageid() const {
 }
 inline void CALoginReq::clear_messageid() {
   messageid_ = 10002;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::th::EMessageID CALoginReq::_internal_messageid() const {
   return static_cast< ::th::EMessageID >(messageid_);
@@ -5824,7 +5387,7 @@ inline ::th::EMessageID CALoginReq::messageid() const {
 }
 inline void CALoginReq::_internal_set_messageid(::th::EMessageID value) {
   assert(::th::EMessageID_IsValid(value));
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000400u;
   messageid_ = value;
 }
 inline void CALoginReq::set_messageid(::th::EMessageID value) {
@@ -5919,7 +5482,7 @@ inline void CALoginReq::set_allocated_pid(std::string* pid) {
 
 // optional int32 LanguageID = 3 [default = 1];
 inline bool CALoginReq::_internal_has_languageid() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CALoginReq::has_languageid() const {
@@ -5927,7 +5490,7 @@ inline bool CALoginReq::has_languageid() const {
 }
 inline void CALoginReq::clear_languageid() {
   languageid_ = 1;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CALoginReq::_internal_languageid() const {
   return languageid_;
@@ -5937,7 +5500,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CALoginReq::languageid() const {
   return _internal_languageid();
 }
 inline void CALoginReq::_internal_set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000200u;
   languageid_ = value;
 }
 inline void CALoginReq::set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5947,7 +5510,7 @@ inline void CALoginReq::set_languageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
 
 // optional bool IsReconnect = 4;
 inline bool CALoginReq::_internal_has_isreconnect() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CALoginReq::has_isreconnect() const {
@@ -5955,7 +5518,7 @@ inline bool CALoginReq::has_isreconnect() const {
 }
 inline void CALoginReq::clear_isreconnect() {
   isreconnect_ = false;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline bool CALoginReq::_internal_isreconnect() const {
   return isreconnect_;
@@ -5965,7 +5528,7 @@ inline bool CALoginReq::isreconnect() const {
   return _internal_isreconnect();
 }
 inline void CALoginReq::_internal_set_isreconnect(bool value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   isreconnect_ = value;
 }
 inline void CALoginReq::set_isreconnect(bool value) {
@@ -6030,37 +5593,9 @@ inline void CALoginReq::set_allocated_authtoken(std::string* authtoken) {
   // @@protoc_insertion_point(field_set_allocated:th.CALoginReq.AuthToken)
 }
 
-// required bool NetmarbleSDKAuth = 6;
-inline bool CALoginReq::_internal_has_netmarblesdkauth() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool CALoginReq::has_netmarblesdkauth() const {
-  return _internal_has_netmarblesdkauth();
-}
-inline void CALoginReq::clear_netmarblesdkauth() {
-  netmarblesdkauth_ = false;
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline bool CALoginReq::_internal_netmarblesdkauth() const {
-  return netmarblesdkauth_;
-}
-inline bool CALoginReq::netmarblesdkauth() const {
-  // @@protoc_insertion_point(field_get:th.CALoginReq.NetmarbleSDKAuth)
-  return _internal_netmarblesdkauth();
-}
-inline void CALoginReq::_internal_set_netmarblesdkauth(bool value) {
-  _has_bits_[0] |= 0x00000080u;
-  netmarblesdkauth_ = value;
-}
-inline void CALoginReq::set_netmarblesdkauth(bool value) {
-  _internal_set_netmarblesdkauth(value);
-  // @@protoc_insertion_point(field_set:th.CALoginReq.NetmarbleSDKAuth)
-}
-
 // required .th.EPlatformType PlatformType = 7;
 inline bool CALoginReq::_internal_has_platformtype() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CALoginReq::has_platformtype() const {
@@ -6068,7 +5603,7 @@ inline bool CALoginReq::has_platformtype() const {
 }
 inline void CALoginReq::clear_platformtype() {
   platformtype_ = 0;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::th::EPlatformType CALoginReq::_internal_platformtype() const {
   return static_cast< ::th::EPlatformType >(platformtype_);
@@ -6079,7 +5614,7 @@ inline ::th::EPlatformType CALoginReq::platformtype() const {
 }
 inline void CALoginReq::_internal_set_platformtype(::th::EPlatformType value) {
   assert(::th::EPlatformType_IsValid(value));
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000040u;
   platformtype_ = value;
 }
 inline void CALoginReq::set_platformtype(::th::EPlatformType value) {
@@ -6982,268 +6517,6 @@ inline void ACGetPlayerInfoNoti::set_allocated_lastlevelupdate(::th::MDateTime* 
 
 // -------------------------------------------------------------------
 
-// ADEndofGameSessionReq
-
-// optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
-inline bool ADEndofGameSessionReq::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool ADEndofGameSessionReq::has_messageid() const {
-  return _internal_has_messageid();
-}
-inline void ADEndofGameSessionReq::clear_messageid() {
-  messageid_ = 20103;
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline ::th::EMessageID ADEndofGameSessionReq::_internal_messageid() const {
-  return static_cast< ::th::EMessageID >(messageid_);
-}
-inline ::th::EMessageID ADEndofGameSessionReq::messageid() const {
-  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.MessageID)
-  return _internal_messageid();
-}
-inline void ADEndofGameSessionReq::_internal_set_messageid(::th::EMessageID value) {
-  assert(::th::EMessageID_IsValid(value));
-  _has_bits_[0] |= 0x00000010u;
-  messageid_ = value;
-}
-inline void ADEndofGameSessionReq::set_messageid(::th::EMessageID value) {
-  _internal_set_messageid(value);
-  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.MessageID)
-}
-
-// required .th.MDateTime LastUpdateTime = 1;
-inline bool ADEndofGameSessionReq::_internal_has_lastupdatetime() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || lastupdatetime_ != nullptr);
-  return value;
-}
-inline bool ADEndofGameSessionReq::has_lastupdatetime() const {
-  return _internal_has_lastupdatetime();
-}
-inline void ADEndofGameSessionReq::clear_lastupdatetime() {
-  if (lastupdatetime_ != nullptr) lastupdatetime_->Clear();
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const ::th::MDateTime& ADEndofGameSessionReq::_internal_lastupdatetime() const {
-  const ::th::MDateTime* p = lastupdatetime_;
-  return p != nullptr ? *p : reinterpret_cast<const ::th::MDateTime&>(
-      ::th::_MDateTime_default_instance_);
-}
-inline const ::th::MDateTime& ADEndofGameSessionReq::lastupdatetime() const {
-  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.LastUpdateTime)
-  return _internal_lastupdatetime();
-}
-inline void ADEndofGameSessionReq::unsafe_arena_set_allocated_lastupdatetime(
-    ::th::MDateTime* lastupdatetime) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(lastupdatetime_);
-  }
-  lastupdatetime_ = lastupdatetime;
-  if (lastupdatetime) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:th.ADEndofGameSessionReq.LastUpdateTime)
-}
-inline ::th::MDateTime* ADEndofGameSessionReq::release_lastupdatetime() {
-  _has_bits_[0] &= ~0x00000001u;
-  ::th::MDateTime* temp = lastupdatetime_;
-  lastupdatetime_ = nullptr;
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::th::MDateTime* ADEndofGameSessionReq::unsafe_arena_release_lastupdatetime() {
-  // @@protoc_insertion_point(field_release:th.ADEndofGameSessionReq.LastUpdateTime)
-  _has_bits_[0] &= ~0x00000001u;
-  ::th::MDateTime* temp = lastupdatetime_;
-  lastupdatetime_ = nullptr;
-  return temp;
-}
-inline ::th::MDateTime* ADEndofGameSessionReq::_internal_mutable_lastupdatetime() {
-  _has_bits_[0] |= 0x00000001u;
-  if (lastupdatetime_ == nullptr) {
-    auto* p = CreateMaybeMessage<::th::MDateTime>(GetArenaForAllocation());
-    lastupdatetime_ = p;
-  }
-  return lastupdatetime_;
-}
-inline ::th::MDateTime* ADEndofGameSessionReq::mutable_lastupdatetime() {
-  // @@protoc_insertion_point(field_mutable:th.ADEndofGameSessionReq.LastUpdateTime)
-  return _internal_mutable_lastupdatetime();
-}
-inline void ADEndofGameSessionReq::set_allocated_lastupdatetime(::th::MDateTime* lastupdatetime) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete lastupdatetime_;
-  }
-  if (lastupdatetime) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::th::MDateTime>::GetOwningArena(lastupdatetime);
-    if (message_arena != submessage_arena) {
-      lastupdatetime = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, lastupdatetime, submessage_arena);
-    }
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  lastupdatetime_ = lastupdatetime;
-  // @@protoc_insertion_point(field_set_allocated:th.ADEndofGameSessionReq.LastUpdateTime)
-}
-
-// required int64 LogKey = 2;
-inline bool ADEndofGameSessionReq::_internal_has_logkey() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool ADEndofGameSessionReq::has_logkey() const {
-  return _internal_has_logkey();
-}
-inline void ADEndofGameSessionReq::clear_logkey() {
-  logkey_ = int64_t{0};
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 ADEndofGameSessionReq::_internal_logkey() const {
-  return logkey_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int64 ADEndofGameSessionReq::logkey() const {
-  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.LogKey)
-  return _internal_logkey();
-}
-inline void ADEndofGameSessionReq::_internal_set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000002u;
-  logkey_ = value;
-}
-inline void ADEndofGameSessionReq::set_logkey(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _internal_set_logkey(value);
-  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.LogKey)
-}
-
-// required int32 ChannelID = 3;
-inline bool ADEndofGameSessionReq::_internal_has_channelid() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool ADEndofGameSessionReq::has_channelid() const {
-  return _internal_has_channelid();
-}
-inline void ADEndofGameSessionReq::clear_channelid() {
-  channelid_ = 0;
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::_internal_channelid() const {
-  return channelid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::channelid() const {
-  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.ChannelID)
-  return _internal_channelid();
-}
-inline void ADEndofGameSessionReq::_internal_set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000004u;
-  channelid_ = value;
-}
-inline void ADEndofGameSessionReq::set_channelid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_channelid(value);
-  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.ChannelID)
-}
-
-// required int32 GuildID = 4;
-inline bool ADEndofGameSessionReq::_internal_has_guildid() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool ADEndofGameSessionReq::has_guildid() const {
-  return _internal_has_guildid();
-}
-inline void ADEndofGameSessionReq::clear_guildid() {
-  guildid_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::_internal_guildid() const {
-  return guildid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ADEndofGameSessionReq::guildid() const {
-  // @@protoc_insertion_point(field_get:th.ADEndofGameSessionReq.GuildID)
-  return _internal_guildid();
-}
-inline void ADEndofGameSessionReq::_internal_set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000008u;
-  guildid_ = value;
-}
-inline void ADEndofGameSessionReq::set_guildid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_guildid(value);
-  // @@protoc_insertion_point(field_set:th.ADEndofGameSessionReq.GuildID)
-}
-
-// -------------------------------------------------------------------
-
-// DAEndofGameSessionAck
-
-// optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
-inline bool DAEndofGameSessionAck::_internal_has_messageid() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool DAEndofGameSessionAck::has_messageid() const {
-  return _internal_has_messageid();
-}
-inline void DAEndofGameSessionAck::clear_messageid() {
-  messageid_ = 20104;
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline ::th::EMessageID DAEndofGameSessionAck::_internal_messageid() const {
-  return static_cast< ::th::EMessageID >(messageid_);
-}
-inline ::th::EMessageID DAEndofGameSessionAck::messageid() const {
-  // @@protoc_insertion_point(field_get:th.DAEndofGameSessionAck.MessageID)
-  return _internal_messageid();
-}
-inline void DAEndofGameSessionAck::_internal_set_messageid(::th::EMessageID value) {
-  assert(::th::EMessageID_IsValid(value));
-  _has_bits_[0] |= 0x00000002u;
-  messageid_ = value;
-}
-inline void DAEndofGameSessionAck::set_messageid(::th::EMessageID value) {
-  _internal_set_messageid(value);
-  // @@protoc_insertion_point(field_set:th.DAEndofGameSessionAck.MessageID)
-}
-
-// required .th.EErrorMsg Error = 95;
-inline bool DAEndofGameSessionAck::_internal_has_error() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool DAEndofGameSessionAck::has_error() const {
-  return _internal_has_error();
-}
-inline void DAEndofGameSessionAck::clear_error() {
-  error_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline ::th::EErrorMsg DAEndofGameSessionAck::_internal_error() const {
-  return static_cast< ::th::EErrorMsg >(error_);
-}
-inline ::th::EErrorMsg DAEndofGameSessionAck::error() const {
-  // @@protoc_insertion_point(field_get:th.DAEndofGameSessionAck.Error)
-  return _internal_error();
-}
-inline void DAEndofGameSessionAck::_internal_set_error(::th::EErrorMsg value) {
-  assert(::th::EErrorMsg_IsValid(value));
-  _has_bits_[0] |= 0x00000001u;
-  error_ = value;
-}
-inline void DAEndofGameSessionAck::set_error(::th::EErrorMsg value) {
-  _internal_set_error(value);
-  // @@protoc_insertion_point(field_set:th.DAEndofGameSessionAck.Error)
-}
-
-// -------------------------------------------------------------------
-
 // MSimplePlayer
 
 // required int64 AccountUID = 1;
@@ -8069,10 +7342,6 @@ inline void MEquipItem::set_itemtid(::PROTOBUF_NAMESPACE_ID::int32 value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

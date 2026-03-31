@@ -39,7 +39,7 @@ namespace th
 		if (LoadInis(paths))
 		{
 			SetProfile(env, service, id);
-			// TODO(KJY): Logger
+			TH_LOG_INFO(0, 0, "Env:% - Service:% - ID:%", env.c_str(), service.c_str(), id);
 			return true;
 		}
 

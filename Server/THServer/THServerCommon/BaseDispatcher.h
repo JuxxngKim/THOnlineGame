@@ -24,7 +24,7 @@ namespace th
 		template <typename DispatcherType, typename MessageType>
 		void RegisterHandler(DispatcherType* instance, void (DispatcherType::* handler)(const HostID_t&, const PTR<MessageType>&))
 		{
-			auto messageID = MessageType().MessageID();
+			auto messageID = MessageType().messageid();
 
 			m_handlers.insert({
 				messageID,

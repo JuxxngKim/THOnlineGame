@@ -40,15 +40,15 @@ namespace th
 		}
 	}
 
-	//bool ProtoMemberAdapter::IsClientRequestPacket(const int32_t msgId)
-	//{
-	//	return CA_CLIENT_ADVENTURE_BEGIN < msgId && msgId < CA_CLIENT_BATTLE_END;
-	//}
+	bool ProtoMemberAdapter::IsClientRequestPacket(const int32_t msgId)
+	{
+		return CA_CLIENT_ADVENTURE_BEGIN < msgId && msgId < AD_LOGIN_REQ;
+	}
 
-	//bool ProtoMemberAdapter::IsDBPacket(const int32_t msgId)
-	//{
-	//	return AD_ADVENTURE_DBSERVICE_BEGIN < msgId && msgId < AD_ADVENTURE_DBSERVICE_END;
-	//}
+	bool ProtoMemberAdapter::IsDBPacket(const int32_t msgId)
+	{
+		return AD_ADVENTURE_DBSERVICE_BEGIN < msgId && msgId < AD_ADVENTURE_DBSERVICE_END;
+	}
 
 	//bool ProtoMemberAdapter::IsInternalPacket(const int32_t msgId)
 	//{

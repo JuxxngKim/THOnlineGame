@@ -9,8 +9,7 @@ namespace th
 		{
 			if (filePath.empty())
 			{
-				// TODO(KJY): Logger
-				//S_LOG_ERROR(0,0,"memo:filePath_is_empty");
+				TH_LOG_ERROR(0,0,"memo:filePath_is_empty");
 				return{};
 			}
 
@@ -18,8 +17,7 @@ namespace th
 			auto len = ::GetPrivateProfileSectionNamesA(buffer, sizeof(buffer), filePath.c_str());
 			if (len == sizeof(buffer) - 2)
 			{
-				// TODO(KJY): Logger
-				//S_LOG_ERROR(0, 0, "%s memo:check buffer size", filePath);
+				TH_LOG_ERROR(0, 0, "%s memo:check buffer size", filePath);
 				return{};
 			}
 
@@ -35,8 +33,7 @@ namespace th
 		{
 			if (filePath.empty())
 			{
-				// TODO(KJY): Logger
-				//S_LOG_ERROR(0, 0, "memo:filePath_is_empty");
+				TH_LOG_ERROR(0, 0, "memo:filePath_is_empty");
 				return{};
 			}
 
@@ -44,8 +41,7 @@ namespace th
 			auto len = ::GetPrivateProfileSectionA(name.c_str(), buffer, sizeof(buffer), filePath.c_str());
 			if (len == sizeof(buffer) - 2)
 			{
-				// TODO(KJY): Logger
-				//S_LOG_ERROR(0, 0, "%s memo:check buffer size", filePath);
+				TH_LOG_ERROR(0, 0, "%s memo:check buffer size", filePath);
 				return{};
 			}
 

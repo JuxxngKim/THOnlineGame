@@ -14,8 +14,6 @@ namespace th
 	enum class ELoginData
 	{
 		Player = 0,
-		Hero,
-		EquipItem,
 		Max,
 	};
 
@@ -70,5 +68,24 @@ namespace th
 		None = 0,
 		Membership = 1,
 		Game = 2,
+	};
+
+	enum class EPlayerStatus
+	{
+		None = 0,
+		Play = 1,
+		Idle = 2,
+		EndofGameSession = 3,
+	};
+
+	enum class EPlayerDisconnectionStatus
+	{
+		None = 0,
+		LoginBan = 1,
+		AccountWithdrawal = 2,
+		SequenceMaintenance = 3,    // 순차점검(무중단점검)
+		Maintenance = 4,    // 정기점검
+		AccountWithdrawalFromWeb = 5,    // 웹페이지를 통한 탈퇴
+		Max,
 	};
 }

@@ -10,6 +10,21 @@
     <Filter Include="OutGame">
       <UniqueIdentifier>{f15b1da3-6ef5-43df-85a4-c6cbd35750d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WaitingSession">
+      <UniqueIdentifier>{c81ccfc0-9bbc-4a11-9f31-9e14b592e59c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login">
+      <UniqueIdentifier>{e3b87315-4a03-4173-97ad-efa4ea5a7a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{b51e98d7-dda8-48e6-8036-5c1cf6df1d0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{051e5f7d-b9d5-4219-a625-ac64ca23233b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Concurrent">
+      <UniqueIdentifier>{fd0b4ca0-e1cb-47a5-884a-699805c65c4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,6 +39,33 @@
     <ClCompile Include="OutGameService.cpp">
       <Filter>OutGame</Filter>
     </ClCompile>
+    <ClCompile Include="OutGameLogicEventor.cpp">
+      <Filter>OutGame</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPendingList.cpp">
+      <Filter>Login</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitingSession.cpp">
+      <Filter>WaitingSession</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginSessionPlayer.cpp">
+      <Filter>Login</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerArchive.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDataLoader.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockDuplicatePacket.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcurrentCenter.cpp">
+      <Filter>Concurrent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GamePch.h">
@@ -34,6 +76,39 @@
     </ClInclude>
     <ClInclude Include="OutGameService.h">
       <Filter>OutGame</Filter>
+    </ClInclude>
+    <ClInclude Include="OutGameLogicEventor.h">
+      <Filter>OutGame</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPendingList.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitingSession.h">
+      <Filter>WaitingSession</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginSessionPlayer.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerArchive.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPacketSender.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDataLoader.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockDuplicatePacket.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="LogKeyGenerator.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcurrentCenter.h">
+      <Filter>Concurrent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

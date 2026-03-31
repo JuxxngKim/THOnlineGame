@@ -7,13 +7,11 @@ namespace th
 {
 	LogicUnit::LogicUnit(const Int64Key id, const int32_t maxLogicUnitPlayerCount) : m_id{ id }, m_maxLogicUnitPlayerCount{ maxLogicUnitPlayerCount }
 	{
-		//CommonMetric::GetInstance()->IncrementObject("logic_unit");
 	}
 
 	LogicUnit::~LogicUnit()
 	{
 		m_players.clear();
-		//CommonMetric::GetInstance()->DecrementObject("logic_unit");
 	}
 
 	void LogicUnit::Add(const PTR<IPlayerLogicUnit>& player)

@@ -295,10 +295,11 @@ namespace network
 			return;
 		}
 
+		// TODO
 		//// 서버시작 이벤트 발생
 		//auto msg = NEW(th::InternalEventTick);
-		//msg->set_EventType(static_cast<int32_t>(th::EEventType::ReadyServer));
-		//ExecuteCallback(msg->MessageID(), msg);
+		//msg->set_eventtype(static_cast<int32_t>(th::EEventType::ReadyServer));
+		//ExecuteCallback(msg->messageid(), msg);
 
 		//accept 요청
 		for (int32_t n = 0; n < MAX_ACCEPT_COUNT; ++n)

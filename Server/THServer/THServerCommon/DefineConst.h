@@ -122,3 +122,4 @@ constexpr int32_t	g_A_MinuteSec = 60;		// 60 sec - 1 minute.
 constexpr int32_t	g_SecsPerHour = 3600;
 const int32_t		g_PlayerCountSyncMs = 5000;
 const int32_t		g_AdventureServerAliveSyncMs = 1000;
+const int32_t		g_ForceDisconnectMs = 3000; // 3 sec

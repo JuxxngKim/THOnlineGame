@@ -58,6 +58,12 @@
     <Filter Include="Util\PacketLogFilter">
       <UniqueIdentifier>{53d6b315-af2a-45d5-bb48-28baaebc26c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util\MessageDelayAlarm">
+      <UniqueIdentifier>{4ea6d8b9-3c90-499f-bed6-62bcf0ac4b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Concurrent">
+      <UniqueIdentifier>{9a0492f4-c9e1-4390-9fed-b294dafb1c41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -210,6 +216,30 @@
     <ClInclude Include="PacketLogFilter.h">
       <Filter>Util\PacketLogFilter</Filter>
     </ClInclude>
+    <ClInclude Include="LogicEventor.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionPlayer.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageDelayAlarm.h">
+      <Filter>Util\MessageDelayAlarm</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcurrentActor.h">
+      <Filter>Concurrent</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedQueue.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcurrentActorRef.h">
+      <Filter>Concurrent</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcurrentSystem.h">
+      <Filter>Concurrent</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitEventActor.h">
+      <Filter>Concurrent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -319,6 +349,21 @@
     </ClCompile>
     <ClCompile Include="PacketLogFilter.cpp">
       <Filter>Util\PacketLogFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicEventor.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageDelayAlarm.cpp">
+      <Filter>Util\MessageDelayAlarm</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcurrentActor.cpp">
+      <Filter>Concurrent</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcurrentActorRef.cpp">
+      <Filter>Concurrent</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcurrentSystem.cpp">
+      <Filter>Concurrent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

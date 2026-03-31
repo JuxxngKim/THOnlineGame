@@ -34,7 +34,6 @@ namespace th
 
 	void ExternalChannel::FlushBatch()
 	{
-		// TODO: HTTP POST 구현 (libcurl / httplib)
 		// Loki: { "streams": [{ "stream": { "job": "th_server" },
 		//   "values": [["timestamp_ns", "log line"], ...] }] }
 		m_buffer.clear();

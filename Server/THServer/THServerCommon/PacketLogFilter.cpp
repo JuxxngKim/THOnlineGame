@@ -36,9 +36,9 @@ namespace util
 		}
 	}
 
-	bool PacketLogFilter::PacketFilter(const th::EMessageID& msgId)
+	bool PacketLogFilter::PacketFilter(const th::EMessageID& msgID)
 	{
-		switch (msgId)
+		switch (msgID)
 		{
 		case th::NET_ALIVE_REQ:
 		case th::NET_ALIVE_ACK:
@@ -49,54 +49,5 @@ namespace util
 		}		
 		default: { return false; }
 		}
-	}
-
-	bool PacketLogFilter::LoginDBPacket(const th::EMessageID& msgId)
-	{
-		switch (msgId)
-		{
-		case th::AD_PLAYER_INFO_REQ:
-		case th::DA_PLAYER_INFO_ACK:
-		case th::AD_PLAYER_HERO_REQ:
-		case th::DA_PLAYER_HERO_ACK:
-		case th::AD_PLAYER_EQUIP_ITEM_REQ:
-		case th::DA_PLAYER_EQUIP_ITEM_ACK:
-		{
-			return true;
-		}
-		default: { return false; }
-		}
-	}
-
-	bool PacketLogFilter::LoginClientPacket(const th::EMessageID& msgId)
-	{
-		switch (msgId)
-		{
-		case th::AC_GET_PLAYER_INFO_NOTI:
-		case th::AC_GET_PLAYER_HERO_NOTI:
-		case th::AC_GET_PLAYER_FORMATION_NOTI:
-		case th::AC_GET_PLAYER_DECK_NOTI:
-		case th::AC_GET_PLAYER_ETC_NOTI:
-		case th::AC_GET_PLAYER_TICKET_NOTI:
-		case th::AC_GET_PLAYER_STAGE_NOTI:
-		case th::AC_GET_PLAYER_USER_OPTION_NOTI:
-		case th::AC_GET_PLAYER_DUNGEON_NOTI:
-		case th::AC_GET_PLAYER_HERO_GROWTH_STORAGE_NOTI:
-		case th::AC_GET_PLAYER_HERO_NON_GROWTH_STORAGE_NOTI:
-		{
-			return true;
-		}
-		default: { return false; }
-		}
-	}
-
-	bool PacketLogFilter::BattlePacket(const th::EMessageID& msgId)
-	{
-		return false;
-	}
-
-	bool PacketLogFilter::LogicCyclePacket(const th::EMessageID& msgId)
-	{
-		return false;
 	}
 }

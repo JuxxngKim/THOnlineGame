@@ -175,21 +175,23 @@ enum EMessageID : int {
   AC_REPETITION_BATTLE_ENTER_STAGE_NAK = 10270,
   CA_CHANGE_REPETITION_BATTLE_OPTION_REQ = 10271,
   AC_CHANGE_REPETITION_BATTLE_OPTION_ACK = 10272,
-  AD_LOGIN_REQ = 20100,
-  DA_LOGIN_ACK = 20101,
-  DA_LOGIN_NAK = 20102,
-  AD_END_OF_GAME_SESSION_REQ = 20103,
-  DA_END_OF_GAME_SESSION_ACK = 20104,
-  AD_PLAYER_INFO_REQ = 20105,
-  DA_PLAYER_INFO_ACK = 20106,
-  AD_PLAYER_HERO_REQ = 20107,
-  DA_PLAYER_HERO_ACK = 20108,
-  AD_PLAYER_EQUIP_ITEM_REQ = 20109,
-  DA_PLAYER_EQUIP_ITEM_ACK = 20110
+  AD_ADVENTURE_DBSERVICE_BEGIN = 20100,
+  AD_LOGIN_REQ = 20101,
+  DA_LOGIN_ACK = 20102,
+  DA_LOGIN_NAK = 20103,
+  AD_END_OF_GAME_SESSION_REQ = 20104,
+  DA_END_OF_GAME_SESSION_ACK = 20105,
+  AD_PLAYER_INFO_REQ = 20106,
+  DA_PLAYER_INFO_ACK = 20107,
+  AD_PLAYER_HERO_REQ = 20108,
+  DA_PLAYER_HERO_ACK = 20109,
+  AD_PLAYER_EQUIP_ITEM_REQ = 20110,
+  DA_PLAYER_EQUIP_ITEM_ACK = 20111,
+  AD_ADVENTURE_DBSERVICE_END = 49999
 };
 bool EMessageID_IsValid(int value);
 constexpr EMessageID EMessageID_MIN = NET_CONNECT;
-constexpr EMessageID EMessageID_MAX = DA_PLAYER_EQUIP_ITEM_ACK;
+constexpr EMessageID EMessageID_MAX = AD_ADVENTURE_DBSERVICE_END;
 constexpr int EMessageID_ARRAYSIZE = EMessageID_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMessageID_descriptor();
@@ -227,7 +229,9 @@ enum EErrorMsg : int {
   E_BLOCK_CONTENTS = 17,
   E_INVALID_PLATFORM = 18,
   E_NMSS_FAIL = 19,
-  E_INVALID_DATA = 20
+  E_WAITING_ADVENTURE_SERVER_INIT = 21,
+  E_PLAYER_LOADING_NOT_COMPLETED = 22,
+  E_INVALID_DATA = 100
 };
 bool EErrorMsg_IsValid(int value);
 constexpr EErrorMsg EErrorMsg_MIN = E_SUCCESS;
@@ -249,11 +253,11 @@ inline bool EErrorMsg_Parse(
     EErrorMsg_descriptor(), name, value);
 }
 enum EPlatformType : int {
-  E_None = 0
+  NONE = 0
 };
 bool EPlatformType_IsValid(int value);
-constexpr EPlatformType EPlatformType_MIN = E_None;
-constexpr EPlatformType EPlatformType_MAX = E_None;
+constexpr EPlatformType EPlatformType_MIN = NONE;
+constexpr EPlatformType EPlatformType_MAX = NONE;
 constexpr int EPlatformType_ARRAYSIZE = EPlatformType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EPlatformType_descriptor();

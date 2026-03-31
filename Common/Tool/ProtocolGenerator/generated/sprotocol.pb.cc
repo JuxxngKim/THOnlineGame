@@ -50,7 +50,16 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT InternalEventTickDefaultTypeInt
 constexpr ADLoginReq::ADLoginReq(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : pid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , messageid_(20100)
+  , appversion_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , ip_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , updatedate_(nullptr)
+  , logkey_(int64_t{0})
+  , isreconnect_(false)
+  , serverid_(0)
+  , languageid_(0)
+  , platformtype_(0)
+
+  , messageid_(20101)
 {}
 struct ADLoginReqDefaultTypeInternal {
   constexpr ADLoginReqDefaultTypeInternal()
@@ -65,9 +74,20 @@ constexpr DALoginAck::DALoginAck(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : pid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , playername_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , ip_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , updatetime_(nullptr)
   , accountid_(int64_t{0})
   , gamedbid_(0)
-  , messageid_(20101)
+  , channelid_(0)
+  , freenicknamechangecount_(0)
+  , isreconnect_(false)
+  , isnewaccount_(false)
+  , authenticated_(false)
+  , languageid_(0)
+  , totalplaytime_(0)
+  , platformtype_(0)
+
+  , messageid_(20102)
 {}
 struct DALoginAckDefaultTypeInternal {
   constexpr DALoginAckDefaultTypeInternal()
@@ -84,7 +104,7 @@ constexpr DALoginNak::DALoginNak(
   , error_(0)
 
   , isforcelogin_(false)
-  , messageid_(20102)
+  , messageid_(20103)
 {}
 struct DALoginNakDefaultTypeInternal {
   constexpr DALoginNakDefaultTypeInternal()
@@ -102,10 +122,10 @@ constexpr ADPlayerInfoReq::ADPlayerInfoReq(
   , updatetime_(nullptr)
   , defaultprofileportraitid_(0)
   , defaultprofileframeid_(0)
-  , absenceperiodforreturnplayer_(0)
   , newplayerperiod_(0)
   , returnplayerperiod_(0)
-  , messageid_(20105)
+  , absenceperiodforreturnplayer_(0)
+  , messageid_(20106)
 {}
 struct ADPlayerInfoReqDefaultTypeInternal {
   constexpr ADPlayerInfoReqDefaultTypeInternal()
@@ -128,7 +148,7 @@ constexpr DAPlayerInfoAck::DAPlayerInfoAck(
   , appreviewstatus_(0)
   , error_(0)
 
-  , messageid_(20106)
+  , messageid_(20107)
 {}
 struct DAPlayerInfoAckDefaultTypeInternal {
   constexpr DAPlayerInfoAckDefaultTypeInternal()
@@ -141,7 +161,7 @@ struct DAPlayerInfoAckDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DAPlayerInfoAckDefaultTypeInternal _DAPlayerInfoAck_default_instance_;
 constexpr ADPlayerHeroReq::ADPlayerHeroReq(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : messageid_(20107)
+  : messageid_(20108)
 {}
 struct ADPlayerHeroReqDefaultTypeInternal {
   constexpr ADPlayerHeroReqDefaultTypeInternal()
@@ -157,7 +177,7 @@ constexpr DAPlayerHeroAck::DAPlayerHeroAck(
   : heros_()
   , error_(0)
 
-  , messageid_(20108)
+  , messageid_(20109)
 {}
 struct DAPlayerHeroAckDefaultTypeInternal {
   constexpr DAPlayerHeroAckDefaultTypeInternal()
@@ -170,7 +190,7 @@ struct DAPlayerHeroAckDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DAPlayerHeroAckDefaultTypeInternal _DAPlayerHeroAck_default_instance_;
 constexpr ADPlayerEquipItemReq::ADPlayerEquipItemReq(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : messageid_(20109)
+  : messageid_(20110)
 {}
 struct ADPlayerEquipItemReqDefaultTypeInternal {
   constexpr ADPlayerEquipItemReqDefaultTypeInternal()
@@ -186,7 +206,7 @@ constexpr DAPlayerEquipItemAck::DAPlayerEquipItemAck(
   : equipitems_()
   , error_(0)
 
-  , messageid_(20110)
+  , messageid_(20111)
 {}
 struct DAPlayerEquipItemAckDefaultTypeInternal {
   constexpr DAPlayerEquipItemAckDefaultTypeInternal()
@@ -197,8 +217,41 @@ struct DAPlayerEquipItemAckDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DAPlayerEquipItemAckDefaultTypeInternal _DAPlayerEquipItemAck_default_instance_;
+constexpr ADEndofGameSessionReq::ADEndofGameSessionReq(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : lastupdatetime_(nullptr)
+  , logkey_(int64_t{0})
+  , channelid_(0)
+  , guildid_(0)
+  , isseqmaintenance_(false)
+  , messageid_(20104)
+{}
+struct ADEndofGameSessionReqDefaultTypeInternal {
+  constexpr ADEndofGameSessionReqDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~ADEndofGameSessionReqDefaultTypeInternal() {}
+  union {
+    ADEndofGameSessionReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ADEndofGameSessionReqDefaultTypeInternal _ADEndofGameSessionReq_default_instance_;
+constexpr DAEndofGameSessionAck::DAEndofGameSessionAck(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : error_(0)
+
+  , messageid_(20105)
+{}
+struct DAEndofGameSessionAckDefaultTypeInternal {
+  constexpr DAEndofGameSessionAckDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DAEndofGameSessionAckDefaultTypeInternal() {}
+  union {
+    DAEndofGameSessionAck _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DAEndofGameSessionAckDefaultTypeInternal _DAEndofGameSessionAck_default_instance_;
 }  // namespace th
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sprotocol_2eproto[11];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sprotocol_2eproto[13];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_sprotocol_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sprotocol_2eproto = nullptr;
 
@@ -230,8 +283,24 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sprotocol_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, messageid_),
   PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, pid_),
-  1,
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, logkey_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, updatedate_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, isreconnect_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, serverid_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, languageid_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, appversion_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, platformtype_),
+  PROTOBUF_FIELD_OFFSET(::th::ADLoginReq, ip_),
+  9,
   0,
+  4,
+  3,
+  5,
+  6,
+  7,
+  1,
+  8,
+  2,
   PROTOBUF_FIELD_OFFSET(::th::DALoginAck, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::th::DALoginAck, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -242,11 +311,31 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sprotocol_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::th::DALoginAck, accountid_),
   PROTOBUF_FIELD_OFFSET(::th::DALoginAck, gamedbid_),
   PROTOBUF_FIELD_OFFSET(::th::DALoginAck, playername_),
-  4,
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, isreconnect_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, channelid_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, freenicknamechangecount_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, isnewaccount_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, updatetime_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, languageid_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, totalplaytime_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, authenticated_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, platformtype_),
+  PROTOBUF_FIELD_OFFSET(::th::DALoginAck, ip_),
+  14,
   0,
-  2,
-  3,
+  4,
+  5,
   1,
+  8,
+  6,
+  7,
+  9,
+  3,
+  11,
+  12,
+  10,
+  13,
+  2,
   PROTOBUF_FIELD_OFFSET(::th::DALoginNak, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::th::DALoginNak, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -280,9 +369,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sprotocol_2eproto::offsets[] P
   1,
   3,
   4,
+  5,
   6,
   7,
-  5,
   PROTOBUF_FIELD_OFFSET(::th::DAPlayerInfoAck, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::th::DAPlayerInfoAck, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -344,19 +433,47 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sprotocol_2eproto::offsets[] P
   1,
   0,
   ~0u,
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, messageid_),
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, lastupdatetime_),
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, logkey_),
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, channelid_),
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, guildid_),
+  PROTOBUF_FIELD_OFFSET(::th::ADEndofGameSessionReq, isseqmaintenance_),
+  5,
+  0,
+  1,
+  2,
+  3,
+  4,
+  PROTOBUF_FIELD_OFFSET(::th::DAEndofGameSessionAck, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::th::DAEndofGameSessionAck, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::th::DAEndofGameSessionAck, messageid_),
+  PROTOBUF_FIELD_OFFSET(::th::DAEndofGameSessionAck, error_),
+  1,
+  0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::th::NullMessage)},
   { 9, 17, sizeof(::th::InternalEventTick)},
-  { 20, 27, sizeof(::th::ADLoginReq)},
-  { 29, 39, sizeof(::th::DALoginAck)},
-  { 44, 53, sizeof(::th::DALoginNak)},
-  { 57, 71, sizeof(::th::ADPlayerInfoReq)},
-  { 80, 95, sizeof(::th::DAPlayerInfoAck)},
-  { 105, 111, sizeof(::th::ADPlayerHeroReq)},
-  { 112, 120, sizeof(::th::DAPlayerHeroAck)},
-  { 123, 129, sizeof(::th::ADPlayerEquipItemReq)},
-  { 130, 138, sizeof(::th::DAPlayerEquipItemAck)},
+  { 20, 35, sizeof(::th::ADLoginReq)},
+  { 45, 65, sizeof(::th::DALoginAck)},
+  { 80, 89, sizeof(::th::DALoginNak)},
+  { 93, 107, sizeof(::th::ADPlayerInfoReq)},
+  { 116, 131, sizeof(::th::DAPlayerInfoAck)},
+  { 141, 147, sizeof(::th::ADPlayerHeroReq)},
+  { 148, 156, sizeof(::th::DAPlayerHeroAck)},
+  { 159, 165, sizeof(::th::ADPlayerEquipItemReq)},
+  { 166, 174, sizeof(::th::DAPlayerEquipItemAck)},
+  { 177, 188, sizeof(::th::ADEndofGameSessionReq)},
+  { 194, 201, sizeof(::th::DAEndofGameSessionAck)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -371,6 +488,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::th::_DAPlayerHeroAck_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::th::_ADPlayerEquipItemReq_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::th::_DAPlayerEquipItemAck_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::th::_ADEndofGameSessionReq_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::th::_DAEndofGameSessionAck_default_instance_),
 };
 
 const char descriptor_table_protodef_sprotocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -380,42 +499,61 @@ const char descriptor_table_protodef_sprotocol_2eproto[] PROTOBUF_SECTION_VARIAB
   "or\030_ \001(\0162\r.th.EErrorMsg:\tE_UNKNOWN\"m\n\021In"
   "ternalEventTick\0226\n\tMessageID\030c \001(\0162\016.th."
   "EMessageID:\023INTERNAL_EVENT_TICK\022\021\n\tEvent"
-  "Type\030\001 \001(\005\022\r\n\005Value\030\002 \001(\003\"J\n\nADLoginReq\022"
-  "/\n\tMessageID\030c \001(\0162\016.th.EMessageID:\014AD_L"
-  "OGIN_REQ\022\013\n\003PID\030\001 \002(\t\"\203\001\n\nDALoginAck\022/\n\t"
-  "MessageID\030c \001(\0162\016.th.EMessageID:\014DA_LOGI"
-  "N_ACK\022\013\n\003PID\030\001 \002(\t\022\021\n\tAccountId\030\002 \002(\003\022\020\n"
-  "\010GameDbId\030\003 \002(\005\022\022\n\nPlayerName\030\004 \002(\t\"~\n\nD"
-  "ALoginNak\022/\n\tMessageID\030c \001(\0162\016.th.EMessa"
-  "geID:\014DA_LOGIN_NAK\022\034\n\005Error\030\001 \002(\0162\r.th.E"
-  "ErrorMsg\022\013\n\003PID\030\002 \002(\t\022\024\n\014IsForceLogin\030\003 "
-  "\002(\010\"\251\002\n\017ADPlayerInfoReq\0225\n\tMessageID\030c \001"
-  "(\0162\016.th.EMessageID:\022AD_PLAYER_INFO_REQ\022\013"
-  "\n\003PID\030\001 \002(\t\022!\n\nUpdateTime\030\002 \002(\0132\r.th.MDa"
-  "teTime\022\023\n\013DefaultData\030\003 \002(\t\022 \n\030DefaultPr"
-  "ofilePortraitID\030\007 \001(\005\022\035\n\025DefaultProfileF"
-  "rameID\030\010 \001(\005\022\027\n\017NewPlayerPeriod\030\n \001(\005\022\032\n"
-  "\022ReturnPlayerPeriod\030\013 \001(\005\022$\n\034AbsencePeri"
-  "odForReturnPlayer\030\014 \001(\005\"\305\002\n\017DAPlayerInfo"
-  "Ack\0225\n\tMessageID\030c \001(\0162\016.th.EMessageID:\022"
-  "DA_PLAYER_INFO_ACK\022\034\n\005Error\030_ \002(\0162\r.th.E"
-  "ErrorMsg\022\013\n\003Exp\030\001 \001(\005\022\027\n\017LevelRewardStep"
-  "\030\002 \001(\005\022\022\n\nPlayerType\030\003 \001(\005\022*\n\023PlayerType"
-  "CheckDate\030\004 \001(\0132\r.th.MDateTime\022 \n\021Withdr"
-  "awalDBClear\030\005 \001(\010:\005false\022\027\n\017AppReviewSta"
-  "tus\030\006 \001(\005\022\030\n\rPurchasePoint\030\007 \001(\003:\0010\022\"\n\013L"
-  "evelUpDate\030\010 \001(\0132\r.th.MDateTime\"H\n\017ADPla"
-  "yerHeroReq\0225\n\tMessageID\030c \001(\0162\016.th.EMess"
-  "ageID:\022AD_PLAYER_HERO_REQ\"\200\001\n\017DAPlayerHe"
-  "roAck\0225\n\tMessageID\030c \001(\0162\016.th.EMessageID"
-  ":\022DA_PLAYER_HERO_ACK\022\034\n\005Error\030_ \002(\0162\r.th"
-  ".EErrorMsg\022\030\n\005Heros\030\001 \003(\0132\t.th.MHero\"S\n\024"
-  "ADPlayerEquipItemReq\022;\n\tMessageID\030c \001(\0162"
-  "\016.th.EMessageID:\030AD_PLAYER_EQUIP_ITEM_RE"
-  "Q\"\225\001\n\024DAPlayerEquipItemAck\022;\n\tMessageID\030"
-  "c \001(\0162\016.th.EMessageID:\030DA_PLAYER_EQUIP_I"
-  "TEM_ACK\022\034\n\005Error\030_ \002(\0162\r.th.EErrorMsg\022\"\n"
-  "\nEquipItems\030\001 \003(\0132\016.th.MEquipItem"
+  "Type\030\001 \001(\005\022\r\n\005Value\030\002 \001(\003\"\201\002\n\nADLoginReq"
+  "\022/\n\tMessageID\030c \001(\0162\016.th.EMessageID:\014AD_"
+  "LOGIN_REQ\022\013\n\003PID\030\001 \002(\t\022\016\n\006LogKey\030\002 \002(\003\022!"
+  "\n\nUpdateDate\030\003 \002(\0132\r.th.MDateTime\022\023\n\013IsR"
+  "econnect\030\004 \002(\010\022\020\n\010ServerID\030\005 \002(\005\022\022\n\nLang"
+  "uageID\030\006 \002(\005\022\022\n\nAppVersion\030\007 \001(\t\022\'\n\014Plat"
+  "formType\030\t \002(\0162\021.th.EPlatformType\022\n\n\002IP\030"
+  "\n \001(\t\"\374\002\n\nDALoginAck\022/\n\tMessageID\030c \001(\0162"
+  "\016.th.EMessageID:\014DA_LOGIN_ACK\022\013\n\003PID\030\001 \002"
+  "(\t\022\021\n\tAccountId\030\002 \002(\003\022\020\n\010GameDbId\030\003 \002(\005\022"
+  "\022\n\nPlayerName\030\004 \002(\t\022\023\n\013IsReconnect\030\005 \002(\010"
+  "\022\021\n\tChannelID\030\006 \002(\005\022\037\n\027FreeNicknameChang"
+  "eCount\030\007 \002(\005\022\024\n\014IsNewAccount\030\010 \002(\010\022!\n\nUp"
+  "dateTime\030\t \002(\0132\r.th.MDateTime\022\022\n\nLanguag"
+  "eID\030\n \002(\005\022\025\n\rTotalPlayTime\030\013 \002(\005\022\025\n\rAuth"
+  "enticated\030\014 \002(\010\022\'\n\014PlatformType\030\r \002(\0162\021."
+  "th.EPlatformType\022\n\n\002IP\030\016 \001(\t\"~\n\nDALoginN"
+  "ak\022/\n\tMessageID\030c \001(\0162\016.th.EMessageID:\014D"
+  "A_LOGIN_NAK\022\034\n\005Error\030\001 \002(\0162\r.th.EErrorMs"
+  "g\022\013\n\003PID\030\002 \002(\t\022\024\n\014IsForceLogin\030\003 \002(\010\"\251\002\n"
+  "\017ADPlayerInfoReq\0225\n\tMessageID\030c \001(\0162\016.th"
+  ".EMessageID:\022AD_PLAYER_INFO_REQ\022\013\n\003PID\030\001"
+  " \002(\t\022!\n\nUpdateTime\030\002 \002(\0132\r.th.MDateTime\022"
+  "\023\n\013DefaultData\030\003 \002(\t\022 \n\030DefaultProfilePo"
+  "rtraitID\030\007 \001(\005\022\035\n\025DefaultProfileFrameID\030"
+  "\010 \001(\005\022\027\n\017NewPlayerPeriod\030\t \001(\005\022\032\n\022Return"
+  "PlayerPeriod\030\n \001(\005\022$\n\034AbsencePeriodForRe"
+  "turnPlayer\030\013 \001(\005\"\305\002\n\017DAPlayerInfoAck\0225\n\t"
+  "MessageID\030c \001(\0162\016.th.EMessageID:\022DA_PLAY"
+  "ER_INFO_ACK\022\034\n\005Error\030_ \002(\0162\r.th.EErrorMs"
+  "g\022\013\n\003Exp\030\001 \001(\005\022\027\n\017LevelRewardStep\030\002 \001(\005\022"
+  "\022\n\nPlayerType\030\003 \001(\005\022*\n\023PlayerTypeCheckDa"
+  "te\030\004 \001(\0132\r.th.MDateTime\022 \n\021WithdrawalDBC"
+  "lear\030\005 \001(\010:\005false\022\027\n\017AppReviewStatus\030\006 \001"
+  "(\005\022\030\n\rPurchasePoint\030\007 \001(\003:\0010\022\"\n\013LevelUpD"
+  "ate\030\010 \001(\0132\r.th.MDateTime\"H\n\017ADPlayerHero"
+  "Req\0225\n\tMessageID\030c \001(\0162\016.th.EMessageID:\022"
+  "AD_PLAYER_HERO_REQ\"\200\001\n\017DAPlayerHeroAck\0225"
+  "\n\tMessageID\030c \001(\0162\016.th.EMessageID:\022DA_PL"
+  "AYER_HERO_ACK\022\034\n\005Error\030_ \002(\0162\r.th.EError"
+  "Msg\022\030\n\005Heros\030\001 \003(\0132\t.th.MHero\"S\n\024ADPlaye"
+  "rEquipItemReq\022;\n\tMessageID\030c \001(\0162\016.th.EM"
+  "essageID:\030AD_PLAYER_EQUIP_ITEM_REQ\"\225\001\n\024D"
+  "APlayerEquipItemAck\022;\n\tMessageID\030c \001(\0162\016"
+  ".th.EMessageID:\030DA_PLAYER_EQUIP_ITEM_ACK"
+  "\022\034\n\005Error\030_ \002(\0162\r.th.EErrorMsg\022\"\n\nEquipI"
+  "tems\030\001 \003(\0132\016.th.MEquipItem\"\313\001\n\025ADEndofGa"
+  "meSessionReq\022=\n\tMessageID\030c \001(\0162\016.th.EMe"
+  "ssageID:\032AD_END_OF_GAME_SESSION_REQ\022%\n\016L"
+  "astUpdateTime\030\001 \002(\0132\r.th.MDateTime\022\016\n\006Lo"
+  "gKey\030\002 \002(\003\022\021\n\tChannelID\030\003 \002(\005\022\017\n\007GuildID"
+  "\030\004 \002(\005\022\030\n\020IsSeqMaintenance\030\005 \002(\010\"t\n\025DAEn"
+  "dofGameSessionAck\022=\n\tMessageID\030c \001(\0162\016.t"
+  "h.EMessageID:\032DA_END_OF_GAME_SESSION_ACK"
+  "\022\034\n\005Error\030_ \002(\0162\r.th.EErrorMsg"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sprotocol_2eproto_deps[2] = {
   &::descriptor_table_enum_2eproto,
@@ -423,8 +561,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sprotocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sprotocol_2eproto = {
-  false, false, 1673, descriptor_table_protodef_sprotocol_2eproto, "sprotocol.proto", 
-  &descriptor_table_sprotocol_2eproto_once, descriptor_table_sprotocol_2eproto_deps, 2, 11,
+  false, false, 2430, descriptor_table_protodef_sprotocol_2eproto, "sprotocol.proto", 
+  &descriptor_table_sprotocol_2eproto_once, descriptor_table_sprotocol_2eproto_deps, 2, 13,
   schemas, file_default_instances, TableStruct_sprotocol_2eproto::offsets,
   file_level_metadata_sprotocol_2eproto, file_level_enum_descriptors_sprotocol_2eproto, file_level_service_descriptors_sprotocol_2eproto,
 };
@@ -977,16 +1115,49 @@ class ADLoginReq::_Internal {
  public:
   using HasBits = decltype(std::declval<ADLoginReq>()._has_bits_);
   static void set_has_messageid(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_pid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_logkey(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static const ::th::MDateTime& updatedate(const ADLoginReq* msg);
+  static void set_has_updatedate(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_isreconnect(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_serverid(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+  static void set_has_languageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_appversion(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_platformtype(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_ip(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+    return ((has_bits[0] & 0x000001f9) ^ 0x000001f9) != 0;
   }
 };
 
+const ::th::MDateTime&
+ADLoginReq::_Internal::updatedate(const ADLoginReq* msg) {
+  return *msg->updatedate_;
+}
+void ADLoginReq::clear_updatedate() {
+  if (updatedate_ != nullptr) updatedate_->Clear();
+  _has_bits_[0] &= ~0x00000008u;
+}
 ADLoginReq::ADLoginReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -1002,13 +1173,36 @@ ADLoginReq::ADLoginReq(const ADLoginReq& from)
     pid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_pid(), 
       GetArenaForAllocation());
   }
-  messageid_ = from.messageid_;
+  appversion_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_appversion()) {
+    appversion_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_appversion(), 
+      GetArenaForAllocation());
+  }
+  ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_ip()) {
+    ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_ip(), 
+      GetArenaForAllocation());
+  }
+  if (from._internal_has_updatedate()) {
+    updatedate_ = new ::th::MDateTime(*from.updatedate_);
+  } else {
+    updatedate_ = nullptr;
+  }
+  ::memcpy(&logkey_, &from.logkey_,
+    static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
+    reinterpret_cast<char*>(&logkey_)) + sizeof(messageid_));
   // @@protoc_insertion_point(copy_constructor:th.ADLoginReq)
 }
 
 void ADLoginReq::SharedCtor() {
 pid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-messageid_ = 20100;
+appversion_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&updatedate_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&platformtype_) -
+    reinterpret_cast<char*>(&updatedate_)) + sizeof(platformtype_));
+messageid_ = 20101;
 }
 
 ADLoginReq::~ADLoginReq() {
@@ -1020,6 +1214,9 @@ ADLoginReq::~ADLoginReq() {
 void ADLoginReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   pid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  appversion_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ip_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete updatedate_;
 }
 
 void ADLoginReq::ArenaDtor(void* object) {
@@ -1039,11 +1236,29 @@ void ADLoginReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       pid_.ClearNonDefaultToEmpty();
     }
-    messageid_ = 20100;
+    if (cached_has_bits & 0x00000002u) {
+      appversion_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      ip_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(updatedate_ != nullptr);
+      updatedate_->Clear();
+    }
+  }
+  if (cached_has_bits & 0x000000f0u) {
+    ::memset(&logkey_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&languageid_) -
+        reinterpret_cast<char*>(&logkey_)) + sizeof(languageid_));
+  }
+  if (cached_has_bits & 0x00000300u) {
+    platformtype_ = 0;
+    messageid_ = 20101;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1063,6 +1278,79 @@ const char* ADLoginReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "th.ADLoginReq.PID");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int64 LogKey = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_logkey(&has_bits);
+          logkey_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required .th.MDateTime UpdateDate = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_updatedate(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required bool IsReconnect = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_isreconnect(&has_bits);
+          isreconnect_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 ServerID = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_serverid(&has_bits);
+          serverid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 LanguageID = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_languageid(&has_bits);
+          languageid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string AppVersion = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          auto str = _internal_mutable_appversion();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "th.ADLoginReq.AppVersion");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required .th.EPlatformType PlatformType = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::th::EPlatformType_IsValid(val))) {
+            _internal_set_platformtype(static_cast<::th::EPlatformType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(9, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional string IP = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          auto str = _internal_mutable_ip();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "th.ADLoginReq.IP");
           #endif  // !NDEBUG
           CHK_(ptr);
         } else goto handle_unusual;
@@ -1120,8 +1408,67 @@ failure:
         1, this->_internal_pid(), target);
   }
 
-  // optional .th.EMessageID MessageID = 99 [default = AD_LOGIN_REQ];
+  // required int64 LogKey = 2;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_logkey(), target);
+  }
+
+  // required .th.MDateTime UpdateDate = 3;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::updatedate(this), target, stream);
+  }
+
+  // required bool IsReconnect = 4;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_isreconnect(), target);
+  }
+
+  // required int32 ServerID = 5;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_serverid(), target);
+  }
+
+  // required int32 LanguageID = 6;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_languageid(), target);
+  }
+
+  // optional string AppVersion = 7;
   if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_appversion().data(), static_cast<int>(this->_internal_appversion().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "th.ADLoginReq.AppVersion");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_appversion(), target);
+  }
+
+  // required .th.EPlatformType PlatformType = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      9, this->_internal_platformtype(), target);
+  }
+
+  // optional string IP = 10;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_ip().data(), static_cast<int>(this->_internal_ip().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "th.ADLoginReq.IP");
+    target = stream->WriteStringMaybeAliased(
+        10, this->_internal_ip(), target);
+  }
+
+  // optional .th.EMessageID MessageID = 99 [default = AD_LOGIN_REQ];
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       99, this->_internal_messageid(), target);
@@ -1135,23 +1482,121 @@ failure:
   return target;
 }
 
+size_t ADLoginReq::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:th.ADLoginReq)
+  size_t total_size = 0;
+
+  if (_internal_has_pid()) {
+    // required string PID = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_pid());
+  }
+
+  if (_internal_has_updatedate()) {
+    // required .th.MDateTime UpdateDate = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *updatedate_);
+  }
+
+  if (_internal_has_logkey()) {
+    // required int64 LogKey = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_logkey());
+  }
+
+  if (_internal_has_isreconnect()) {
+    // required bool IsReconnect = 4;
+    total_size += 1 + 1;
+  }
+
+  if (_internal_has_serverid()) {
+    // required int32 ServerID = 5;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_serverid());
+  }
+
+  if (_internal_has_languageid()) {
+    // required int32 LanguageID = 6;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_languageid());
+  }
+
+  if (_internal_has_platformtype()) {
+    // required .th.EPlatformType PlatformType = 9;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platformtype());
+  }
+
+  return total_size;
+}
 size_t ADLoginReq::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:th.ADLoginReq)
   size_t total_size = 0;
 
-  // required string PID = 1;
-  if (_internal_has_pid()) {
+  if (((_has_bits_[0] & 0x000001f9) ^ 0x000001f9) == 0) {  // All required fields are present.
+    // required string PID = 1;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_pid());
+
+    // required .th.MDateTime UpdateDate = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *updatedate_);
+
+    // required int64 LogKey = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_logkey());
+
+    // required bool IsReconnect = 4;
+    total_size += 1 + 1;
+
+    // required int32 ServerID = 5;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_serverid());
+
+    // required int32 LanguageID = 6;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_languageid());
+
+    // required .th.EPlatformType PlatformType = 9;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platformtype());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .th.EMessageID MessageID = 99 [default = AD_LOGIN_REQ];
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000006u) {
+    // optional string AppVersion = 7;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_appversion());
+    }
+
+    // optional string IP = 10;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_ip());
+    }
+
+  }
+  // optional .th.EMessageID MessageID = 99 [default = AD_LOGIN_REQ];
+  if (cached_has_bits & 0x00000200u) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
   }
@@ -1188,11 +1633,38 @@ void ADLoginReq::MergeFrom(const ADLoginReq& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_pid(from._internal_pid());
     }
     if (cached_has_bits & 0x00000002u) {
+      _internal_set_appversion(from._internal_appversion());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _internal_set_ip(from._internal_ip());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _internal_mutable_updatedate()->::th::MDateTime::MergeFrom(from._internal_updatedate());
+    }
+    if (cached_has_bits & 0x00000010u) {
+      logkey_ = from.logkey_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      isreconnect_ = from.isreconnect_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      serverid_ = from.serverid_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      languageid_ = from.languageid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      platformtype_ = from.platformtype_;
+    }
+    if (cached_has_bits & 0x00000200u) {
       messageid_ = from.messageid_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -1227,6 +1699,22 @@ void ADLoginReq::InternalSwap(ADLoginReq* other) {
       &pid_, GetArenaForAllocation(),
       &other->pid_, other->GetArenaForAllocation()
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &appversion_, GetArenaForAllocation(),
+      &other->appversion_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &ip_, GetArenaForAllocation(),
+      &other->ip_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ADLoginReq, platformtype_)
+      + sizeof(ADLoginReq::platformtype_)
+      - PROTOBUF_FIELD_OFFSET(ADLoginReq, updatedate_)>(
+          reinterpret_cast<char*>(&updatedate_),
+          reinterpret_cast<char*>(&other->updatedate_));
   swap(messageid_, other->messageid_);
 }
 
@@ -1242,25 +1730,64 @@ class DALoginAck::_Internal {
  public:
   using HasBits = decltype(std::declval<DALoginAck>()._has_bits_);
   static void set_has_messageid(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_pid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_accountid(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_gamedbid(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_playername(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_isreconnect(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_channelid(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+  static void set_has_freenicknamechangecount(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_isnewaccount(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
+  static const ::th::MDateTime& updatetime(const DALoginAck* msg);
+  static void set_has_updatetime(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_languageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_totalplaytime(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_authenticated(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_platformtype(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
+  static void set_has_ip(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x0000000f) ^ 0x0000000f) != 0;
+    return ((has_bits[0] & 0x00003ffb) ^ 0x00003ffb) != 0;
   }
 };
 
+const ::th::MDateTime&
+DALoginAck::_Internal::updatetime(const DALoginAck* msg) {
+  return *msg->updatetime_;
+}
+void DALoginAck::clear_updatetime() {
+  if (updatetime_ != nullptr) updatetime_->Clear();
+  _has_bits_[0] &= ~0x00000008u;
+}
 DALoginAck::DALoginAck(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -1281,6 +1808,16 @@ DALoginAck::DALoginAck(const DALoginAck& from)
     playername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_playername(), 
       GetArenaForAllocation());
   }
+  ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_ip()) {
+    ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_ip(), 
+      GetArenaForAllocation());
+  }
+  if (from._internal_has_updatetime()) {
+    updatetime_ = new ::th::MDateTime(*from.updatetime_);
+  } else {
+    updatetime_ = nullptr;
+  }
   ::memcpy(&accountid_, &from.accountid_,
     static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
     reinterpret_cast<char*>(&accountid_)) + sizeof(messageid_));
@@ -1290,11 +1827,12 @@ DALoginAck::DALoginAck(const DALoginAck& from)
 void DALoginAck::SharedCtor() {
 pid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 playername_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&accountid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&gamedbid_) -
-    reinterpret_cast<char*>(&accountid_)) + sizeof(gamedbid_));
-messageid_ = 20101;
+    reinterpret_cast<char*>(&updatetime_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&platformtype_) -
+    reinterpret_cast<char*>(&updatetime_)) + sizeof(platformtype_));
+messageid_ = 20102;
 }
 
 DALoginAck::~DALoginAck() {
@@ -1307,6 +1845,8 @@ void DALoginAck::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   pid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   playername_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ip_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete updatetime_;
 }
 
 void DALoginAck::ArenaDtor(void* object) {
@@ -1326,19 +1866,31 @@ void DALoginAck::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       pid_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
       playername_.ClearNonDefaultToEmpty();
     }
+    if (cached_has_bits & 0x00000004u) {
+      ip_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(updatetime_ != nullptr);
+      updatetime_->Clear();
+    }
   }
-  if (cached_has_bits & 0x0000001cu) {
+  if (cached_has_bits & 0x000000f0u) {
     ::memset(&accountid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&gamedbid_) -
-        reinterpret_cast<char*>(&accountid_)) + sizeof(gamedbid_));
-    messageid_ = 20101;
+        reinterpret_cast<char*>(&freenicknamechangecount_) -
+        reinterpret_cast<char*>(&accountid_)) + sizeof(freenicknamechangecount_));
+  }
+  if (cached_has_bits & 0x00007f00u) {
+    ::memset(&isreconnect_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&platformtype_) -
+        reinterpret_cast<char*>(&isreconnect_)) + sizeof(platformtype_));
+    messageid_ = 20102;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1385,6 +1937,92 @@ const char* DALoginAck::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           #ifndef NDEBUG
           ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "th.DALoginAck.PlayerName");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required bool IsReconnect = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_isreconnect(&has_bits);
+          isreconnect_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 ChannelID = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_channelid(&has_bits);
+          channelid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 FreeNicknameChangeCount = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_freenicknamechangecount(&has_bits);
+          freenicknamechangecount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required bool IsNewAccount = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_isnewaccount(&has_bits);
+          isnewaccount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required .th.MDateTime UpdateTime = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_updatetime(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 LanguageID = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          _Internal::set_has_languageid(&has_bits);
+          languageid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 TotalPlayTime = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          _Internal::set_has_totalplaytime(&has_bits);
+          totalplaytime_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required bool Authenticated = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          _Internal::set_has_authenticated(&has_bits);
+          authenticated_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required .th.EPlatformType PlatformType = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::th::EPlatformType_IsValid(val))) {
+            _internal_set_platformtype(static_cast<::th::EPlatformType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(13, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional string IP = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+          auto str = _internal_mutable_ip();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "th.DALoginAck.IP");
           #endif  // !NDEBUG
           CHK_(ptr);
         } else goto handle_unusual;
@@ -1443,13 +2081,13 @@ failure:
   }
 
   // required int64 AccountId = 2;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_accountid(), target);
   }
 
   // required int32 GameDbId = 3;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_gamedbid(), target);
   }
@@ -1464,8 +2102,75 @@ failure:
         4, this->_internal_playername(), target);
   }
 
+  // required bool IsReconnect = 5;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_isreconnect(), target);
+  }
+
+  // required int32 ChannelID = 6;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_channelid(), target);
+  }
+
+  // required int32 FreeNicknameChangeCount = 7;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_freenicknamechangecount(), target);
+  }
+
+  // required bool IsNewAccount = 8;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_isnewaccount(), target);
+  }
+
+  // required .th.MDateTime UpdateTime = 9;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        9, _Internal::updatetime(this), target, stream);
+  }
+
+  // required int32 LanguageID = 10;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_languageid(), target);
+  }
+
+  // required int32 TotalPlayTime = 11;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_totalplaytime(), target);
+  }
+
+  // required bool Authenticated = 12;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_authenticated(), target);
+  }
+
+  // required .th.EPlatformType PlatformType = 13;
+  if (cached_has_bits & 0x00002000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      13, this->_internal_platformtype(), target);
+  }
+
+  // optional string IP = 14;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_ip().data(), static_cast<int>(this->_internal_ip().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "th.DALoginAck.IP");
+    target = stream->WriteStringMaybeAliased(
+        14, this->_internal_ip(), target);
+  }
+
   // optional .th.EMessageID MessageID = 99 [default = DA_LOGIN_ACK];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       99, this->_internal_messageid(), target);
@@ -1497,6 +2202,13 @@ size_t DALoginAck::RequiredFieldsByteSizeFallback() const {
         this->_internal_playername());
   }
 
+  if (_internal_has_updatetime()) {
+    // required .th.MDateTime UpdateTime = 9;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *updatetime_);
+  }
+
   if (_internal_has_accountid()) {
     // required int64 AccountId = 2;
     total_size += 1 +
@@ -1511,13 +2223,62 @@ size_t DALoginAck::RequiredFieldsByteSizeFallback() const {
         this->_internal_gamedbid());
   }
 
+  if (_internal_has_channelid()) {
+    // required int32 ChannelID = 6;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_channelid());
+  }
+
+  if (_internal_has_freenicknamechangecount()) {
+    // required int32 FreeNicknameChangeCount = 7;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_freenicknamechangecount());
+  }
+
+  if (_internal_has_isreconnect()) {
+    // required bool IsReconnect = 5;
+    total_size += 1 + 1;
+  }
+
+  if (_internal_has_isnewaccount()) {
+    // required bool IsNewAccount = 8;
+    total_size += 1 + 1;
+  }
+
+  if (_internal_has_authenticated()) {
+    // required bool Authenticated = 12;
+    total_size += 1 + 1;
+  }
+
+  if (_internal_has_languageid()) {
+    // required int32 LanguageID = 10;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_languageid());
+  }
+
+  if (_internal_has_totalplaytime()) {
+    // required int32 TotalPlayTime = 11;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_totalplaytime());
+  }
+
+  if (_internal_has_platformtype()) {
+    // required .th.EPlatformType PlatformType = 13;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platformtype());
+  }
+
   return total_size;
 }
 size_t DALoginAck::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:th.DALoginAck)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x00003ffb) ^ 0x00003ffb) == 0) {  // All required fields are present.
     // required string PID = 1;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1527,6 +2288,11 @@ size_t DALoginAck::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_playername());
+
+    // required .th.MDateTime UpdateTime = 9;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *updatetime_);
 
     // required int64 AccountId = 2;
     total_size += 1 +
@@ -1538,6 +2304,39 @@ size_t DALoginAck::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_gamedbid());
 
+    // required int32 ChannelID = 6;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_channelid());
+
+    // required int32 FreeNicknameChangeCount = 7;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_freenicknamechangecount());
+
+    // required bool IsReconnect = 5;
+    total_size += 1 + 1;
+
+    // required bool IsNewAccount = 8;
+    total_size += 1 + 1;
+
+    // required bool Authenticated = 12;
+    total_size += 1 + 1;
+
+    // required int32 LanguageID = 10;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_languageid());
+
+    // required int32 TotalPlayTime = 11;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_totalplaytime());
+
+    // required .th.EPlatformType PlatformType = 13;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platformtype());
+
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
@@ -1545,9 +2344,16 @@ size_t DALoginAck::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .th.EMessageID MessageID = 99 [default = DA_LOGIN_ACK];
+  // optional string IP = 14;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_ip());
+  }
+
+  // optional .th.EMessageID MessageID = 99 [default = DA_LOGIN_ACK];
+  if (cached_has_bits & 0x00004000u) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
   }
@@ -1584,7 +2390,7 @@ void DALoginAck::MergeFrom(const DALoginAck& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_pid(from._internal_pid());
     }
@@ -1592,12 +2398,45 @@ void DALoginAck::MergeFrom(const DALoginAck& from) {
       _internal_set_playername(from._internal_playername());
     }
     if (cached_has_bits & 0x00000004u) {
-      accountid_ = from.accountid_;
+      _internal_set_ip(from._internal_ip());
     }
     if (cached_has_bits & 0x00000008u) {
-      gamedbid_ = from.gamedbid_;
+      _internal_mutable_updatetime()->::th::MDateTime::MergeFrom(from._internal_updatetime());
     }
     if (cached_has_bits & 0x00000010u) {
+      accountid_ = from.accountid_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      gamedbid_ = from.gamedbid_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      channelid_ = from.channelid_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      freenicknamechangecount_ = from.freenicknamechangecount_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00007f00u) {
+    if (cached_has_bits & 0x00000100u) {
+      isreconnect_ = from.isreconnect_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      isnewaccount_ = from.isnewaccount_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      authenticated_ = from.authenticated_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      languageid_ = from.languageid_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      totalplaytime_ = from.totalplaytime_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      platformtype_ = from.platformtype_;
+    }
+    if (cached_has_bits & 0x00004000u) {
       messageid_ = from.messageid_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -1637,12 +2476,17 @@ void DALoginAck::InternalSwap(DALoginAck* other) {
       &playername_, GetArenaForAllocation(),
       &other->playername_, other->GetArenaForAllocation()
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &ip_, GetArenaForAllocation(),
+      &other->ip_, other->GetArenaForAllocation()
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(DALoginAck, gamedbid_)
-      + sizeof(DALoginAck::gamedbid_)
-      - PROTOBUF_FIELD_OFFSET(DALoginAck, accountid_)>(
-          reinterpret_cast<char*>(&accountid_),
-          reinterpret_cast<char*>(&other->accountid_));
+      PROTOBUF_FIELD_OFFSET(DALoginAck, platformtype_)
+      + sizeof(DALoginAck::platformtype_)
+      - PROTOBUF_FIELD_OFFSET(DALoginAck, updatetime_)>(
+          reinterpret_cast<char*>(&updatetime_),
+          reinterpret_cast<char*>(&other->updatetime_));
   swap(messageid_, other->messageid_);
 }
 
@@ -1701,7 +2545,7 @@ pid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyI
     reinterpret_cast<char*>(&error_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&isforcelogin_) -
     reinterpret_cast<char*>(&error_)) + sizeof(isforcelogin_));
-messageid_ = 20102;
+messageid_ = 20103;
 }
 
 DALoginNak::~DALoginNak() {
@@ -1739,7 +2583,7 @@ void DALoginNak::Clear() {
     ::memset(&error_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&isforcelogin_) -
         reinterpret_cast<char*>(&error_)) + sizeof(isforcelogin_));
-    messageid_ = 20102;
+    messageid_ = 20103;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2036,13 +2880,13 @@ class ADPlayerInfoReq::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_newplayerperiod(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_returnplayerperiod(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_absenceperiodforreturnplayer(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 128u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000007) ^ 0x00000007) != 0;
@@ -2093,9 +2937,9 @@ pid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyI
 defaultdata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&updatetime_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&returnplayerperiod_) -
-    reinterpret_cast<char*>(&updatetime_)) + sizeof(returnplayerperiod_));
-messageid_ = 20105;
+    0, static_cast<size_t>(reinterpret_cast<char*>(&absenceperiodforreturnplayer_) -
+    reinterpret_cast<char*>(&updatetime_)) + sizeof(absenceperiodforreturnplayer_));
+messageid_ = 20106;
 }
 
 ADPlayerInfoReq::~ADPlayerInfoReq() {
@@ -2142,10 +2986,10 @@ void ADPlayerInfoReq::Clear() {
   }
   if (cached_has_bits & 0x000000f8u) {
     ::memset(&defaultprofileportraitid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&returnplayerperiod_) -
-        reinterpret_cast<char*>(&defaultprofileportraitid_)) + sizeof(returnplayerperiod_));
+        reinterpret_cast<char*>(&absenceperiodforreturnplayer_) -
+        reinterpret_cast<char*>(&defaultprofileportraitid_)) + sizeof(absenceperiodforreturnplayer_));
   }
-  messageid_ = 20105;
+  messageid_ = 20106;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2202,25 +3046,25 @@ const char* ADPlayerInfoReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 NewPlayerPeriod = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+      // optional int32 NewPlayerPeriod = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_newplayerperiod(&has_bits);
           newplayerperiod_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 ReturnPlayerPeriod = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+      // optional int32 ReturnPlayerPeriod = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_returnplayerperiod(&has_bits);
           returnplayerperiod_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 AbsencePeriodForReturnPlayer = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+      // optional int32 AbsencePeriodForReturnPlayer = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_absenceperiodforreturnplayer(&has_bits);
           absenceperiodforreturnplayer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
@@ -2309,22 +3153,22 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_defaultprofileframeid(), target);
   }
 
-  // optional int32 NewPlayerPeriod = 10;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_newplayerperiod(), target);
-  }
-
-  // optional int32 ReturnPlayerPeriod = 11;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_returnplayerperiod(), target);
-  }
-
-  // optional int32 AbsencePeriodForReturnPlayer = 12;
+  // optional int32 NewPlayerPeriod = 9;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_absenceperiodforreturnplayer(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(9, this->_internal_newplayerperiod(), target);
+  }
+
+  // optional int32 ReturnPlayerPeriod = 10;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_returnplayerperiod(), target);
+  }
+
+  // optional int32 AbsencePeriodForReturnPlayer = 11;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_absenceperiodforreturnplayer(), target);
   }
 
   // optional .th.EMessageID MessageID = 99 [default = AD_PLAYER_INFO_REQ];
@@ -2412,25 +3256,25 @@ size_t ADPlayerInfoReq::ByteSizeLong() const {
           this->_internal_defaultprofileframeid());
     }
 
-    // optional int32 AbsencePeriodForReturnPlayer = 12;
+    // optional int32 NewPlayerPeriod = 9;
     if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_absenceperiodforreturnplayer());
-    }
-
-    // optional int32 NewPlayerPeriod = 10;
-    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_newplayerperiod());
     }
 
-    // optional int32 ReturnPlayerPeriod = 11;
-    if (cached_has_bits & 0x00000080u) {
+    // optional int32 ReturnPlayerPeriod = 10;
+    if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_returnplayerperiod());
+    }
+
+    // optional int32 AbsencePeriodForReturnPlayer = 11;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_absenceperiodforreturnplayer());
     }
 
   }
@@ -2489,13 +3333,13 @@ void ADPlayerInfoReq::MergeFrom(const ADPlayerInfoReq& from) {
       defaultprofileframeid_ = from.defaultprofileframeid_;
     }
     if (cached_has_bits & 0x00000020u) {
-      absenceperiodforreturnplayer_ = from.absenceperiodforreturnplayer_;
-    }
-    if (cached_has_bits & 0x00000040u) {
       newplayerperiod_ = from.newplayerperiod_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       returnplayerperiod_ = from.returnplayerperiod_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      absenceperiodforreturnplayer_ = from.absenceperiodforreturnplayer_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -2538,8 +3382,8 @@ void ADPlayerInfoReq::InternalSwap(ADPlayerInfoReq* other) {
       &other->defaultdata_, other->GetArenaForAllocation()
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ADPlayerInfoReq, returnplayerperiod_)
-      + sizeof(ADPlayerInfoReq::returnplayerperiod_)
+      PROTOBUF_FIELD_OFFSET(ADPlayerInfoReq, absenceperiodforreturnplayer_)
+      + sizeof(ADPlayerInfoReq::absenceperiodforreturnplayer_)
       - PROTOBUF_FIELD_OFFSET(ADPlayerInfoReq, updatetime_)>(
           reinterpret_cast<char*>(&updatetime_),
           reinterpret_cast<char*>(&other->updatetime_));
@@ -2641,7 +3485,7 @@ void DAPlayerInfoAck::SharedCtor() {
     reinterpret_cast<char*>(&playertypecheckdate_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&error_) -
     reinterpret_cast<char*>(&playertypecheckdate_)) + sizeof(error_));
-messageid_ = 20106;
+messageid_ = 20107;
 }
 
 DAPlayerInfoAck::~DAPlayerInfoAck() {
@@ -2690,7 +3534,7 @@ void DAPlayerInfoAck::Clear() {
   }
   if (cached_has_bits & 0x00000300u) {
     error_ = 0;
-    messageid_ = 20106;
+    messageid_ = 20107;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3103,7 +3947,7 @@ ADPlayerHeroReq::ADPlayerHeroReq(const ADPlayerHeroReq& from)
 }
 
 void ADPlayerHeroReq::SharedCtor() {
-messageid_ = 20107;
+messageid_ = 20108;
 }
 
 ADPlayerHeroReq::~ADPlayerHeroReq() {
@@ -3132,7 +3976,7 @@ void ADPlayerHeroReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  messageid_ = 20107;
+  messageid_ = 20108;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3323,7 +4167,7 @@ DAPlayerHeroAck::DAPlayerHeroAck(const DAPlayerHeroAck& from)
 
 void DAPlayerHeroAck::SharedCtor() {
 error_ = 0;
-messageid_ = 20108;
+messageid_ = 20109;
 }
 
 DAPlayerHeroAck::~DAPlayerHeroAck() {
@@ -3356,7 +4200,7 @@ void DAPlayerHeroAck::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     error_ = 0;
-    messageid_ = 20108;
+    messageid_ = 20109;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3597,7 +4441,7 @@ ADPlayerEquipItemReq::ADPlayerEquipItemReq(const ADPlayerEquipItemReq& from)
 }
 
 void ADPlayerEquipItemReq::SharedCtor() {
-messageid_ = 20109;
+messageid_ = 20110;
 }
 
 ADPlayerEquipItemReq::~ADPlayerEquipItemReq() {
@@ -3626,7 +4470,7 @@ void ADPlayerEquipItemReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  messageid_ = 20109;
+  messageid_ = 20110;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3817,7 +4661,7 @@ DAPlayerEquipItemAck::DAPlayerEquipItemAck(const DAPlayerEquipItemAck& from)
 
 void DAPlayerEquipItemAck::SharedCtor() {
 error_ = 0;
-messageid_ = 20110;
+messageid_ = 20111;
 }
 
 DAPlayerEquipItemAck::~DAPlayerEquipItemAck() {
@@ -3850,7 +4694,7 @@ void DAPlayerEquipItemAck::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     error_ = 0;
-    messageid_ = 20110;
+    messageid_ = 20111;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -4065,6 +4909,676 @@ void DAPlayerEquipItemAck::InternalSwap(DAPlayerEquipItemAck* other) {
       file_level_metadata_sprotocol_2eproto[10]);
 }
 
+// ===================================================================
+
+class ADEndofGameSessionReq::_Internal {
+ public:
+  using HasBits = decltype(std::declval<ADEndofGameSessionReq>()._has_bits_);
+  static void set_has_messageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static const ::th::MDateTime& lastupdatetime(const ADEndofGameSessionReq* msg);
+  static void set_has_lastupdatetime(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_logkey(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_channelid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_guildid(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_isseqmaintenance(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static bool MissingRequiredFields(const HasBits& has_bits) {
+    return ((has_bits[0] & 0x0000001f) ^ 0x0000001f) != 0;
+  }
+};
+
+const ::th::MDateTime&
+ADEndofGameSessionReq::_Internal::lastupdatetime(const ADEndofGameSessionReq* msg) {
+  return *msg->lastupdatetime_;
+}
+void ADEndofGameSessionReq::clear_lastupdatetime() {
+  if (lastupdatetime_ != nullptr) lastupdatetime_->Clear();
+  _has_bits_[0] &= ~0x00000001u;
+}
+ADEndofGameSessionReq::ADEndofGameSessionReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:th.ADEndofGameSessionReq)
+}
+ADEndofGameSessionReq::ADEndofGameSessionReq(const ADEndofGameSessionReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_lastupdatetime()) {
+    lastupdatetime_ = new ::th::MDateTime(*from.lastupdatetime_);
+  } else {
+    lastupdatetime_ = nullptr;
+  }
+  ::memcpy(&logkey_, &from.logkey_,
+    static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
+    reinterpret_cast<char*>(&logkey_)) + sizeof(messageid_));
+  // @@protoc_insertion_point(copy_constructor:th.ADEndofGameSessionReq)
+}
+
+void ADEndofGameSessionReq::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&lastupdatetime_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&isseqmaintenance_) -
+    reinterpret_cast<char*>(&lastupdatetime_)) + sizeof(isseqmaintenance_));
+messageid_ = 20104;
+}
+
+ADEndofGameSessionReq::~ADEndofGameSessionReq() {
+  // @@protoc_insertion_point(destructor:th.ADEndofGameSessionReq)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void ADEndofGameSessionReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete lastupdatetime_;
+}
+
+void ADEndofGameSessionReq::ArenaDtor(void* object) {
+  ADEndofGameSessionReq* _this = reinterpret_cast< ADEndofGameSessionReq* >(object);
+  (void)_this;
+}
+void ADEndofGameSessionReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ADEndofGameSessionReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ADEndofGameSessionReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:th.ADEndofGameSessionReq)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(lastupdatetime_ != nullptr);
+    lastupdatetime_->Clear();
+  }
+  if (cached_has_bits & 0x0000003eu) {
+    ::memset(&logkey_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&isseqmaintenance_) -
+        reinterpret_cast<char*>(&logkey_)) + sizeof(isseqmaintenance_));
+    messageid_ = 20104;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ADEndofGameSessionReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // required .th.MDateTime LastUpdateTime = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_lastupdatetime(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int64 LogKey = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_logkey(&has_bits);
+          logkey_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 ChannelID = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_channelid(&has_bits);
+          channelid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required int32 GuildID = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_guildid(&has_bits);
+          guildid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required bool IsSeqMaintenance = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_isseqmaintenance(&has_bits);
+          isseqmaintenance_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
+      case 99:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::th::EMessageID_IsValid(val))) {
+            _internal_set_messageid(static_cast<::th::EMessageID>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(99, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ADEndofGameSessionReq::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:th.ADEndofGameSessionReq)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required .th.MDateTime LastUpdateTime = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::lastupdatetime(this), target, stream);
+  }
+
+  // required int64 LogKey = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_logkey(), target);
+  }
+
+  // required int32 ChannelID = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_channelid(), target);
+  }
+
+  // required int32 GuildID = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_guildid(), target);
+  }
+
+  // required bool IsSeqMaintenance = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_isseqmaintenance(), target);
+  }
+
+  // optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      99, this->_internal_messageid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:th.ADEndofGameSessionReq)
+  return target;
+}
+
+size_t ADEndofGameSessionReq::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:th.ADEndofGameSessionReq)
+  size_t total_size = 0;
+
+  if (_internal_has_lastupdatetime()) {
+    // required .th.MDateTime LastUpdateTime = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *lastupdatetime_);
+  }
+
+  if (_internal_has_logkey()) {
+    // required int64 LogKey = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_logkey());
+  }
+
+  if (_internal_has_channelid()) {
+    // required int32 ChannelID = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_channelid());
+  }
+
+  if (_internal_has_guildid()) {
+    // required int32 GuildID = 4;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_guildid());
+  }
+
+  if (_internal_has_isseqmaintenance()) {
+    // required bool IsSeqMaintenance = 5;
+    total_size += 1 + 1;
+  }
+
+  return total_size;
+}
+size_t ADEndofGameSessionReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:th.ADEndofGameSessionReq)
+  size_t total_size = 0;
+
+  if (((_has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required .th.MDateTime LastUpdateTime = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *lastupdatetime_);
+
+    // required int64 LogKey = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_logkey());
+
+    // required int32 ChannelID = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_channelid());
+
+    // required int32 GuildID = 4;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_guildid());
+
+    // required bool IsSeqMaintenance = 5;
+    total_size += 1 + 1;
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .th.EMessageID MessageID = 99 [default = AD_END_OF_GAME_SESSION_REQ];
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000020u) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ADEndofGameSessionReq::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:th.ADEndofGameSessionReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ADEndofGameSessionReq* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ADEndofGameSessionReq>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:th.ADEndofGameSessionReq)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:th.ADEndofGameSessionReq)
+    MergeFrom(*source);
+  }
+}
+
+void ADEndofGameSessionReq::MergeFrom(const ADEndofGameSessionReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:th.ADEndofGameSessionReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000003fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _internal_mutable_lastupdatetime()->::th::MDateTime::MergeFrom(from._internal_lastupdatetime());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      logkey_ = from.logkey_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      channelid_ = from.channelid_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      guildid_ = from.guildid_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      isseqmaintenance_ = from.isseqmaintenance_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      messageid_ = from.messageid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void ADEndofGameSessionReq::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:th.ADEndofGameSessionReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ADEndofGameSessionReq::CopyFrom(const ADEndofGameSessionReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:th.ADEndofGameSessionReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ADEndofGameSessionReq::IsInitialized() const {
+  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
+  return true;
+}
+
+void ADEndofGameSessionReq::InternalSwap(ADEndofGameSessionReq* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ADEndofGameSessionReq, isseqmaintenance_)
+      + sizeof(ADEndofGameSessionReq::isseqmaintenance_)
+      - PROTOBUF_FIELD_OFFSET(ADEndofGameSessionReq, lastupdatetime_)>(
+          reinterpret_cast<char*>(&lastupdatetime_),
+          reinterpret_cast<char*>(&other->lastupdatetime_));
+  swap(messageid_, other->messageid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ADEndofGameSessionReq::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sprotocol_2eproto_getter, &descriptor_table_sprotocol_2eproto_once,
+      file_level_metadata_sprotocol_2eproto[11]);
+}
+
+// ===================================================================
+
+class DAEndofGameSessionAck::_Internal {
+ public:
+  using HasBits = decltype(std::declval<DAEndofGameSessionAck>()._has_bits_);
+  static void set_has_messageid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_error(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static bool MissingRequiredFields(const HasBits& has_bits) {
+    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
+  }
+};
+
+DAEndofGameSessionAck::DAEndofGameSessionAck(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:th.DAEndofGameSessionAck)
+}
+DAEndofGameSessionAck::DAEndofGameSessionAck(const DAEndofGameSessionAck& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&error_, &from.error_,
+    static_cast<size_t>(reinterpret_cast<char*>(&messageid_) -
+    reinterpret_cast<char*>(&error_)) + sizeof(messageid_));
+  // @@protoc_insertion_point(copy_constructor:th.DAEndofGameSessionAck)
+}
+
+void DAEndofGameSessionAck::SharedCtor() {
+error_ = 0;
+messageid_ = 20105;
+}
+
+DAEndofGameSessionAck::~DAEndofGameSessionAck() {
+  // @@protoc_insertion_point(destructor:th.DAEndofGameSessionAck)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DAEndofGameSessionAck::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void DAEndofGameSessionAck::ArenaDtor(void* object) {
+  DAEndofGameSessionAck* _this = reinterpret_cast< DAEndofGameSessionAck* >(object);
+  (void)_this;
+}
+void DAEndofGameSessionAck::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DAEndofGameSessionAck::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DAEndofGameSessionAck::Clear() {
+// @@protoc_insertion_point(message_clear_start:th.DAEndofGameSessionAck)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    error_ = 0;
+    messageid_ = 20105;
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DAEndofGameSessionAck::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // required .th.EErrorMsg Error = 95;
+      case 95:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 248)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::th::EErrorMsg_IsValid(val))) {
+            _internal_set_error(static_cast<::th::EErrorMsg>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(95, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      // optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
+      case 99:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::th::EMessageID_IsValid(val))) {
+            _internal_set_messageid(static_cast<::th::EMessageID>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(99, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DAEndofGameSessionAck::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:th.DAEndofGameSessionAck)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required .th.EErrorMsg Error = 95;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      95, this->_internal_error(), target);
+  }
+
+  // optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      99, this->_internal_messageid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:th.DAEndofGameSessionAck)
+  return target;
+}
+
+size_t DAEndofGameSessionAck::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:th.DAEndofGameSessionAck)
+  size_t total_size = 0;
+
+  // required .th.EErrorMsg Error = 95;
+  if (_internal_has_error()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_error());
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .th.EMessageID MessageID = 99 [default = DA_END_OF_GAME_SESSION_ACK];
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000002u) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_messageid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DAEndofGameSessionAck::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:th.DAEndofGameSessionAck)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DAEndofGameSessionAck* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DAEndofGameSessionAck>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:th.DAEndofGameSessionAck)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:th.DAEndofGameSessionAck)
+    MergeFrom(*source);
+  }
+}
+
+void DAEndofGameSessionAck::MergeFrom(const DAEndofGameSessionAck& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:th.DAEndofGameSessionAck)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      error_ = from.error_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      messageid_ = from.messageid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void DAEndofGameSessionAck::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:th.DAEndofGameSessionAck)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DAEndofGameSessionAck::CopyFrom(const DAEndofGameSessionAck& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:th.DAEndofGameSessionAck)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DAEndofGameSessionAck::IsInitialized() const {
+  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
+  return true;
+}
+
+void DAEndofGameSessionAck::InternalSwap(DAEndofGameSessionAck* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(error_, other->error_);
+  swap(messageid_, other->messageid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DAEndofGameSessionAck::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sprotocol_2eproto_getter, &descriptor_table_sprotocol_2eproto_once,
+      file_level_metadata_sprotocol_2eproto[12]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace th
 PROTOBUF_NAMESPACE_OPEN
@@ -4100,6 +5614,12 @@ template<> PROTOBUF_NOINLINE ::th::ADPlayerEquipItemReq* Arena::CreateMaybeMessa
 }
 template<> PROTOBUF_NOINLINE ::th::DAPlayerEquipItemAck* Arena::CreateMaybeMessage< ::th::DAPlayerEquipItemAck >(Arena* arena) {
   return Arena::CreateMessageInternal< ::th::DAPlayerEquipItemAck >(arena);
+}
+template<> PROTOBUF_NOINLINE ::th::ADEndofGameSessionReq* Arena::CreateMaybeMessage< ::th::ADEndofGameSessionReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::th::ADEndofGameSessionReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::th::DAEndofGameSessionAck* Arena::CreateMaybeMessage< ::th::DAEndofGameSessionAck >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::th::DAEndofGameSessionAck >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

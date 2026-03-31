@@ -23,20 +23,14 @@ message ADLoginReq
 	optional EMessageID			MessageID			= 99	[default = AD_LOGIN_REQ];
 	
 	required string				PID					= 1;
-	//required int64				LogKey				= 2;
-	//required MDateTime			UpdateDate			= 3;	
-	//required bool				IsReconnect			= 4;
-	//required int32				ServerID			= 5;
-	//required int32				LanguageID			= 6;
-	//optional string				AppVersion			= 7;
-	//required bool				Authenticated		= 8;
-	//required EPlatformType		PlatformType		= 9;
-	//optional string				IP					= 10;
-	//// 11, 12, 13 순차 패치 관련 멤버
-	//optional bool				SequenceMaintenanceLogin		= 11	[default = false];
-	//optional bool				ForceLogin						= 12	[default = false];
-	//optional MDateTime			SequenceMaintenanceStartDate	= 13;
-	//required string				ServiceCountry		= 14;
+	required int64				LogKey				= 2;
+	required MDateTime			UpdateDate			= 3;	
+	required bool				IsReconnect			= 4;
+	required int32				ServerID			= 5;
+	required int32				LanguageID			= 6;
+	optional string				AppVersion			= 7;
+	required EPlatformType		PlatformType		= 9;
+	optional string				IP					= 10;
 }
 
 message DALoginAck
@@ -47,19 +41,16 @@ message DALoginAck
 	required int64				AccountId				= 2;
 	required int32				GameDbId				= 3;
 	required string				PlayerName				= 4;
-	//required bool				IsReconnect				= 5;
-	//required int32				ChannelID				= 6;
-	//required int32				FreeNicknameChangeCount = 7;
-	//required bool				IsNewAccount			= 8;
-	//required MDateTime			UpdateTime				= 9;
-	//required int32				LanguageID				= 10;
-	//required int32				TotalPlayTime			= 11;
-	//required bool Authenticated = 12;
-	//required EPlatformType		PlatformType			= 13;
-	//optional string				IP						= 14;
-	//// 15, 16 순차 패치 관련 멤버
-	//optional bool				SequenceMaintenanceLogin			= 15	[default = false];
-	//optional bool				ForceLogin							= 16	[default = false];
+	required bool				IsReconnect				= 5;
+	required int32				ChannelID				= 6;
+	required int32				FreeNicknameChangeCount = 7;
+	required bool				IsNewAccount			= 8;
+	required MDateTime			UpdateTime				= 9;
+	required int32				LanguageID				= 10;
+	required int32				TotalPlayTime			= 11;
+	required bool				Authenticated			= 12;
+	required EPlatformType		PlatformType			= 13;
+	optional string				IP						= 14;
 }
 
 message DALoginNak
@@ -80,11 +71,9 @@ message ADPlayerInfoReq
 	required string				DefaultData						= 3;
 	optional int32				DefaultProfilePortraitID		= 7;
 	optional int32				DefaultProfileFrameID			= 8;
-	//repeated MSuccessStackPair	DefaultPetComposeSuccessStacks	= 9;
-	optional int32				NewPlayerPeriod					= 10;
-	optional int32				ReturnPlayerPeriod				= 11;
-	optional int32				AbsencePeriodForReturnPlayer	= 12;
-	//repeated MCollectionBook	DefaultCollectionBook			= 13;
+	optional int32				NewPlayerPeriod					= 9;
+	optional int32				ReturnPlayerPeriod				= 10;
+	optional int32				AbsencePeriodForReturnPlayer	= 11;
 }
 
 message DAPlayerInfoAck
@@ -126,4 +115,20 @@ message DAPlayerEquipItemAck
 	required EErrorMsg			Error				= 95;
 
 	repeated MEquipItem			EquipItems			= 1;
+}
+
+message ADEndofGameSessionReq
+{
+    optional EMessageID          MessageID            = 99    [default = AD_END_OF_GAME_SESSION_REQ];
+    required MDateTime           LastUpdateTime       = 1;
+    required int64               LogKey               = 2;
+    required int32               ChannelID            = 3;
+    required int32               GuildID              = 4;
+    required bool                IsSeqMaintenance     = 5;
+}
+
+message DAEndofGameSessionAck
+{
+    optional EMessageID          MessageID				= 99	[default = DA_END_OF_GAME_SESSION_ACK];
+    required EErrorMsg           Error					= 95;
 }
