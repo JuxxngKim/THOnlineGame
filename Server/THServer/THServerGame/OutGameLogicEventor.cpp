@@ -78,6 +78,21 @@ namespace th
 		}
 	}
 
+	void OutGameLogicEventor::UpdateServerInfoRedis(const int64_t& delta)
+	{
+		// TOOD
+	}
+
+	void OutGameLogicEventor::UpdatePlayerCount(const int64_t& delta)
+	{
+		// TODO
+	}
+
+	void OutGameLogicEventor::SyncAlive(const int64_t& delta)
+	{
+		// TODO
+	}
+
 	// process message
 	void OutGameLogicEventor::OnNetDisconnect(const HostID_t& hostID, const AccountUID_t& accountID, const PTR<NetDisconnect>& msg, const uint8_t& flag)
 	{

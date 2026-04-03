@@ -64,6 +64,9 @@
     <Filter Include="Concurrent">
       <UniqueIdentifier>{9a0492f4-c9e1-4390-9fed-b294dafb1c41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{2bf683aa-b80d-4604-993e-979ca7b8d296}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">

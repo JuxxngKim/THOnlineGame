@@ -2,6 +2,7 @@
 
 namespace th
 {
+	class OutGameLogicEventor;
 	class PlayerExecutor;
 	class PacketDistributor;
 	class PacketDualMap;
@@ -26,7 +27,7 @@ namespace th
 	private:
 		PTR<PacketDistributor> m_distributor;
 		PTR<PlayerExecutor> m_executor;
-		//PTR<AdventureLogicEventor> m_eventor;
+		PTR<OutGameLogicEventor> m_eventor;
 		PTR<std::thread> m_thread;
 		PTR<PacketDualMap> m_msgBox;
 		int64_t m_nextUpdateTime;

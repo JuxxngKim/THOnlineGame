@@ -25,20 +25,18 @@ namespace th
 			return false;
 		}
 
-		// TODO
-		//m_dbSystem = NEW(ConcurrentSystem);
+		m_dbSystem = NEW(ConcurrentSystem);
 
 		// TODO
-		////NOTE:: 서버 내에 DB 요청을 위한 actor
-		//const auto systemActor = NEW(DBService, 0, 0, [&](const PTR<PacketWrapper>& msg) { ConcurrentCenter::GetInstance()->SendToLogicService(msg); });
+		////NOTE: 서버 내에 DB 요청을 위한 actor
+		//const auto systemActor = NEW(DBService, 0, 0, [&](const PTR<PacketWrapper>& msg) { ConcurrentCenter::GetInstance().SendToLogicService(msg); });
 		//m_dbSystem->Register(systemActor);
 		//m_systemMailbox = systemActor->Self();
 
-		// TODO
-		////AccountID가 발급되기 전 처리할 box생성, -1부터 시작.
+		////NOTE:AccountID가 발급되기 전 처리할 box생성, -1부터 시작.
 		//for (int32_t i = 0; i < defaultCount; ++i)
 		//{
-		//	const auto actor = NEW(DBService, -(i + 1), 0, [&](const PTR<PacketWrapper>& msg) { ConcurrentCenter::GetInstance()->SendToLogicService(msg); });
+		//	const auto actor = NEW(DBService, -(i + 1), 0, [&](const PTR<PacketWrapper>& msg) { ConcurrentCenter::GetInstance().SendToLogicService(msg); });
 		//	m_dbSystem->Register(actor);
 		//	m_noAccountMailbox.push_back(actor->Self());
 		//}

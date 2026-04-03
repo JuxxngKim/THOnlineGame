@@ -5,6 +5,7 @@
 #include "PacketDistributor.h"
 #include "PacketDualMap.h"
 #include "PlayerExecutor.h"
+#include "OutGameLogicEventor.h"
 
 namespace th
 {
@@ -16,8 +17,7 @@ namespace th
 	{
 		auto collector = NEW(PacketCollector<PTR<PacketWrapper>>);
 		m_msgBox->RegisterCollector(collector);
-
-		//m_eventor = NEW(AdventureLogicEventor, collector);
+		m_eventor = NEW(OutGameLogicEventor, collector);
 	}
 
 	void OutGameService::Start()
@@ -66,24 +66,24 @@ namespace th
 					std::this_thread::sleep_for(std::chrono::milliseconds(1));
 					continue;
 				}
-				//m_eventor->Event(tickTime);
+				m_eventor->Event(tickTime);
 
 				TH_LOG_INFO(0, 0, "=== running ===");
 
 				const auto& messageBox = m_msgBox->Pop();
 				if (!messageBox->Empty())
 				{
-					//m_eventor->Collect(messageBox->CollectedPackets);
-					//m_eventor->Prepare();
+					m_eventor->Collect(messageBox->CollectedPackets);
+					m_eventor->Prepare();
 
 					if (0 < LogicUnitArchive::GetInstance().FindCount()) m_distributor->Generator(std::move(messageBox->HostPackets), std::move(messageBox->AccountPackets));
 				}
 
 				if (LogicUnitArchive::GetInstance().FindCount() <= 0)
 				{
-					//m_eventor->Arrange();
+					m_eventor->Arrange();
 					messageBox->Clear();
-					//m_eventor->UpdateServerInfoRedis(tickTime);
+					m_eventor->UpdateServerInfoRedis(tickTime);
 
 					m_nextUpdateTime = tickTime + g_LogicUpdateMs;
 
@@ -91,16 +91,14 @@ namespace th
 					continue;
 				}
 
-				//m_eventor->BroadcastChatMessage();
-
 				m_executor->Ready(m_distributor);
 
 				m_executor->IsComplete();
 
-				//m_eventor->Arrange();
+				m_eventor->Arrange();
 				messageBox->Clear();
 				m_distributor->Clear();
-				//m_eventor->UpdateServerInfoRedis(tickTime);
+				m_eventor->UpdateServerInfoRedis(tickTime);
 
 				m_nextUpdateTime = tickTime + g_LogicUpdateMs;
 				std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -115,14 +113,12 @@ namespace th
 	bool OutGameService::IsQuit() const
 	{
 		if (ServiceProfile::GetInstance().IsLocal()) return false;
-		//return m_eventor != nullptr && m_eventor->CheckQuit();
-		return false;
+		return m_eventor != nullptr && m_eventor->CheckQuit();
 	}
 
 	bool OutGameService::IsCrash() const
 	{
 		if (ServiceProfile::GetInstance().IsLocal()) return false;
-		//return m_eventor != nullptr && m_eventor->CheckCrash();
-		return false;
+		return m_eventor != nullptr && m_eventor->CheckCrash();
 	}
 }
