@@ -11,7 +11,7 @@ namespace th
 {
 	OutGameService::OutGameService() : 
 		m_distributor{ NEW(PacketDistributor) }, m_executor{ NEW(PlayerExecutor) },
-		/*m_eventor{ nullptr },*/ m_msgBox{ NEW(PacketDualMap) },
+		m_msgBox{ NEW(PacketDualMap) },
 		m_nextUpdateTime{ 0 }, m_active{ true },
 		m_nextServiceCheckTime{ 0 }
 	{
@@ -67,8 +67,6 @@ namespace th
 					continue;
 				}
 				m_eventor->Event(tickTime);
-
-				TH_LOG_INFO(0, 0, "=== running ===");
 
 				const auto& messageBox = m_msgBox->Pop();
 				if (!messageBox->Empty())

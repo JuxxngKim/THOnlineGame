@@ -67,6 +67,9 @@
     <Filter Include="DB">
       <UniqueIdentifier>{2bf683aa-b80d-4604-993e-979ca7b8d296}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util\MessageCreator">
+      <UniqueIdentifier>{9e5aae1c-54c3-420a-ac6a-88f1f4967c31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonPch.h">
@@ -243,6 +246,9 @@
     <ClInclude Include="ExitEventActor.h">
       <Filter>Concurrent</Filter>
     </ClInclude>
+    <ClInclude Include="MessageCreator.h">
+      <Filter>Util\MessageCreator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonPch.cpp">
@@ -367,6 +373,9 @@
     </ClCompile>
     <ClCompile Include="ConcurrentSystem.cpp">
       <Filter>Concurrent</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageCreator.cpp">
+      <Filter>Util\MessageCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

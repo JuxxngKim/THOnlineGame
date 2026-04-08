@@ -45,4 +45,5 @@
 #include "LogMacro.h"
 #include "PacketWrapper.h"
 #include "NetworkManager.h"
+#include "MessageCreator.h"
 #include "ServiceProfile.h"

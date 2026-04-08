@@ -8,12 +8,10 @@ namespace th
 {
 	PlayerExecutor::PlayerExecutor() : m_ready{ false }, m_unitIdx{ -1 }, m_completeCount{ 0 }, m_distributor{ nullptr }, m_active{ true }
 	{
-		//CommonMetric::GetInstance()->IncrementObject("logic_unit_runner");
 	}
 
 	PlayerExecutor::~PlayerExecutor()
 	{
-		//CommonMetric::GetInstance()->DecrementObject("logic_unit_runner");
 	}
 
 	void PlayerExecutor::Ready(const PTR<PacketDistributor>& distributor)
@@ -77,7 +75,7 @@ namespace th
 
 			if (unitSize <= completionCount)
 			{
-				TH_LOG_ERROR(0, 0, "complete [%:%]", unitSize, completionCount);
+				//TH_LOG_ERROR(0, 0, "complete [%:%]", unitSize, completionCount);
 
 				{
 					std::lock_guard lck(m_lck);

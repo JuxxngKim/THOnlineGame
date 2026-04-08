@@ -1,5 +1,7 @@
 ﻿#include "GamePch.h"
 #include "GameServerApp.h"
+
+#include "ConcurrentCenter.h"
 #include "ConfigSource.h"
 #include "Configuration.h"
 #include "ConsoleChannel.h"
@@ -41,7 +43,7 @@ namespace th
 		// TOOD DB
 		OutGameService::GetInstance().Start();
 
-		BindEventSink([](const PTR<PacketWrapper>& msg) { TH_LOG_ERROR(0, 0, "SendToLogicService(msg)"); });
+		BindEventSink([](const PTR<PacketWrapper>& msg) { ConcurrentCenter::GetInstance().SendToLogicService(msg); });
 
 		const auto profile = &ServiceProfile::GetInstance();
 		if (!CreateNetWorkSocket(*profile)) return false;

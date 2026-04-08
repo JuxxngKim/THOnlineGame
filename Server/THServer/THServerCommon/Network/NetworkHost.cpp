@@ -2,7 +2,7 @@
 #include "NetworkHost.h"
 #include "NetworkManager.h"
 #include "TimeUtil.h"
-//#include "MessageCreator.h"
+#include "MessageCreator.h"
 #include "DefineConst.h"
 #include "PacketWrapper.h"
 
@@ -142,7 +142,7 @@ namespace network
 		}
 		default:
 		{
-			/*auto msg = th::MessageCreator::GetInstance().CreateMessage(messageID);
+			auto msg = th::MessageCreator::GetInstance().CreateMessage(messageID);
 			if (msg == nullptr)
 			{
 				TH_LOG_ERROR(m_hostId, 0, "CreateMessage : [id:%, name:%]", messageID, th::EMessageID_Name((th::EMessageID)messageID));
@@ -151,12 +151,10 @@ namespace network
 
 			msg->ParseFromArray(messageBuffer, messageSize);
 
-			ExecuteCallback(messageID, msg);*/
+			ExecuteCallback(messageID, msg);
 			break;
 		}
 		}
-
-		//th::CommonMetric::GetInstance().IncrementPacketReceiveCounter(messageID);
 	}
 
 	//process

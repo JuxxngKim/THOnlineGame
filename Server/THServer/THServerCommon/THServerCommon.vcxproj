@@ -191,6 +191,7 @@
     <ClInclude Include="LogicUnit.h" />
     <ClInclude Include="LogicUnitArchive.h" />
     <ClInclude Include="LogMacro.h" />
+    <ClInclude Include="MessageCreator.h" />
     <ClInclude Include="MessageDelayAlarm.h" />
     <ClInclude Include="Network\NetworkBuffer.h" />
     <ClInclude Include="Network\NetworkContext.h" />
@@ -259,6 +260,7 @@
     <ClCompile Include="LogicEventor.cpp" />
     <ClCompile Include="LogicUnit.cpp" />
     <ClCompile Include="LogicUnitArchive.cpp" />
+    <ClCompile Include="MessageCreator.cpp" />
     <ClCompile Include="MessageDelayAlarm.cpp" />
     <ClCompile Include="Network\NetworkBuffer.cpp" />
     <ClCompile Include="Network\NetworkContext.cpp" />
